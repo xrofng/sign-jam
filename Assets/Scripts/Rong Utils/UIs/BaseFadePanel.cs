@@ -5,19 +5,32 @@ using UnityEngine;
 public class BaseFadePanel : BaseUIPanel
 {
     [SerializeField] private float FadeDuration = 0.3f;
+    [SerializeField] bool ShowPanelOnStart = true;
 
     private CanvasGroup _canvasGroup;
     private CanvasGroup CanvasGroup => _canvasGroup ??= GetComponent<CanvasGroup>();
 
+
     private Coroutine fadeCoroutine;
+
+    protected override void Start()
+    {
+        base.Start();
+        if (ShowPanelOnStart)
+        {
+            ShowPanel();
+        }
+    }
 
     protected override void OnShowingPanel()
     {
+        IsShowing = true;
         FadeToAlpha(1f);
     }
 
     protected override void OnHidingPanel()
     {
+        IsShowing = false;
         FadeToAlpha(0f);
     }
 

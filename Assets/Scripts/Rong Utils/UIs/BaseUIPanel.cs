@@ -1,26 +1,24 @@
 using UnityEngine;
 
-public class BaseUIPanel : MonoBehaviour
+public class BaseUIPanel : BetterMonoBehaviour
 {
     public bool IsShowing { get; protected set; }
     public RectTransform RectTransform => _rectTransform ??= GetComponent<RectTransform>();
     private RectTransform _rectTransform;
 
     #region Unity Lifecycle
-    private void Start() => Initialization();
-    private void Update()
+
+    protected override void Update()
     {
+        base.Update();
         OnFrameInitialization();
-        if (IsShowing) ProcessPanel();
+        if (IsShowing) OnUpdate();
     }
-    private void OnEnable() => OnPanelEnable();
-    private void OnDisable() => OnPanelDisable();
+    
     private void OnValidate() => OnInspectorChanged();
     #endregion
 
     #region Initialization
-    protected virtual void Initialization() { }
-    protected virtual void OnFrameInitialization() { }
     #endregion
 
     #region Panel Visibility
@@ -58,9 +56,8 @@ public class BaseUIPanel : MonoBehaviour
     #endregion
 
     #region Extension Hooks
-    protected virtual void OnPanelEnable() { }
-    protected virtual void OnPanelDisable() { }
-    protected virtual void ProcessPanel() { }
+    protected virtual void OnFrameInitialization() { }
+    protected virtual void OnUpdate() { }
     protected virtual void OnInspectorChanged() { }
     #endregion
 }
