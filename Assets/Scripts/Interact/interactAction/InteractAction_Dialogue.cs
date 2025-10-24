@@ -15,6 +15,7 @@ public class InteractAction_Dialogue : InteractAction
 
     public override void OnDoingAction()
     {
+        StopAllCoroutines();
         _dialougeTextMeshPro.text = "";
         StartCoroutine(textAnimation());
     }
