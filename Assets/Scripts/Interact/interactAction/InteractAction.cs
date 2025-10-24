@@ -8,11 +8,13 @@ public abstract class InteractAction : MonoBehaviour
     private void Start()
     {
         interactObject.OnIntearctEvent += OnDoingAction;
+        OnStart();
     }
 
 
     protected virtual void OnStart()
     {
+
     }
 
     public abstract void OnDoingAction();

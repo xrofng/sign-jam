@@ -7,7 +7,11 @@ public class InteractObject : MonoBehaviour
     public event System.Action OnIntearctEvent;
 
     [SerializeField] Transform _playerDestination;
+    [SerializeField] bool _oneTimeInteract;
     public Transform PlayerDestination => _playerDestination;
+
+    int InteractTime = 0;
+
     public virtual void OnSelect()
     {
         Debug.Log("On Select");
@@ -21,7 +25,9 @@ public class InteractObject : MonoBehaviour
     }
     public virtual void Interact()
     {
+        if (_oneTimeInteract && InteractTime > 0) return;
         OnIntearctEvent?.Invoke();
+        InteractTime++;
     }
 
 }
