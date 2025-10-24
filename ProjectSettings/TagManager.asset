@@ -11,8 +11,8 @@ TagManager:
   - Interactable
   - Water
   - UI
-  - MoveArea
-  - 
+  - StreetPath
+  - HousePath
   - 
   - 
   - 
