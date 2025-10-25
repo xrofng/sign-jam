@@ -8,6 +8,8 @@ public abstract class InteractAction : MonoBehaviour
     private void Start()
     {
         interactObject.OnIntearctEvent += OnDoingAction;
+        interactObject.OnDeselectEvent += OnDeselect;
+        interactObject.OnSelectEvent += OnSelect;
         OnStart();
     }
 
@@ -17,5 +19,16 @@ public abstract class InteractAction : MonoBehaviour
 
     }
 
-    public abstract void OnDoingAction();
+    protected abstract void OnDoingAction();
+
+    protected virtual void OnSelect()
+    {
+
+    }
+
+    protected virtual void OnDeselect()
+    {
+
+    }
+
 }

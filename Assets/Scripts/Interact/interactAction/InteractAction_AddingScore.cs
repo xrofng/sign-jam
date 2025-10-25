@@ -25,7 +25,7 @@ public class InteractAction_AddingScore : InteractAction
     }
 
 
-    public override void OnDoingAction()
+    protected override void OnDoingAction()
     {
         StartCoroutine(countDown(delayBeforeAddingScore));
     }

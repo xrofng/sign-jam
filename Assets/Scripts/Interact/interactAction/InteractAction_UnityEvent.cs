@@ -4,7 +4,7 @@ public class InteractAction_UnityEvent : InteractAction
 {
     [SerializeField] UnityEvent OnInteract;
 
-    public override void OnDoingAction()
+    protected override void OnDoingAction()
     {
         OnInteract?.Invoke();
     }

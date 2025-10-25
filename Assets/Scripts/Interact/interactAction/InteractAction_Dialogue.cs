@@ -13,7 +13,7 @@ public class InteractAction_Dialogue : InteractAction
         _dialougeTextMeshPro.text = "";
     }
 
-    public override void OnDoingAction()
+    protected override void OnDoingAction()
     {
         StopAllCoroutines();
         _dialougeTextMeshPro.text = "";
