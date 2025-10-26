@@ -10,11 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d61c0ab29fdb2574c925abd696a9e658, type: 3}
-  m_Name: BoneHand_Decor
+  m_Name: Dec_Grave
   m_EditorClassIdentifier: Assembly-CSharp::DecorationSO
-  DecorationID: BoneHand
+  DecorationID: Grave
   AssociatedArea: 1
   BasePrefab: {fileID: 1949274649600741303, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
   Textures:
-  - {fileID: 21300000, guid: 7e1d1c64374b22a468689bb52b07f343, type: 3}
-  InspectionTexts: []
+  - {fileID: 21300000, guid: 85bdb2cb4b73e9640bd299d29a81a03e, type: 3}
+  InspectionTexts:
+  - They did a great job aging this. The cracks look almost real.
+  - Guess someone had extra time this year. Looks nice, though.
+  - Feels kind of peaceful here. Even with all the fake graves.
+  - Not bad. Looks like something from an old movie set.
+  - "The cracks line up a little too perfectly. Like they\u2019ve been there a while."
+  - Feels quiet around here. Not sure why.

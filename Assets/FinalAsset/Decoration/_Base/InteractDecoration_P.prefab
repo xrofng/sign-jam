@@ -428,4 +428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99dc1fd9646433445bc4da4f6de7d985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Decoration
+  mainSpriteRenderer: {fileID: 0}
+  interactAction_Dialogue: {fileID: 3348138937493284612}
   area: 0

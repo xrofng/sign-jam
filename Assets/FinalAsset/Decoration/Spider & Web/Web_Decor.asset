@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DecorationSO
   DecorationID: Web
   AssociatedArea: 16
-  BasePrefab: {fileID: 58179951700349167, guid: 68d1bac3b2508cc40ae0e4e1424bf09b, type: 3}
+  BasePrefab: {fileID: 1949274649600741303, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
   Textures:
   - {fileID: 21300000, guid: e8c558850742dcd408e4861b7c88f34d, type: 3}
   - {fileID: 21300000, guid: a05d919d95151a64a8244ddcd3556318, type: 3}
   - {fileID: 21300000, guid: 9f8ec6fe0ef89744681b197b87e1c201, type: 3}
   - {fileID: 21300000, guid: f0d7640ac7063d5448b36a322e281b13, type: 3}
-  InspectionTexts: []
+  - {fileID: 21300000, guid: 94a6a9e90b5aeb04899fe134e7e44e2b, type: 3}
+  InspectionTexts:
+  - Spidermannnn

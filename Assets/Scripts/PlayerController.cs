@@ -5,24 +5,27 @@ using UnityEngine;
 public class PlayerController : ObjectWithSprite
 {
     [SerializeField] MouseInput mouseInput;
-    [SerializeField] PathFindingManager pathFindingManager;
     [SerializeField] float moveSpeed;
+    [SerializeField] PathFindingManager pathFindingManager;
+    [SerializeField] bool useSemiRealPathfinding = false;
 
-    void Start()
+    bool isMoving;
+    private List<Vector3> movePos;
+
+    protected override void Start()
     {
+        base.Start();
         mouseInput.OnClickEvent += movePlayerCharacter;
     }
 
-
-    bool onMove;
     void movePlayerCharacter(Vector3 mousePosition, InteractObject interactObject)
     {
-        if (onMove) return;
+        if (isMoving) return;
 
-        onMove = true;
+        isMoving = true;
         if (interactObject == null)
         {
-            StartCoroutine(Move(mousePosition, interactObject));
+            StartCoroutine(Move(mousePosition, null));
             //       this.transform.position = mousePosition;
         }
         else
@@ -36,10 +39,14 @@ public class PlayerController : ObjectWithSprite
     IEnumerator Move(Vector3 endPos, InteractObject interactObject)
     {
         List<Transform> pathList = pathFindingManager.GetPath(transform.position, endPos);
-        List<Vector3> movePos = new List<Vector3>();
+        movePos = new List<Vector3>();
 
-        foreach (Transform t in pathList)
-            movePos.Add(t.position);
+        if (useSemiRealPathfinding)
+        {
+            foreach (Transform t in pathList)
+                movePos.Add(t.position);
+        }
+        
 
         // make sure we end exactly at endPos
         movePos.Add(endPos);
@@ -57,7 +64,7 @@ public class PlayerController : ObjectWithSprite
                 yield return null;
             }
         }
-        onMove = false;
+        isMoving = false;
         // optional: trigger interaction when finished
         if (interactObject != null)
         {

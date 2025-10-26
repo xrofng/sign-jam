@@ -17,4 +17,5 @@ MonoBehaviour:
   BasePrefab: {fileID: 1949274649600741303, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
   Textures:
   - {fileID: 21300000, guid: 621a33d596da3a341bbe5c8187acd976, type: 3}
-  InspectionTexts: []
+  InspectionTexts:
+  - Not bad. Looks like something from an old movie set.

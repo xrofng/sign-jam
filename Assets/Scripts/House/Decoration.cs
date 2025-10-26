@@ -1,19 +1,8 @@
 ﻿using UnityEngine;
 
-public class Decoration : BetterMonoBehaviour
+public class Decoration : ObjectWithSprite
 {
-    private SpriteRenderer _spriteRenderer;
-    public SpriteRenderer SpriteRenderer
-    {
-        get
-        {
-            if ( _spriteRenderer == null)
-            {
-                TryGetComponent(out _spriteRenderer);
-            }
-            return _spriteRenderer;
-        }
-    }
+    [SerializeField] InteractAction_Dialogue interactAction_Dialogue;
 
     public HouseSO.EArea area;
 
@@ -22,9 +11,13 @@ public class Decoration : BetterMonoBehaviour
     public void SetDecorationSO(DecorationSO decoration, HouseSO.EArea area)
     {
         decorationSO = decoration;
-        SpriteRenderer.sprite = decorationSO.GetRandomTexture();
+        MainSpriteRenderer.sprite = decorationSO.GetRandomTexture();
         this.area = area;
-        SpriteRenderer.sortingLayerName = GetSortingLayer(area);
+        MainSpriteRenderer.sortingLayerName = GetSortingLayer(area);
+        if (decorationSO.HasInpectionText())
+        {
+            interactAction_Dialogue.SetDialogueText(decorationSO.RandomInspectionText());
+        }
     }
 
     private string GetSortingLayer(HouseSO.EArea area)
@@ -56,7 +49,7 @@ public class Decoration : BetterMonoBehaviour
 
         if (decorationSO)
         {
-            SpriteRenderer.sortingOrder = (int)Mathf.Abs(transform.position.y * 100);
+            MainSpriteRenderer.sortingOrder = (int)Mathf.Abs(transform.position.y * 100);
         }
     }
 

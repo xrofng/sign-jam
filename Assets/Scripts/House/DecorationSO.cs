@@ -28,4 +28,14 @@ public class DecorationSO : ScriptableObject
     {
         return Textures[Random.Range(0, Textures.Length)];
     }
+
+    public bool HasInpectionText()
+    {
+        return InspectionTexts != null && InspectionTexts.Length > 0;
+    }
+
+    public string RandomInspectionText()
+    {
+        return InspectionTexts[Random.Range(0, InspectionTexts.Length)];
+    }
 }
