@@ -1766,7 +1766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleMMSoundPlayer
   Clip: {fileID: 8300000, guid: f67c0a3114660c545bfebe8c1103e60e, type: 3}
-  Volume: 1
+  Volume: 0.6
   Pitch: 1
   Track: 1
   Loop: 1
