@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -34,4 +35,8 @@ public class InteractAction_Dialogue : InteractAction
 
     }
 
+    public void SetDialogueText(string houseName)
+    {
+        _dialogueText = houseName;
+    }
 }

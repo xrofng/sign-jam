@@ -14,20 +14,34 @@ public class InteractObject : MonoBehaviour
 
     public virtual void OnSelect()
     {
-        Debug.Log("On Select");
+        if (_oneTimeInteract && InteractTime > 0) return;
         OnSelectEvent?.Invoke();
+        EventBus.TriggerEvent(new EvsSelectInteractObject(true));
     }
 
     public virtual void OnDeselect()
     {
-        Debug.Log("On Deselect");
         OnDeselectEvent?.Invoke();
+        EventBus.TriggerEvent(new EvsSelectInteractObject(false));
     }
     public virtual void Interact()
     {
         if (_oneTimeInteract && InteractTime > 0) return;
         OnIntearctEvent?.Invoke();
         InteractTime++;
+        OnDeselect();
     }
 
+    /// <summary>
+    /// Evs - stand for Event Struct
+    /// </summary>
+    public struct EvsSelectInteractObject
+    {
+        public bool IsSelected;
+
+        public EvsSelectInteractObject(bool isSelected)
+        {
+            IsSelected = isSelected;
+        }
+    }
 }

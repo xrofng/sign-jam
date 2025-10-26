@@ -1,0 +1,31 @@
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "NewDecoration", menuName = "Environment/Decoration")]
+public class DecorationSO : ScriptableObject
+{
+    /// <summary>
+    /// Unique identifier for this decoration.
+    /// Can be used to distinguish between multiple decorations of the same type.
+    /// </summary>
+    [Header("Identification")]
+    [Tooltip("Unique ID for this decoration.")]
+    public string DecorationID;
+
+    /// <summary>
+    /// The exterior area of the house where this decoration is meant to be placed.
+    /// </summary>
+    [Header("Association")]
+    [Tooltip("The exterior area this decoration belongs to.")]
+    public HouseSO.EArea AssociatedArea;
+
+    public Decoration BasePrefab;
+
+    public Sprite[] Textures;
+
+    public string[] InspectionTexts;
+
+    public Sprite GetRandomTexture()
+    {
+        return Textures[Random.Range(0, Textures.Length)];
+    }
+}

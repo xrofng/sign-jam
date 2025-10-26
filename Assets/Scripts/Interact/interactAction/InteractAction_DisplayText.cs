@@ -5,6 +5,7 @@ public class InteractAction_DisplayText : InteractAction
 
     protected override void OnDoingAction()
     {
+        TextFollowMouseCursor.Instance.SetUpText("");
     }
 
     protected override void OnDeselect()
