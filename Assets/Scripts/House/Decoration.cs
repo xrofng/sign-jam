@@ -62,6 +62,6 @@ public class Decoration : BetterMonoBehaviour
 
     public void SetReady()
     {
-        
+        gameObject.AddComponent<CircleCollider2D>();
     }
 }

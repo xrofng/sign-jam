@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DecorationSO
   DecorationID: BoneHand
   AssociatedArea: 1
-  BasePrefab: {fileID: 58179951700349167, guid: 68d1bac3b2508cc40ae0e4e1424bf09b, type: 3}
+  BasePrefab: {fileID: 1949274649600741303, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
   Textures:
   - {fileID: 21300000, guid: 7e1d1c64374b22a468689bb52b07f343, type: 3}
   InspectionTexts: []
