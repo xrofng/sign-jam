@@ -37,5 +37,6 @@ public class InteractAction_AddingScore : InteractAction
         yield return new WaitForSeconds(delayTime);
 
         Debug.Log($"Adding Score : {Score}");
+        ScoreController.Instance.AddScore(Score);
     }
 }

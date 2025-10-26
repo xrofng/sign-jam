@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: fb95677203ef2a54488e7b0dfe3a2a38
+guid: e9936dffeea97704eaa2325620d27aaf
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -74865369174232215
+    second: dracula-vampire-monster-clipart-md_0
+  - first:
+      213: -460773330144731394
+    second: dracula-vampire-monster-clipart-md_1
+  - first:
+      213: 4542562747308186136
+    second: dracula-vampire-monster-clipart-md_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -39,14 +48,14 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
+  alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -63,16 +72,16 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 2
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -85,7 +94,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,7 +104,73 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: dracula-vampire-monster-clipart-md_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 493
+        width: 170
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9633468e75606fef0800000000000000
+      internalID: -74865369174232215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dracula-vampire-monster-clipart-md_1
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 0
+        width: 582
+        height: 564
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efedfb6f8110b99f0800000000000000
+      internalID: -460773330144731394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dracula-vampire-monster-clipart-md_2
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 380
+        width: 165
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81a1a3b40cc6a0f30800000000000000
+      internalID: 4542562747308186136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -109,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dracula-vampire-monster-clipart-md_0: -74865369174232215
+      dracula-vampire-monster-clipart-md_1: -460773330144731394
+      dracula-vampire-monster-clipart-md_2: 4542562747308186136
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

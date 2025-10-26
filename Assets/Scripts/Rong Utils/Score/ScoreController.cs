@@ -7,7 +7,7 @@ public class ScoreController : MMSingleton<ScoreController>
 
     public int Score => _score;
 
-    public void AddScore(int increment)
+    public virtual void AddScore(int increment)
     {
         _score += increment;
         EventBus.TriggerEvent(new EvsScoreChanged(_score, increment));
