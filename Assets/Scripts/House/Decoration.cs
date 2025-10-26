@@ -63,5 +63,18 @@ public class Decoration : BetterMonoBehaviour
     public void SetReady()
     {
         gameObject.AddComponent<CircleCollider2D>();
+        EventBus.TriggerEvent(new EvsDecorationReadied(gameObject, area));
+    }
+
+    public struct EvsDecorationReadied
+    {
+        public GameObject ReadiedDecor;
+        public HouseSO.EArea Area;
+
+        public EvsDecorationReadied(GameObject readiedDecor, HouseSO.EArea area)
+        {
+            ReadiedDecor = readiedDecor;
+            Area = area;
+        }
     }
 }

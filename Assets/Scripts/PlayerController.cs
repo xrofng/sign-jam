@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : ObjectWithSprite
 {
     [SerializeField] MouseInput mouseInput;
     [SerializeField] PathFindingManager pathFindingManager;
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            StartCoroutine(Move(interactObject.PlayerDestination.position, interactObject));
+            StartCoroutine(Move(interactObject.GetNearObjectPos(transform.position, MainSpriteRenderer.bounds), interactObject));
             //     this.transform.position = interactObject.PlayerDestination.position;
         }
     }

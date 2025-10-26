@@ -76,9 +76,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 658592131
+  m_SortingLayer: 1
+  m_SortingOrder: 900
   m_Sprite: {fileID: 21300000, guid: 1a3d766705e8fce41bcaa2921051a083, type: 3}
   m_Color: {r: 0.764151, g: 0.7108894, b: 0.19824673, a: 0}
   m_FlipX: 0
@@ -2025,7 +2025,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -782930407
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e9936dffeea97704eaa2325620d27aaf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -2112,7 +2112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7852060793413895610, guid: 591c9159dda2fd649a17160205ef192b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.48
+      value: -1.15
       objectReference: {fileID: 0}
     - target: {fileID: 7937301231559962992, guid: 591c9159dda2fd649a17160205ef192b, type: 3}
       propertyPath: m_Color.a
@@ -2138,6 +2138,10 @@ PrefabInstance:
       propertyPath: _oneTimeInteract
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8888791725571234765, guid: 591c9159dda2fd649a17160205ef192b, type: 3}
+      propertyPath: mainSpriteRenderer
+      value: 
+      objectReference: {fileID: 3878457528059780861}
     m_RemovedComponents:
     - {fileID: 7937301231559962992, guid: 591c9159dda2fd649a17160205ef192b, type: 3}
     m_RemovedGameObjects: []

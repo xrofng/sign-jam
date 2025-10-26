@@ -920,14 +920,6 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3878457528059780861, guid: 299d2bae25ac756489215138fbe9da11, type: 3}
-      propertyPath: m_SortingOrder
-      value: 900
-      objectReference: {fileID: 0}
-    - target: {fileID: 3878457528059780861, guid: 299d2bae25ac756489215138fbe9da11, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 658592131
-      objectReference: {fileID: 0}
     - target: {fileID: 6041674901626411070, guid: 299d2bae25ac756489215138fbe9da11, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.5161638
@@ -968,7 +960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 541897672208422451, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.19
+      value: -1.71
       objectReference: {fileID: 0}
     - target: {fileID: 541897672208422451, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1003,12 +995,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1397927908786308537, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
+      propertyPath: m_Size.x
+      value: 1.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397927908786308537, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
+      propertyPath: m_Size.y
+      value: 1.305
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397927908786308537, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
       propertyPath: m_Offset.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1397927908786308537, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: 0.6525
       objectReference: {fileID: 0}
     - target: {fileID: 7029677896784187632, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
       propertyPath: m_Enabled
@@ -1018,10 +1018,18 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7156365044214621242, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7299688374982533351, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
       propertyPath: m_Name
       value: Sign
       objectReference: {fileID: 0}
+    - target: {fileID: 8427307327023004237, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
+      propertyPath: mainSpriteRenderer
+      value: 
+      objectReference: {fileID: 4161282150485245557}
     - target: {fileID: 8543424276105153357, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
       propertyPath: _dialogueText
       value: Haloo i'm soo happy
@@ -1042,6 +1050,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 331748ce1b526964caaf5f992eb9d2b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractAction_Dialogue
+--- !u!212 &4161282150485245557 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7029677896784187632, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
+  m_PrefabInstance: {fileID: 6355061609079254661}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6896281872586520758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 541897672208422451, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}

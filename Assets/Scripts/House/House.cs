@@ -23,7 +23,7 @@ public class House : BetterMonoBehaviour
 
     private Dictionary<HouseSO.EArea, HouseArea> _areaToHouseArea;
 
-    private static int[] DECOR_AREA_LIMIT = {0,3,1,2,1,3,1} ;
+    public const float GROUND_POSY = -1.5f;
 
 
     protected override void Awake()
