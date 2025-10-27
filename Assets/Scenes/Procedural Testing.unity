@@ -469,7 +469,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: -0.4536, z: 0}
-  m_LocalScale: {x: 3.017, y: 2.109788, z: 3.017}
+  m_LocalScale: {x: 5.51, y: 2.54, z: 3.017}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -487,12 +487,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProceduralHouseGenerator
   houseData: {fileID: 11400000, guid: add59941795451e4aaf6cdd4eda80ef6, type: 2}
+  proceduralRules:
+  - {fileID: 11400000, guid: ab05e8537aa5f0146b8fe9acfc2e2621, type: 2}
+  - {fileID: 11400000, guid: 6eed8097959d6ce41bc6d7f2234c2bd3, type: 2}
   topMargin: 0
   bottomMargin: -0
   leftMargin: 0
   rightMargin: 0
-  horizontalSpacing: 2
-  doorVerticalOffset: 0
   partsParent: {fileID: 0}
 --- !u!1 &1303173691
 GameObject:
