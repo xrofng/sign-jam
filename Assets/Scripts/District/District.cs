@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class District : MMSingleton<District>
 {
-    [SerializeField] HouseRulesetSO[] AllRuleset;
-    public HouseRulesetSO CurrentRuleset;
+    [SerializeField] GhostHouseRulesetSO[] AllRuleset;
+    public GhostHouseRulesetSO CurrentRuleset;
 
     protected override void Awake()
     {
@@ -15,9 +15,9 @@ public class District : MMSingleton<District>
 
     public struct EvsRulesetChanged
     {
-        public HouseRulesetSO Ruleset;
+        public GhostHouseRulesetSO Ruleset;
 
-        public EvsRulesetChanged(HouseRulesetSO ruleset)
+        public EvsRulesetChanged(GhostHouseRulesetSO ruleset)
         {
             Ruleset = ruleset;
         }
