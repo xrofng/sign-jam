@@ -23,6 +23,19 @@ public class House : BetterMonoBehaviour
 
     private Dictionary<HouseSO.EArea, HouseArea> _areaToHouseArea;
 
+    public class HouseDecorData
+    {
+        public DecorationSO DecorationSO;
+        public int Count { get; set; }
+
+        public HouseDecorData(DecorationSO decorationSO)
+        {
+            DecorationSO = decorationSO;
+        }
+    }
+    private Dictionary<string, HouseDecorData> _decorToData;
+    public Dictionary<string, HouseDecorData> DecorData => _decorToData;
+
     public const float GROUND_POSY = -1.5f;
 
 
@@ -72,6 +85,19 @@ public class House : BetterMonoBehaviour
         }
 
         SignDialogue.SetDialogueText(houseSO.HouseName);
+
+        _decorToData = new Dictionary<string, HouseDecorData>();
+        foreach (DecorationSO decoration in houseSO.Decorations)
+        {
+            if (_decorToData.ContainsKey(decoration.DecorationID) == false)
+            {
+                _decorToData.Add(decoration.DecorationID, new HouseDecorData(decoration));
+            }
+            else
+            {
+                _decorToData[decoration.DecorationID].Count += 1;
+            }
+        }
     }
 
     private Vector3 CalculateDecorationPosition(HouseSO.EArea area)
