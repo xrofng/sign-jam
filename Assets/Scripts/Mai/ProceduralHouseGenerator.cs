@@ -24,6 +24,9 @@ public class ProceduralHouseGenerator : MonoBehaviour
     private SpriteRenderer sr;
     private Vector2 halfSize;
 
+    // The "blackboard" for rules to share data
+    private Dictionary<string, Bounds> _placedObjectBounds = new Dictionary<string, Bounds>();
+
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -47,14 +50,30 @@ public class ProceduralHouseGenerator : MonoBehaviour
 
         ClearAndSetupParent();
         UpdateHalfSize();
+        _placedObjectBounds.Clear();
 
         foreach (var rule in proceduralRules)
         {
             if (rule != null)
             {
+                // Pass the SpawnObject method, which now matches the Func signature
                 rule.Execute(this, halfSize, SpawnObject);
             }
         }
+    }
+
+    public void StorePlacedObjectBounds(string key, Bounds bounds)
+    {
+        _placedObjectBounds[key] = bounds;
+    }
+
+    public Bounds? GetPlacedObjectBounds(string key)
+    {
+        if (_placedObjectBounds.TryGetValue(key, out Bounds bounds))
+        {
+            return bounds;
+        }
+        return null;
     }
 
     private void ClearAndSetupParent()
@@ -74,11 +93,12 @@ public class ProceduralHouseGenerator : MonoBehaviour
         }
     }
 
-    private void SpawnObject(HouseObjectData data, Vector3 position)
+    private GameObject SpawnObject(HouseObjectData data, Vector3 position)
     {
         // Simply spawn at target position using prefab pivot
         var obj = Instantiate(data.objectPrefab, partsParent);
         obj.transform.localPosition = position;
+        return obj; // Return the new instance
     }
 
     private void UpdateHalfSize()
@@ -96,6 +116,7 @@ public class ProceduralHouseGenerator : MonoBehaviour
         }
     }
 
+    #region
     // Gizmos for visualization
     private void OnDrawGizmos()
     {
@@ -120,4 +141,5 @@ public class ProceduralHouseGenerator : MonoBehaviour
 
         // (Note: To show rule-based hints in Gizmos, the rules would need a separate DrawGizmos method)
     }
+    #endregion
 }

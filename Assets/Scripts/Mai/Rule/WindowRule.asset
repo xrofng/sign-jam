@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: WindowRule
   m_EditorClassIdentifier: Assembly-CSharp::WindowRule
   objectType: 1
-  horizontalSpacing: 2
-  windowVerticalOffsetFromBottom: 1
+  spacing: 0.5
+  verticalOffsetFromBottom: 1.5

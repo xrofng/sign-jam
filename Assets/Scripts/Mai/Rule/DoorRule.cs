@@ -1,29 +1,40 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DoorRule", menuName = "ProceduralHouse/Rule/Door Rule")]
+[CreateAssetMenu(fileName = "DoorRule", menuName = "Procedural/Rule/Door Rule")]
 public class DoorRule : ProceduralRule
 {
     [Header("Door Settings")]
-    [Tooltip("Vertical offset from bottom margin for door placement.")]
     public float doorVerticalOffset = 0.1f;
+
+    // A key to identify the door's data for other rules
+    public const string DoorBoundsKey = "MainDoor";
 
     public override void Execute(
         ProceduralHouseGenerator generator,
         Vector2 halfSize,
-        System.Action<HouseObjectData, Vector3> spawn
+        System.Func<HouseObjectData, Vector3, GameObject> spawn
     )
     {
         HouseObjectData doorData = generator.houseData.GetObject(objectType);
-        if (doorData == null || doorData.objectPrefab == null)
-        {
-            Debug.LogWarning($"Door object data not found for rule: {name}");
-            return;
-        }
+        if (doorData == null || doorData.objectPrefab == null) return;
 
-        // Calculate bottom center position using generator's margins
+        // Calculate position
         float bottomY = -halfSize.y + generator.bottomMargin + doorVerticalOffset;
         Vector3 doorPos = new Vector3(0, bottomY, 0);
 
-        spawn(doorData, doorPos);
+        // --- CHANGE ---
+        // 1. Spawn the object AND get the instance
+        GameObject doorInstance = spawn(doorData, doorPos);
+
+        // 2. Get its bounds and store them in the generator
+        if (doorInstance != null)
+        {
+            SpriteRenderer doorSR = doorInstance.GetComponent<SpriteRenderer>();
+            if (doorSR != null)
+            {
+                // Tell the generator to remember the door's bounds
+                generator.StorePlacedObjectBounds(DoorBoundsKey, doorSR.bounds);
+            }
+        }
     }
 }
