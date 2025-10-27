@@ -25,12 +25,12 @@ public class House : BetterMonoBehaviour
 
     public class HouseDecorData
     {
-        public DecorationSO DecorationSO;
-        public int Count { get; set; }
+        public List<Decoration> Decorations = new List<Decoration>();
+        public int Count => Decorations.Count;
 
-        public HouseDecorData(DecorationSO decorationSO)
+        public HouseDecorData(Decoration decoration)
         {
-            DecorationSO = decorationSO;
+            Decorations.Add(decoration);
         }
     }
     private Dictionary<string, HouseDecorData> _decorToData;
@@ -75,29 +75,27 @@ public class House : BetterMonoBehaviour
 
     private void ConstructHouse(HouseSO houseSO)
     {
+        _decorToData = new Dictionary<string, HouseDecorData>();
         foreach (DecorationSO decoration in houseSO.Decorations)
         {
             Decoration newDec = Instantiate(decoration.BasePrefab, transform) as Decoration;
             HouseSO.EArea area = RandomValueArea(decoration.AssociatedArea);
             newDec.SetDecorationSO(decoration, area);
+
+            if (_decorToData.ContainsKey(decoration.DecorationID) == false)
+            {
+                _decorToData.Add(decoration.DecorationID, new HouseDecorData(newDec));
+            }
+            else
+            {
+                _decorToData[decoration.DecorationID].Decorations.Add(newDec);
+            }
+
             newDec.SetPosition(CalculateDecorationPosition(area));
             newDec.SetReady();
         }
 
         SignDialogue.SetDialogueText(houseSO.HouseName);
-
-        _decorToData = new Dictionary<string, HouseDecorData>();
-        foreach (DecorationSO decoration in houseSO.Decorations)
-        {
-            if (_decorToData.ContainsKey(decoration.DecorationID) == false)
-            {
-                _decorToData.Add(decoration.DecorationID, new HouseDecorData(decoration));
-            }
-            else
-            {
-                _decorToData[decoration.DecorationID].Count += 1;
-            }
-        }
     }
 
     private Vector3 CalculateDecorationPosition(HouseSO.EArea area)
