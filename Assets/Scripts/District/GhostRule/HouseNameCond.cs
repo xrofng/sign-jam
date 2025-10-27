@@ -1,13 +1,14 @@
 using UnityEngine;
 
 [System.Serializable]
-public class HouseNameCondition : HouseCondition
+public class HouseNameCond : HouseCondition
 {
     public string HouseName;
 
     protected override string CalculateListLabel()
     {
-        return "Is " + HouseName;
+        Summary = "Is sign " + HouseName;
+        return Summary;
     }
 
     protected override bool EvaluateCondition(HouseSO houseSO, House house)

@@ -13,3 +13,33 @@ MonoBehaviour:
   m_Name: R_BabblingGum
   m_EditorClassIdentifier: Assembly-CSharp::HouseRulesetSO
   DistrictName: Babbling Gum
+  GhostRules:
+  - RuleSummary: 
+    HouseConditions:
+    - rid: 1164321871537373280
+    - rid: 1164321871537373281
+    - rid: 1164321871537373285
+  - RuleSummary: 
+    HouseConditions: []
+  RequiredScoreForGhost: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 1164321871537373280
+      type: {class: HouseNameCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: Is sign Cross
+        HouseName: Cross
+    - rid: 1164321871537373281
+      type: {class: DecorContainTextCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: smell on Grave
+        Decoration: {fileID: 11400000, guid: 8c61c74ec9aadb14d912639520122cc6, type: 2}
+        ContainingText: smell
+    - rid: 1164321871537373285
+      type: {class: DecorCountCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: Grave >= 1
+        Decoration: {fileID: 11400000, guid: 8c61c74ec9aadb14d912639520122cc6, type: 2}
+        ComparisonMethod: 4
+        TargetNumber: 1

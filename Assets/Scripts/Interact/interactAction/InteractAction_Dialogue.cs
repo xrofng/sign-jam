@@ -39,4 +39,9 @@ public class InteractAction_Dialogue : InteractAction
     {
         _dialogueText = houseName;
     }
+
+    public string GetDialogueText()
+    {
+        return _dialogueText;
+    }
 }

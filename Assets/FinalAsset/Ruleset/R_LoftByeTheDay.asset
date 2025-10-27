@@ -13,3 +13,17 @@ MonoBehaviour:
   m_Name: R_LoftByeTheDay
   m_EditorClassIdentifier: Assembly-CSharp::HouseRulesetSO
   DistrictName: Loft Bye The Day
+  GhostRules:
+  - RuleSummary: 
+    HouseConditions:
+    - rid: 1164321871537373277
+  RequiredScoreForGhost: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 1164321871537373277
+      type: {class: DecorContainTextCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: 
+        Decoration: {fileID: 0}
+        ContainingText: 
