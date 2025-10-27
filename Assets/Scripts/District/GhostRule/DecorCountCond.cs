@@ -2,20 +2,22 @@ using Sirenix.OdinInspector;
 using System;
 
 [System.Serializable]
-public class DecorCountCondition : HouseCondition
+public class DecorCountCond : HouseCondition
 {
     [Required]
     public DecorationSO Decoration;
     public EComparisonMethod ComparisonMethod = EComparisonMethod.MoreEqual;
     public int TargetNumber = 1;
 
+
     protected override string CalculateListLabel()
     {
         if (Decoration)
         {
-            return Decoration.name + " " + GetComparisonMethodSymbol(ComparisonMethod) + " " + TargetNumber;
+            Summary = Decoration.DecorationID + " " + GetComparisonMethodSymbol(ComparisonMethod) + " " + TargetNumber;
+            return Summary;
         }
-        return " NEED assign Decoration";
+        return " NEED Decoration";
     }
 
     protected override bool EvaluateCondition(HouseSO houseSO, House house)

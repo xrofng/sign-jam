@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine;
 [System.Serializable]
 public abstract class HouseCondition
 {
+    [ReadOnly]
+    public string Summary;
+
     public string ListLabel
     {
         get
