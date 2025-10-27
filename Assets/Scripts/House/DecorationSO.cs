@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewDecoration", menuName = "Environment/Decoration")]
+[CreateAssetMenu(fileName = "Dec_", menuName = "SignGame/Decoration")]
 public class DecorationSO : ScriptableObject
 {
     /// <summary>

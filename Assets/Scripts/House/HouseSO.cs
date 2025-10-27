@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewHouse", menuName = "SignGame/House")]
+[CreateAssetMenu(fileName = "H_", menuName = "SignGame/House")]
 public class HouseSO : ScriptableObject
 {
     /// <summary>
