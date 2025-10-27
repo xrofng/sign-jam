@@ -1,40 +1,66 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WindowRule", menuName = "ProceduralHouse/Rule/WindowRule")]
+[CreateAssetMenu(fileName = "WindowRule", menuName = "Procedural/Rule/Window Rule")]
 public class WindowRule : ProceduralRule
 {
     [Header("Window Settings")]
-    [Tooltip("Horizontal spacing from the center door for the windows.")]
-    public float horizontalSpacing = 2f;
+    [Tooltip("Horizontal spacing between the window's center and the door's edge (or house center for fallback).")]
+    public float spacing = 0.5f;
 
-    // For simplicity, we'll hardcode the door height assumption for now.
-    // In a more complex system, the DoorRule could output the door's position/height.
-    public float windowVerticalOffsetFromBottom = 1.0f;
+    [Tooltip("Vertical offset from the bottom margin for window placement when door bounds are NOT available.")]
+    public float verticalOffsetFromBottom = 1.0f;
 
     public override void Execute(
         ProceduralHouseGenerator generator,
         Vector2 halfSize,
-        System.Action<HouseObjectData, Vector3> spawn
+        System.Func<HouseObjectData, Vector3, GameObject> spawn
     )
     {
         HouseObjectData windowData = generator.houseData.GetObject(objectType);
-        if (windowData == null || windowData.objectPrefab == null)
+        if (windowData == null || windowData.objectPrefab == null) return;
+
+        float windowHalfWidth = windowData.objectPrefab.GetComponent<SpriteRenderer>().bounds.extents.x;
+
+        float windowY;
+        float leftWindowX;
+        float rightWindowX;
+
+        Bounds? doorBounds = generator.GetPlacedObjectBounds(DoorRule.DoorBoundsKey);
+
+        if (doorBounds.HasValue)
         {
-            Debug.LogWarning($"Window object data not found for rule: {name}");
-            return;
+            // **Mode 1: Door-Dependent**
+            Bounds door = doorBounds.Value;
+            windowY = -halfSize.y + generator.bottomMargin + verticalOffsetFromBottom;
+
+            // Positions relative to door edges
+            leftWindowX = door.min.x - spacing - windowHalfWidth;
+            rightWindowX = door.max.x + spacing + windowHalfWidth;
+        }
+        else
+        {
+            // **Mode 2: Fallback (No Door Found)**
+            Debug.LogWarning("Window Rule fell back to bottom-margin placement as Door bounds were not found.");
+
+            // Calculate Y position relative to the house bottom
+            windowY = -halfSize.y + generator.bottomMargin + verticalOffsetFromBottom;
+
+            // Positions relative to house center (0,0)
+            leftWindowX = 0f - spacing - windowHalfWidth;
+            rightWindowX = 0f + spacing + windowHalfWidth;
         }
 
-        // Calculate a sensible Y position for the windows
-        float windowY = -halfSize.y + generator.bottomMargin + windowVerticalOffsetFromBottom;
 
-        Vector3 leftPos = new Vector3(-horizontalSpacing, windowY, 0);
-        Vector3 rightPos = new Vector3(horizontalSpacing, windowY, 0);
+        Vector3 leftPos = new Vector3(leftWindowX, windowY, 0);
+        Vector3 rightPos = new Vector3(rightWindowX, windowY, 0);
 
-        // Bound checks using generator's margins
-        if (leftPos.x >= -halfSize.x + generator.leftMargin)
+        // Check bounds before spawning (Left Window)
+        if (leftPos.x - windowHalfWidth >= -halfSize.x + generator.leftMargin)
             spawn(windowData, leftPos);
 
-        if (rightPos.x <= halfSize.x - generator.rightMargin)
+        // Check bounds before spawning (Right Window)
+        if (rightPos.x + windowHalfWidth <= halfSize.x - generator.rightMargin)
             spawn(windowData, rightPos);
+
     }
 }

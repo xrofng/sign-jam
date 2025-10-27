@@ -13,6 +13,6 @@ public abstract class ProceduralRule : ScriptableObject
     public abstract void Execute(
         ProceduralHouseGenerator generator,
         Vector2 halfSize,
-        System.Action<HouseObjectData, Vector3> spawn
+        System.Func<HouseObjectData, Vector3, GameObject> spawn
     );
 }
