@@ -26,7 +26,7 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
         Vector3 spawnPos = StaringPos.position;
         for (int i = 0; i < 5; i++)
         {
-            HouseSO.Data housedata = CreateHouse();
+            HouseSO.HouseSetting housedata = CreateHouse();
             House newHouse = Instantiate(HousePrefab, spawnPos, Quaternion.identity);
             newHouse.ConstructHouse(housedata);
             spawnPos += Vector3.right * newHouse.HouseBound.size.x / 2;
@@ -40,14 +40,14 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
         //}
     }
 
-    private HouseSO.Data CreateHouse()
+    private HouseSO.HouseSetting CreateHouse()
     {
         // if ghost
         if (Random.Range(0,2) == 1)
         {
             HouseRequest decorationRequestList
             = new HouseRequest(CurrentGhostHouseRuleset.GetRandomGhostRule().GhostConditions);
-            return new HouseSO.Data(decorationRequestList.AllDecorationRequests, decorationRequestList.HouseName);
+            return new HouseSO.HouseSetting(decorationRequestList.RequestedDecorations, decorationRequestList.RequestedHouseName);
         }
         return NormalHouseSO.HouseData;
     }
@@ -61,22 +61,22 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
 
 public struct HouseRequest
 {
-    public List<DecorationRequest> AllDecorationRequests;
-    public string HouseName;
+    public List<DecorationRequest> RequestedDecorations;
+    public string RequestedHouseName;
 
     public HouseRequest(List<HouseCondition> houseConditions)
     {
-        AllDecorationRequests = new List<DecorationRequest>();
-        HouseName = "-vhost house-";
+        RequestedDecorations = new List<DecorationRequest>();
+        RequestedHouseName = "-vhost house-";
         foreach (HouseCondition condition in houseConditions)
         {
             if (condition.GetGenerationRequest().DecorationRequests.Count > 0)
             {
-                AllDecorationRequests.AddRange(condition.GetGenerationRequest().DecorationRequests);
+                RequestedDecorations.AddRange(condition.GetGenerationRequest().DecorationRequests);
             }
             if (condition.GetGenerationRequest().RequestedHouseName.Length > 0)
             {
-                HouseName = condition.GetGenerationRequest().RequestedHouseName;
+                RequestedHouseName = condition.GetGenerationRequest().RequestedHouseName;
             }
         }
     }
