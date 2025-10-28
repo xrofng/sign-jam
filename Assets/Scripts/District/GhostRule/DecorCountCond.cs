@@ -37,4 +37,9 @@ public class DecorCountCond : HouseCondition
         }
         return false;
     }
+
+    public override HouseGenerationRequest GetGenerationRequest()
+    {
+        return new DecorationGenRequest(Decoration, TargetNumber);
+    }
 }

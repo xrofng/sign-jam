@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d61c0ab29fdb2574c925abd696a9e658, type: 3}
-  m_Name: Web_Decor
+  m_Name: Dec_Web
   m_EditorClassIdentifier: Assembly-CSharp::DecorationSO
   DecorationID: Web
   AssociatedArea: 16

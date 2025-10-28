@@ -16,11 +16,13 @@ MonoBehaviour:
   GhostRules:
   - RuleSummary: 
     HouseConditions:
+    - rid: 1164321882595393635
+    - rid: 1164321882595393636
+  - RuleSummary: 
+    HouseConditions:
     - rid: 1164321871537373280
     - rid: 1164321871537373281
     - rid: 1164321871537373285
-  - RuleSummary: 
-    HouseConditions: []
   RequiredScoreForGhost: 1
   references:
     version: 2
@@ -28,8 +30,8 @@ MonoBehaviour:
     - rid: 1164321871537373280
       type: {class: HouseNameCond, ns: , asm: Assembly-CSharp}
       data:
-        Summary: Is sign Cross
-        HouseName: Cross
+        Summary: Is sign Stink Fly
+        HouseName: Stink Fly
     - rid: 1164321871537373281
       type: {class: DecorContainTextCond, ns: , asm: Assembly-CSharp}
       data:
@@ -39,7 +41,19 @@ MonoBehaviour:
     - rid: 1164321871537373285
       type: {class: DecorCountCond, ns: , asm: Assembly-CSharp}
       data:
-        Summary: Grave >= 1
-        Decoration: {fileID: 11400000, guid: 8c61c74ec9aadb14d912639520122cc6, type: 2}
+        Summary: BoneHand >= 2
+        Decoration: {fileID: 11400000, guid: ebe69f767c25645458be11fe9966bac9, type: 2}
         ComparisonMethod: 4
-        TargetNumber: 1
+        TargetNumber: 2
+    - rid: 1164321882595393635
+      type: {class: HouseNameCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: Is sign Jack Skel
+        HouseName: Jack Skel
+    - rid: 1164321882595393636
+      type: {class: DecorCountCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: Pumpkin >= 3
+        Decoration: {fileID: 11400000, guid: 4700699d57e7a3645b1e0f17326cf262, type: 2}
+        ComparisonMethod: 4
+        TargetNumber: 3

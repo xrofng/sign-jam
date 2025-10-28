@@ -6,6 +6,7 @@ public class House : BetterMonoBehaviour
     [SerializeField] HouseSO TestHouseSO;
     [SerializeField] HouseArea[] HouseAreas;
     [SerializeField] InteractAction_Dialogue SignDialogue;
+    [SerializeField] SpriteRenderer BoundSprite;
 
     [System.Serializable]
     public class HouseArea
@@ -37,6 +38,7 @@ public class House : BetterMonoBehaviour
     public Dictionary<string, HouseDecorData> DecorData => _decorToData;
 
     public const float GROUND_POSY = -1.5f;
+    public Bounds HouseBound => BoundSprite.bounds;
 
 
     protected override void Awake()
@@ -44,11 +46,10 @@ public class House : BetterMonoBehaviour
         base.Awake();
 
         CacheAreaToDict();
-
         // Optional: initialize if HouseSO exists
         if (TestHouseSO != null)
         {
-            ConstructHouse(TestHouseSO);
+            ConstructHouse(TestHouseSO.HouseData);
         }
     }
 
@@ -73,7 +74,7 @@ public class House : BetterMonoBehaviour
         }
     }
 
-    private void ConstructHouse(HouseSO houseSO)
+    public void ConstructHouse(HouseSO.Data houseSO)
     {
         _decorToData = new Dictionary<string, HouseDecorData>();
         foreach (DecorationSO decoration in houseSO.Decorations)
@@ -137,5 +138,4 @@ public class House : BetterMonoBehaviour
                 return 0;
         }
     }
-
 }
