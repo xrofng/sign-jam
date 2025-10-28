@@ -3,12 +3,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WindowRule", menuName = "Procedural/Rule/Window Rule")]
 public class WindowRule : ProceduralRule
 {
-    [Header("Window Settings")]
-    [Tooltip("Horizontal spacing between the window's center and the door's edge (or house center for fallback).")]
+    [Header("Window Placement")]
+    [Tooltip("Minimum horizontal spacing maintained between the centers of two adjacent window units.")]
     public float spacing = 0.5f;
 
-    [Tooltip("Vertical offset from the bottom margin for window placement when door bounds are NOT available.")]
-    public float verticalOffsetFromBottom = 1.0f;
+    [Tooltip("Vertical offset added to the window's center Y position. Aligns windows relative to the door's center (dependent mode) or the house bottom (fallback mode).")]
+    public float verticalAlignmentOffset = 1.0f;
 
     public override void Execute(
         ProceduralHouseGenerator generator,
@@ -19,48 +19,61 @@ public class WindowRule : ProceduralRule
         HouseObjectData windowData = generator.houseData.GetObject(objectType);
         if (windowData == null || windowData.objectPrefab == null) return;
 
+        // Calculate core measurements for placement
         float windowHalfWidth = windowData.objectPrefab.GetComponent<SpriteRenderer>().bounds.extents.x;
+        float windowUnitWidth = (2f * windowHalfWidth) + spacing;
 
         float windowY;
-        float leftWindowX;
-        float rightWindowX;
+        float initialRightX;
+        float initialLeftX;
 
         Bounds? doorBounds = generator.GetPlacedObjectBounds(DoorRule.DoorBoundsKey);
 
         if (doorBounds.HasValue)
         {
-            // **Mode 1: Door-Dependent**
+            // Door-Dependent Mode
             Bounds door = doorBounds.Value;
-            windowY = -halfSize.y + generator.bottomMargin + verticalOffsetFromBottom;
 
-            // Positions relative to door edges
-            leftWindowX = door.min.x - spacing - windowHalfWidth;
-            rightWindowX = door.max.x + spacing + windowHalfWidth;
+            windowY = -halfSize.y + generator.bottomMargin + verticalAlignmentOffset;
+
+            // Calculate initial positions relative to door edges
+            initialRightX = door.max.x + (spacing / 2f) + windowHalfWidth;
+            initialLeftX = door.min.x - (spacing / 2f) - windowHalfWidth;
         }
         else
         {
-            // **Mode 2: Fallback (No Door Found)**
-            Debug.LogWarning("Window Rule fell back to bottom-margin placement as Door bounds were not found.");
+            // Fallback Mode
+            Debug.LogWarning("Window Rule fell back to center placement as Door bounds were not found.");
 
-            // Calculate Y position relative to the house bottom
-            windowY = -halfSize.y + generator.bottomMargin + verticalOffsetFromBottom;
+            windowY = -halfSize.y + generator.bottomMargin + verticalAlignmentOffset;
 
-            // Positions relative to house center (0,0)
-            leftWindowX = 0f - spacing - windowHalfWidth;
-            rightWindowX = 0f + spacing + windowHalfWidth;
+            // Calculate initial positions symmetrically around the center (0,0)
+            float offsetFromCenter = (spacing / 2f) + windowHalfWidth;
+
+            initialRightX = offsetFromCenter;
+            initialLeftX = -offsetFromCenter;
         }
 
+        // --- Iterative Placement to the Right ---
 
-        Vector3 leftPos = new Vector3(leftWindowX, windowY, 0);
-        Vector3 rightPos = new Vector3(rightWindowX, windowY, 0);
+        float currentXRight = initialRightX;
+        float rightBoundary = halfSize.x - generator.rightMargin;
 
-        // Check bounds before spawning (Left Window)
-        if (leftPos.x - windowHalfWidth >= -halfSize.x + generator.leftMargin)
-            spawn(windowData, leftPos);
+        while (currentXRight + windowHalfWidth <= rightBoundary)
+        {
+            spawn(windowData, new Vector3(currentXRight, windowY, 0));
+            currentXRight += windowUnitWidth;
+        }
 
-        // Check bounds before spawning (Right Window)
-        if (rightPos.x + windowHalfWidth <= halfSize.x - generator.rightMargin)
-            spawn(windowData, rightPos);
+        // --- Iterative Placement to the Left ---
 
+        float currentXLeft = initialLeftX;
+        float leftBoundary = -halfSize.x + generator.leftMargin;
+
+        while (currentXLeft - windowHalfWidth >= leftBoundary)
+        {
+            spawn(windowData, new Vector3(currentXLeft, windowY, 0));
+            currentXLeft -= windowUnitWidth;
+        }
     }
 }
