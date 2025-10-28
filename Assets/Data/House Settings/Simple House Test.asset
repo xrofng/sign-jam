@@ -17,4 +17,6 @@ MonoBehaviour:
   houseObjects:
   - {fileID: 11400000, guid: bf93aa3c4612daf43ac98bb3d45eb898, type: 2}
   - {fileID: 11400000, guid: 506516f81802c1d489bd745b387bba7d, type: 2}
+  - {fileID: 11400000, guid: 5ddcd37d4f9a1e744be4b8e80d2ba089, type: 2}
+  - {fileID: 11400000, guid: 6f56fe8b09d236e40ae09848fa6a3ba7, type: 2}
   decorations: []

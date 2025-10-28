@@ -43,6 +43,7 @@ public enum ObjectType
     SideFence,
     Fence,
     Stair,
+    Wall,
     Decoration
 }
 

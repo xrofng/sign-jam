@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b9ac97df5213c7408287b4ab0f82dca, type: 3}
-  m_Name: Simple Door Test
+  m_Name: Wall Test
   m_EditorClassIdentifier: Assembly-CSharp::HouseObjectData
-  objectPrefab: {fileID: 392079786754295361, guid: cb40ce74ec010e64993ad954d0837ffc, type: 3}
-  objectType: 0
+  objectPrefab: {fileID: 3492861702894272820, guid: 115c397be61c1af4fb1d9571f20346a2, type: 3}
+  objectType: 12
   signType: 0
   candyType: 0
   signLevel: 0
