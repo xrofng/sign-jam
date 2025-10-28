@@ -33,4 +33,28 @@ public class DecorContainTextCond : HouseCondition
         }
         return false;
     }
+
+    public override HouseGenerationRequest GetGenerationRequest()
+    {
+        return new DecorationGenRequest(Decoration, 1, ContainingText);
+    }
+}
+
+public class DecorationGenRequest : HouseGenerationRequest
+{
+    public DecorationGenRequest(DecorationSO decoration, int requiredQuantity, string containingText)
+    {
+        for (int i = 0; i < decoration.InspectionTexts.Length; i++)
+        {
+            if (decoration.InspectionTexts[i].Contains(containingText))
+            {
+                DecorationRequests.Add(new DecorationRequest(decoration, i, requiredQuantity));
+            }
+        }
+    }
+
+    public DecorationGenRequest(DecorationSO decoration, int requiredQuantity)
+    {
+        DecorationRequests.Add(new DecorationRequest(decoration, -1, requiredQuantity));
+    }
 }

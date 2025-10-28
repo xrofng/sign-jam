@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "H_", menuName = "SignGame/House")]
@@ -19,13 +20,35 @@ public class HouseSO : ScriptableObject
         Door = 1 << 5,  // 32
     }
 
+    public Data HouseData;
 
-    [Header("House Information")]
-    [Tooltip("Name of the house or property.")]
-    public string HouseName;
 
     [Tooltip("Ambient sound or background audio associated with this area.")]
     public AudioClip AmbientSound;
 
-    public DecorationSO[] Decorations;
+
+    [System.Serializable]
+    public class Data
+    {
+        [Header("House Information")]
+        [Tooltip("Name of the house or property.")]
+        public string HouseName;
+
+        public List<DecorationSO> Decorations;
+
+        public Data(List<DecorationRequest> allDecorationRequests, string houseName)
+        {
+            HouseName = houseName;
+            Decorations = new List<DecorationSO>();
+            foreach (DecorationRequest request in allDecorationRequests)
+            {
+                for (int i = 0; i < request.MinQuantity; i++)
+                {
+                    Decorations.Add(request.Decoration);
+                }
+            }
+        }
+    }
+
+    
 }
