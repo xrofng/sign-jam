@@ -5,8 +5,8 @@ using UnityEngine;
 public class InteractAction_Dialogue : InteractAction
 {
     [SerializeField, TextArea] private string _dialogueText;
-    [SerializeField] float textShowDelay;
-    [SerializeField] float textDisappearTimer;
+    [SerializeField] float letterDelay = .1f;
+    [SerializeField] float textShowingDuration = 2;
     [SerializeField] TextMeshPro _dialougeTextMeshPro;
 
     protected override void OnStart()
@@ -24,13 +24,13 @@ public class InteractAction_Dialogue : InteractAction
 
     IEnumerator textAnimation()
     {
-        for (int i = 0; i < _dialogueText.Length; i++)
-        {
-            _dialougeTextMeshPro.text += _dialogueText[i];
-
-            yield return new WaitForSeconds(textShowDelay);
-        }
-        yield return new WaitForSeconds(textDisappearTimer);
+        _dialougeTextMeshPro.text += _dialogueText;
+        //for (int i = 0; i < _dialogueText.Length; i+= )
+        //{
+        //    _dialougeTextMeshPro.text += _dialogueText[i];
+        //    yield return new WaitForSeconds(letterDelay);
+        //}
+        yield return new WaitForSeconds(textShowingDuration);
         _dialougeTextMeshPro.text = "";
 
     }

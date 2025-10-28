@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2900011828790951262, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3092446366490402263, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.5
@@ -90,6 +94,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5638263249061081054, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446198735902785028, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446198735902785028, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6547221776100031572, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}

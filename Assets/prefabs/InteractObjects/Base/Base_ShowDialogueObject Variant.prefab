@@ -107,8 +107,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e5f22850a0641a4cb90938857e914c0, type: 2}
+  m_sharedMaterial: {fileID: 6624810636459582223, guid: 2e5f22850a0641a4cb90938857e914c0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -226,8 +226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractAction_Dialogue
   interactObject: {fileID: 4416299364968055712}
   _dialogueText: Hello every nyan  i'm fine thank uu
-  textShowDelay: 0.1
-  textDisappearTimer: 5
+  letterDelay: 0.1
+  textShowingDuration: 2
   _dialougeTextMeshPro: {fileID: 6446198735902785028}
 --- !u!1001 &5049252224718248045
 PrefabInstance:
