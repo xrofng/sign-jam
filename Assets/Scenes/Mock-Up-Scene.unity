@@ -401,6 +401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: House_P (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2617381638999660597, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5742194609314153377, guid: d478e01e472af0045968ea0de497fed8, type: 3}
       propertyPath: TestHouseSO
       value: 
@@ -408,10 +412,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8158167257609576690, guid: d478e01e472af0045968ea0de497fed8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d478e01e472af0045968ea0de497fed8, type: 3}
 --- !u!1 &160921872
 GameObject:
@@ -1302,6 +1303,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431934391}
   m_CullTransparentMesh: 1
+--- !u!1 &479310624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 479310625}
+  m_Layer: 0
+  m_Name: Starting Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &479310625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479310624}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1857490449}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &491146537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,6 +1680,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: House_P (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2617381638999660597, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5742194609314153377, guid: d478e01e472af0045968ea0de497fed8, type: 3}
       propertyPath: TestHouseSO
       value: 
@@ -1655,10 +1691,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8158167257609576690, guid: d478e01e472af0045968ea0de497fed8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d478e01e472af0045968ea0de497fed8, type: 3}
 --- !u!1 &737639424
 GameObject:
@@ -2416,6 +2449,7 @@ Transform:
   - {fileID: 1675613661}
   - {fileID: 525823178}
   - {fileID: 1248425337}
+  - {fileID: 1748831008}
   - {fileID: 1507940157}
   - {fileID: 530684795}
   m_Father: {fileID: 0}
@@ -2869,6 +2903,7 @@ Transform:
   - {fileID: 1039324955}
   - {fileID: 491146538}
   - {fileID: 249649671}
+  - {fileID: 1857490449}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1738534591
@@ -2950,17 +2985,90 @@ SpriteRenderer:
   m_SortingLayerID: -2129422769
   m_SortingLayer: 4
   m_SortingOrder: 16
-  m_Sprite: {fileID: 21300000, guid: fb95677203ef2a54488e7b0dfe3a2a38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 731cc8a0a4b77ad4690fc72f8e2898ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.225, y: 1.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1748831007
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1518054883}
+    m_Modifications:
+    - target: {fileID: 39517721312190875, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 39517721312190875, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.21766
+      objectReference: {fileID: 0}
+    - target: {fileID: 39517721312190875, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 39517721312190875, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 39517721312190875, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 39517721312190875, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 39517721312190875, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 39517721312190875, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 39517721312190875, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 39517721312190875, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2617381638999660597, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_Name
+      value: House_P (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2617381638999660597, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742194609314153377, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: TestHouseSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 5b9c63bb9b7e2434397e8530c6d80300, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8158167257609576690, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+--- !u!4 &1748831008 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 39517721312190875, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+  m_PrefabInstance: {fileID: 1748831007}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1845095209
 GameObject:
   m_ObjectHideFlags: 0
@@ -3082,6 +3190,57 @@ MonoBehaviour:
     Time: 0
     Smoothing: 0
     IgnoreY: 0
+--- !u!1 &1857490448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1857490449}
+  - component: {fileID: 1857490450}
+  m_Layer: 0
+  m_Name: HouseCreationController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1857490449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857490448}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 479310625}
+  m_Father: {fileID: 1732884222}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1857490450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857490448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7d9a3cd8ad61d4a8e8c325ffa0f6da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HouseCreationController
+  HouseOffset: 5
+  NormalHouseSO: {fileID: 11400000, guid: 5b9c63bb9b7e2434397e8530c6d80300, type: 2}
+  AllGhostHouseRuleset:
+  - {fileID: 11400000, guid: bac0f86e9b9edcc438c3b607772ee61d, type: 2}
+  HousePrefab: {fileID: 5742194609314153377, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+  StaringPos: {fileID: 479310625}
 --- !u!1 &1972921569
 GameObject:
   m_ObjectHideFlags: 0
@@ -3481,13 +3640,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: House_P
       objectReference: {fileID: 0}
+    - target: {fileID: 2617381638999660597, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742194609314153377, guid: d478e01e472af0045968ea0de497fed8, type: 3}
+      propertyPath: TestHouseSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 5b9c63bb9b7e2434397e8530c6d80300, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8158167257609576690, guid: d478e01e472af0045968ea0de497fed8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d478e01e472af0045968ea0de497fed8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -13,6 +14,24 @@ public class HouseNameCond : HouseCondition
 
     protected override bool EvaluateCondition(HouseSO houseSO, House house)
     {
-        return HouseName == houseSO.HouseName;
+        return HouseName == houseSO.HouseData.HouseName;
+    }
+
+    public override HouseGenerationRequest GetGenerationRequest()
+    {
+        return new HouseNameGenRequest(HouseName);
+    }
+}
+
+public class HouseNameGenRequest : HouseGenerationRequest
+{
+    public HouseNameGenRequest(string houseName)
+    {
+        RequestedHouseName = houseName;
+    }
+
+    public override void ApplyRequest()
+    {
+        
     }
 }

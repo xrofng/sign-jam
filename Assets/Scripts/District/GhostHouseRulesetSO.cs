@@ -1,5 +1,4 @@
 using Sirenix.OdinInspector;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +14,11 @@ public class GhostHouseRulesetSO : ScriptableObject
 
     [Tooltip("How many RULE should be True to consider house as Ghost.")]
     public int RequiredScoreForGhost = 1;
+
+    public GhostRule GetRandomGhostRule()
+    {
+        return GhostRules[Random.Range(0, GhostRules.Count)];
+    }
 }
 
 [System.Serializable]
@@ -25,4 +29,6 @@ public class GhostRule
     [SerializeReference]
     [ListDrawerSettings(ListElementLabelName = "ListLabel", ShowIndexLabels = true)]
     List<HouseCondition> HouseConditions;
+
+    public List<HouseCondition> GhostConditions => HouseConditions;
 }

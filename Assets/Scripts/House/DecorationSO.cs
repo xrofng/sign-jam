@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Dec_", menuName = "SignGame/Decoration")]
@@ -20,6 +21,7 @@ public class DecorationSO : ScriptableObject
 
     public Decoration BasePrefab;
 
+    [PreviewField]
     public Sprite[] Textures;
 
     public string[] InspectionTexts;
