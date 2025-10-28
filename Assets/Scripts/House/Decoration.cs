@@ -9,7 +9,7 @@ public class Decoration : ObjectWithSprite
 
     private DecorationSO decorationSO;
 
-    public void SetDecorationSO(DecorationSO decoration, HouseSO.EArea area)
+    public virtual void SetDecorationSO(DecorationSO decoration, HouseSO.EArea area)
     {
         decorationSO = decoration;
         MainSpriteRenderer.sprite = decorationSO.GetRandomTexture();
@@ -21,7 +21,7 @@ public class Decoration : ObjectWithSprite
         }
     }
 
-    private string GetSortingLayer(HouseSO.EArea area)
+    protected string GetSortingLayer(HouseSO.EArea area)
     {
         switch (area)
         {
@@ -44,7 +44,7 @@ public class Decoration : ObjectWithSprite
         }
     }
 
-    public void SetPosition(Vector3 targetPos)
+    public virtual void SetPosition(Vector3 targetPos)
     {
         transform.position = targetPos;
 
