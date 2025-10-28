@@ -74,7 +74,7 @@ public class House : BetterMonoBehaviour
         }
     }
 
-    public void ConstructHouse(HouseSO.Data houseSO)
+    public void ConstructHouse(HouseSO.HouseSetting houseSO)
     {
         _decorToData = new Dictionary<string, HouseDecorData>();
         foreach (DecorationSO decoration in houseSO.Decorations)
