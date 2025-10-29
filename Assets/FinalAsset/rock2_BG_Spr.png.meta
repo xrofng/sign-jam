@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 6833756b5b7d248458701dc3bf9ee9b4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2567453113749438938
+    second: rock2_BG_Spr_0
+  - first:
+      213: 8970561853446904756
+    second: rock2_BG_Spr_1
+  - first:
+      213: 6396638660480033671
+    second: rock2_BG_Spr_2
+  - first:
+      213: 6520507207090051850
+    second: rock2_BG_Spr_3
+  - first:
+      213: -3906846333014565764
+    second: rock2_BG_Spr_4
+  - first:
+      213: 8934293443242942661
+    second: rock2_BG_Spr_5
+  - first:
+      213: -4323043492119603310
+    second: rock2_BG_Spr_6
+  - first:
+      213: -4754393739325416142
+    second: rock2_BG_Spr_7
+  - first:
+      213: 8667207256298034051
+    second: rock2_BG_Spr_8
+  - first:
+      213: -7553222824715969876
+    second: rock2_BG_Spr_9
+  - first:
+      213: 4644648510826681696
+    second: rock2_BG_Spr_10
+  - first:
+      213: -1632205350637336431
+    second: rock2_BG_Spr_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rock2_BG_Spr_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 30
+        width: 48
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad18186010d61a320800000000000000
+      internalID: 2567453113749438938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock2_BG_Spr_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 39
+        width: 67
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bb5f564a76dd7c70800000000000000
+      internalID: 8970561853446904756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock2_BG_Spr_2
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 51
+        width: 75
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 783617a88fc65c850800000000000000
+      internalID: 6396638660480033671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock2_BG_Spr_3
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 39
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b1af9f1ce7d7a50800000000000000
+      internalID: 6520507207090051850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock2_BG_Spr_4
+      rect:
+        serializedVersion: 2
+        x: 1457
+        y: 68
+        width: 56
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7c11a0a5f718c9c0800000000000000
+      internalID: -3906846333014565764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock2_BG_Spr_5
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 80
+        width: 83
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c0e89bfc8cfcfb70800000000000000
+      internalID: 8934293443242942661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock2_BG_Spr_6
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 30
+        width: 44
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29795af29d67104c0800000000000000
+      internalID: -4323043492119603310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock2_BG_Spr_7
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 13
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23dda2d7510050eb0800000000000000
+      internalID: -4754393739325416142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock2_BG_Spr_8
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 25
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 383155a241b184870800000000000000
+      internalID: 8667207256298034051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock2_BG_Spr_9
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 23
+        width: 40
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caa9e6f0cdf8d2790800000000000000
+      internalID: -7553222824715969876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock2_BG_Spr_10
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 30
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0651f52563b157040800000000000000
+      internalID: 4644648510826681696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock2_BG_Spr_11
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 0
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19805c2a1ed3959e0800000000000000
+      internalID: -1632205350637336431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rock2_BG_Spr_0: 2567453113749438938
+      rock2_BG_Spr_1: 8970561853446904756
+      rock2_BG_Spr_10: 4644648510826681696
+      rock2_BG_Spr_11: -1632205350637336431
+      rock2_BG_Spr_2: 6396638660480033671
+      rock2_BG_Spr_3: 6520507207090051850
+      rock2_BG_Spr_4: -3906846333014565764
+      rock2_BG_Spr_5: 8934293443242942661
+      rock2_BG_Spr_6: -4323043492119603310
+      rock2_BG_Spr_7: -4754393739325416142
+      rock2_BG_Spr_8: 8667207256298034051
+      rock2_BG_Spr_9: -7553222824715969876
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
