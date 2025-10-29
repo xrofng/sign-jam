@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3ce9c091409764a95d6946979c724d, type: 3}
   m_Name: HouseWallRule
   m_EditorClassIdentifier: Assembly-CSharp::HouseWallRule
-  objectType: 12
-  roofDeductionHeight: 0
+  objectType: 8
+  roofDeductionHeight: 1

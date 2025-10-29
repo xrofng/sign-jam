@@ -113,6 +113,11 @@ public class ProceduralHouseGenerator : MonoBehaviour
         return null;
     }
 
+    public bool RemovePlacedObjectBounds(string key)
+    {
+        return _placedObjectBounds.Remove(key);
+    }
+
     private void ClearAndSetupParent()
     {
         if (partsParent == null)

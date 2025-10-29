@@ -11,6 +11,10 @@ public class MultiStoryRule : ProceduralRule
     [Tooltip("Height of each story (floor).")]
     public float storyHeight = 4.0f;
 
+    [Header("Debug")]
+    [Tooltip("Enable debug logs to see why multi-story generation is or isn't happening.")]
+    public bool enableDebugLogs = true;
+
     [Header("Story Roof Settings")]
     [Tooltip("Height of the story roof that separates floors.")]
     public float storyRoofHeight = 0.3f;
@@ -43,15 +47,39 @@ public class MultiStoryRule : ProceduralRule
     {
         float totalHeight = halfSize.y * 2f;
 
+        if (enableDebugLogs)
+        {
+            Debug.Log($"[MultiStoryRule] Total house height: {totalHeight:F2} | Min required: {minHeightForMultiStory:F2} | Story height: {storyHeight:F2}");
+        }
+
         if (totalHeight < minHeightForMultiStory)
         {
+            if (enableDebugLogs)
+            {
+                Debug.Log($"[MultiStoryRule] House too short for multi-story ({totalHeight:F2} < {minHeightForMultiStory:F2}). Skipping.");
+            }
             return;
         }
 
         int numStories = Mathf.FloorToInt(totalHeight / storyHeight);
+
+        if (enableDebugLogs)
+        {
+            Debug.Log($"[MultiStoryRule] Calculated stories: {numStories}");
+        }
+
         if (numStories < 2)
         {
+            if (enableDebugLogs)
+            {
+                Debug.Log($"[MultiStoryRule] Not enough height for 2+ stories. Need at least {storyHeight * 2:F2} height.");
+            }
             return;
+        }
+
+        if (enableDebugLogs)
+        {
+            Debug.Log($"[MultiStoryRule] Generating {numStories - 1} upper story/stories");
         }
 
         float fixedFirstStoryWidth = halfSize.x * 2f;
@@ -60,6 +88,11 @@ public class MultiStoryRule : ProceduralRule
         for (int i = 1; i < numStories; i++)
         {
             float storyRoofY = -halfSize.y + (i * storyHeight);
+
+            if (enableDebugLogs)
+            {
+                Debug.Log($"[MultiStoryRule] Generating story {i + 1} at Y: {storyRoofY:F2}");
+            }
 
             GenerateStoryRoof(generator, spawn, fixedFirstStoryHalfWidth, storyRoofY);
 
@@ -77,7 +110,7 @@ public class MultiStoryRule : ProceduralRule
         HouseObjectData storyRoofData = generator.houseData.GetObject(ObjectType.StoryRoof);
         if (storyRoofData == null || storyRoofData.objectPrefab == null)
         {
-            Debug.LogWarning("Story roof object not found. Skipping story roof generation.");
+            Debug.LogWarning("[MultiStoryRule] Story roof object not found. Skipping story roof generation.");
             return;
         }
 
@@ -86,7 +119,7 @@ public class MultiStoryRule : ProceduralRule
 
         if (roofRenderer == null || roofRenderer.sprite == null)
         {
-            Debug.LogError("Story roof prefab must have a SpriteRenderer with a Sprite assigned.");
+            Debug.LogError("[MultiStoryRule] Story roof prefab must have a SpriteRenderer with a Sprite assigned.");
             return;
         }
 
@@ -142,12 +175,25 @@ public class MultiStoryRule : ProceduralRule
         generator.leftMargin = upperStoryLeftMargin;
         generator.rightMargin = upperStoryRightMargin;
 
+        Bounds? savedDoorBounds = generator.GetPlacedObjectBounds(DoorRule.DoorBoundsKey);
+        bool doorBoundsExisted = savedDoorBounds.HasValue;
+
+        if (doorBoundsExisted)
+        {
+            generator.RemovePlacedObjectBounds(DoorRule.DoorBoundsKey);
+        }
+
         foreach (var rule in upperStoryRules)
         {
             if (rule != null)
             {
                 rule.Execute(generator, upperStoryHalfSize, upperStorySpawner.Spawn);
             }
+        }
+
+        if (doorBoundsExisted)
+        {
+            generator.StorePlacedObjectBounds(DoorRule.DoorBoundsKey, savedDoorBounds.Value);
         }
 
         generator.topMargin = originalTopMargin;

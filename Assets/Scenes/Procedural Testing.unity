@@ -526,7 +526,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6eed8097959d6ce41bc6d7f2234c2bd3, type: 2}
   - {fileID: 11400000, guid: cd1c4824f7c84fd459c0f6a26b5b4476, type: 2}
   - {fileID: 11400000, guid: a353b3675e84d2b4cb0cab8d7e954469, type: 2}
-  useCustomDimensions: 0
+  - {fileID: 11400000, guid: 8dd11154f413e2749b065a2348516abc, type: 2}
+  useCustomDimensions: 1
   customWidth: 8
   customHeight: 4
   topMargin: 0

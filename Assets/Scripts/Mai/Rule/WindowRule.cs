@@ -55,7 +55,7 @@ public class WindowRule : ProceduralRule
         }
         else
         {
-            Debug.LogWarning("Window Rule: No door found, distributing windows across entire width.");
+            Debug.Log("Window Rule: No door found, distributing windows across entire width.");
 
             // Directly call Percentage mode logic for no-door case
             PlaceWindowsPercentageNoDoor(generator, spawn, windowY, windowFullWidth,

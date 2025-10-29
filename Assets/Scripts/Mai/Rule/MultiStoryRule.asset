@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: MultiStoryRule
   m_EditorClassIdentifier: Assembly-CSharp::MultiStoryRule
   objectType: 4
-  minHeightForMultiStory: 4
+  minHeightForMultiStory: 0
   storyHeight: 4
-  storyRoofHeight: 0.4
+  enableDebugLogs: 0
+  storyRoofHeight: 0.45
   storyRoofHorizontalMargin: -0.25
   upperStoryTopMargin: 0.3
-  upperStoryBottomMargin: 0.1
-  upperStoryLeftMargin: 0.3
-  upperStoryRightMargin: 0.3
+  upperStoryBottomMargin: 0
+  upperStoryLeftMargin: 0
+  upperStoryRightMargin: 0
   upperStoryRules:
   - {fileID: 11400000, guid: 6eed8097959d6ce41bc6d7f2234c2bd3, type: 2}
