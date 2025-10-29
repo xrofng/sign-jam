@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9ac97df5213c7408287b4ab0f82dca, type: 3}
   m_Name: Wall_1
   m_EditorClassIdentifier: Assembly-CSharp::HouseObjectData
-  objectPrefab: {fileID: 3492861702894272820, guid: 115c397be61c1af4fb1d9571f20346a2, type: 3}
+  objectPrefab: {fileID: 1803694453573868800, guid: 538443c90730c58448103572b1401f07, type: 3}
   objectType: 8
   signType: 0
   candyType: 0

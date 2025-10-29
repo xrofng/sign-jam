@@ -15,6 +15,6 @@ MonoBehaviour:
   objectType: 1
   verticalAlignmentOffset: 1.5
   spacingPercentage: 1
-  minSpacing: 0.3
+  minSpacing: 0.35
   leftDeductionMargin: 0.3
   rightDeductionMargin: 0.3

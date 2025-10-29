@@ -16,9 +16,9 @@ MonoBehaviour:
   minHeightForMultiStory: 0
   storyHeight: 4
   enableDebugLogs: 0
-  storyRoofHeight: 0.45
-  storyRoofHorizontalMargin: -0.25
-  upperStoryTopMargin: 0.3
+  storyRoofHeight: 0.5
+  storyRoofHorizontalMargin: -0.2
+  upperStoryTopMargin: 0
   upperStoryBottomMargin: 0
   upperStoryLeftMargin: 0
   upperStoryRightMargin: 0
