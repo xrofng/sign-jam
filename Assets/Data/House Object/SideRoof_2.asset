@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b9ac97df5213c7408287b4ab0f82dca, type: 3}
-  m_Name: Wall Test
+  m_Name: SideRoof_2
   m_EditorClassIdentifier: Assembly-CSharp::HouseObjectData
-  objectPrefab: {fileID: 3492861702894272820, guid: 115c397be61c1af4fb1d9571f20346a2, type: 3}
-  objectType: 12
+  objectPrefab: {fileID: 4988360632404522848, guid: 9e86fbcd17a34094e8b61197edbb1415, type: 3}
+  objectType: 3
   signType: 0
   candyType: 0
   signLevel: 0

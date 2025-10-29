@@ -22,10 +22,6 @@ public class WindowRule : ProceduralRule
     [Tooltip("Additional deduction margin from the right edge (beyond generator's rightMargin). Prevents windows from generating too close to the right edge.")]
     public float rightDeductionMargin = 0.3f;
 
-    // Removed SpacingMode enum
-    // Removed spacingMode field
-    // Removed fixedSpacing field
-
     public override void Execute(
         ProceduralHouseGenerator generator,
         Vector2 halfSize,
@@ -66,9 +62,6 @@ public class WindowRule : ProceduralRule
                                         leftBoundary, rightBoundary);
         }
     }
-
-    // Removed PlaceWindowsFixedWithDoor method
-    // Removed PlaceWindowsFixedNoDoor method
 
     private void PlaceWindowsPercentageNoDoor(
         ProceduralHouseGenerator generator,

@@ -163,6 +163,7 @@ public class ProceduralHouseGenerator : MonoBehaviour
         UpdateHalfSize();
 
         Vector3 pos = transform.position;
+
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(pos, new Vector3(halfSize.x * 2, halfSize.y * 2, 0.05f));
 

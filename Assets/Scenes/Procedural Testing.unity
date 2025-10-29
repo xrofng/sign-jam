@@ -299,8 +299,8 @@ Camera:
   m_GameObject: {fileID: 459135315}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.0627451, g: 0.09411765, b: 0.29803923, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -483,7 +483,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.21568629, g: 0.19607845, b: 0.27450982, a: 0}
+  m_Color: {r: 0.23529412, g: 0.27450982, b: 0.47843137, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -522,8 +522,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProceduralHouseGenerator
   houseData: {fileID: 11400000, guid: add59941795451e4aaf6cdd4eda80ef6, type: 2}
   proceduralRules:
+  - {fileID: 11400000, guid: ab05e8537aa5f0146b8fe9acfc2e2621, type: 2}
   - {fileID: 11400000, guid: 6eed8097959d6ce41bc6d7f2234c2bd3, type: 2}
   - {fileID: 11400000, guid: cd1c4824f7c84fd459c0f6a26b5b4476, type: 2}
+  - {fileID: 11400000, guid: a353b3675e84d2b4cb0cab8d7e954469, type: 2}
   useCustomDimensions: 0
   customWidth: 8
   customHeight: 4

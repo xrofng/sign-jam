@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9ac97df5213c7408287b4ab0f82dca, type: 3}
+  m_Name: SideRoof_1
+  m_EditorClassIdentifier: Assembly-CSharp::HouseObjectData
+  objectPrefab: {fileID: 7931594251170484789, guid: 7ca816e405e37b748bda73eef4c1b3d4, type: 3}
+  objectType: 3
+  signType: 0
+  candyType: 0
+  signLevel: 0
+  IsInteractable: 0
+  interactionEffectType: 0
+  interactionEffectAsset:
+    soundEffect: {fileID: 0}
+    interactionText: 
+    visualEffectPrefab: {fileID: 0}
