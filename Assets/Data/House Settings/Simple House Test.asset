@@ -17,4 +17,11 @@ MonoBehaviour:
   houseObjects:
   - {fileID: 11400000, guid: bf93aa3c4612daf43ac98bb3d45eb898, type: 2}
   - {fileID: 11400000, guid: 506516f81802c1d489bd745b387bba7d, type: 2}
+  - {fileID: 11400000, guid: 5ddcd37d4f9a1e744be4b8e80d2ba089, type: 2}
+  - {fileID: 11400000, guid: 6f56fe8b09d236e40ae09848fa6a3ba7, type: 2}
+  - {fileID: 11400000, guid: 8aebc27364b18d34ba0fc3b494b96761, type: 2}
+  - {fileID: 11400000, guid: 4d2958605bf44b9409d7296b687f46b5, type: 2}
+  - {fileID: 11400000, guid: 483d8ec645026c046b488b6ad8d0a4b5, type: 2}
+  - {fileID: 11400000, guid: 96ceda3250772b54b891ba53c2bd4b03, type: 2}
+  - {fileID: 11400000, guid: e2cb12ac0bf3ed3469f96863c50efa19, type: 2}
   decorations: []

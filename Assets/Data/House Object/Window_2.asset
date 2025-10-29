@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b9ac97df5213c7408287b4ab0f82dca, type: 3}
-  m_Name: Simple Window Test
+  m_Name: Window_2
   m_EditorClassIdentifier: Assembly-CSharp::HouseObjectData
-  objectPrefab: {fileID: 965744970418682406, guid: 648d9b2c782c69248921efee6035b326, type: 3}
+  objectPrefab: {fileID: 4386205384085637169, guid: 5eb5bc5c7dfcfea459cbc459abe25413, type: 3}
   objectType: 1
   signType: 0
   candyType: 0

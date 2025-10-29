@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DoorRule
   objectType: 0
   doorVerticalOffset: 0
+  enableRandomXPosition: 1
+  minSpacingFromLeft: 0.25
+  minSpacingFromRight: 0.25
+  deductionMargin: 0.3

@@ -35,14 +35,11 @@ public enum ObjectType
     Window,
     WideWindow,
     SideRoof,
-    WideSideRoof,
-    ShortSideRoof,
-    ThinRoof,
-    GarageDoor,
-    GarageWindow,
+    StoryRoof,
     SideFence,
     Fence,
     Stair,
+    Wall,
     Decoration
 }
 
