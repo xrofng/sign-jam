@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3705b883bb9240a49a6734e2a0194231, type: 3}
-  m_Name: R_Ravenwood
+  m_Name: R_Copper Hollow
   m_EditorClassIdentifier: Assembly-CSharp::HouseRulesetSO
-  DistrictName: Ravenwood
+  DistrictName: Copper Hollow
   GhostRules:
-  - RuleSummary: Scarecrow Party
+  - RuleSummary: Opening The Portal
     HouseConditions:
-    - rid: 191062824322859082
+    - rid: 191062824322859083
   RequiredScoreForGhost: 1
   references:
     version: 2
     RefIds:
-    - rid: 191062824322859082
+    - rid: 191062824322859083
       type: {class: DecorCountCond, ns: , asm: Assembly-CSharp}
       data:
-        Summary: ' >= 3'
-        Decoration: {fileID: 11400000, guid: 0a5ab6a9952e1fd43b5f64f6f59d2b16, type: 2}
+        Summary: ' >= 4'
+        Decoration: {fileID: 11400000, guid: 1714b29521dd6c941aef7a555b95d182, type: 2}
         ComparisonMethod: 4
-        TargetNumber: 3
+        TargetNumber: 4
