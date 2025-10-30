@@ -5,6 +5,7 @@ public class WindowRule : ProceduralRule
 {
     [Header("Window Placement")]
     [Tooltip("Vertical offset added to the window's center Y position. Aligns windows relative to the door's center (dependent mode) or the house bottom (fallback mode).")]
+    public int maxWindowLimit = 10;
     public float verticalAlignmentOffset = 1.0f;
 
     [Header("Spacing")]
@@ -61,15 +62,15 @@ public class WindowRule : ProceduralRule
     }
 
     private void PlaceWindowsInSpace(
-        ProceduralHouseGenerator generator,
-        System.Func<HouseObjectData, Vector3, GameObject> spawn,
-        float windowY,
-        float windowFullWidth,
-        float startX,
-        float endX
+       ProceduralHouseGenerator generator,
+       System.Func<HouseObjectData, Vector3, GameObject> spawn,
+       float windowY,
+       float windowFullWidth,
+       float startX,
+       float endX
     )
     {
-        // Ensure startX is less than endX for consistent calculations
+        // Ensure startX is less than endX for consistent calculations  
         if (startX > endX)
         {
             float temp = startX;
@@ -80,28 +81,28 @@ public class WindowRule : ProceduralRule
         float windowHalfWidth = windowFullWidth * 0.5f;
         float availableSpace = endX - startX;
 
-        // Exit if there isn't enough room for one window + min spacing
+        // Exit if there isn't enough room for one window + min spacing  
         if (availableSpace < windowFullWidth + minSpacing)
             return;
 
-        // Calculate maximum count and necessary spacing
+        // Calculate maximum count and necessary spacing  
         int maxWindowCount = Mathf.FloorToInt((availableSpace - minSpacing) / (windowFullWidth + minSpacing));
+        maxWindowCount = Mathf.Min(maxWindowCount, maxWindowLimit); // Limit by maxWindow  
         if (maxWindowCount <= 0)
             return;
 
         float totalWindowWidth = maxWindowCount * windowFullWidth;
         float leftoverSpace = availableSpace - totalWindowWidth;
-        int gapCount = maxWindowCount + 1; 
+        int gapCount = maxWindowCount + 1;
 
-        // Calculate spacing, prioritizing spacingPercentage but enforcing minSpacing
+        // Calculate spacing, prioritizing spacingPercentage but enforcing minSpacing  
         float calculatedSpacing = (leftoverSpace * spacingPercentage) / gapCount;
         calculatedSpacing = Mathf.Max(calculatedSpacing, minSpacing);
 
-        // Loop and spawn
+        // Loop and spawn  
         for (int i = 0; i < maxWindowCount; i++)
         {
-
-            //random window for EACH iteration 
+            // Random window for EACH iteration  
             HouseObjectData windowData = generator.houseData.GetRandomObject(objectType);
             if (windowData == null) continue;
             float windowX = startX

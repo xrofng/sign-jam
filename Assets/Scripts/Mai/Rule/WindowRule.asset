@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WindowRule
   m_EditorClassIdentifier: Assembly-CSharp::WindowRule
   objectType: 1
+  maxWindowLimit: 5
   verticalAlignmentOffset: 1.5
   spacingPercentage: 1
   minSpacing: 0.35
