@@ -58,17 +58,18 @@ public class House : BetterMonoBehaviour
     public const float GROUND_POSY = -1.5f;
     public Bounds HouseBound => BoundSprite.bounds;
 
+    public int FloorCount { get; private set; }
 
     protected override void Awake()
     {
         base.Awake();
 
-        RandomGenerateHouse();
 
         CacheAreaToDict();
         // Optional: initialize if HouseSO exists
         if (TestHouseSO != null)
         {
+            RandomGenerateHouse();
             ConstructHouse(TestHouseSO.HouseData);
         }
     }
@@ -82,14 +83,36 @@ public class House : BetterMonoBehaviour
         _randFromBell = MathUtils.BellCurve01(UnityEngine.Random.Range(.0f, 1));
         if (floor > 0)
         {
-            HouseGenerator.customHeight = ((float)floor * 3) + _randFromBell;
+            HouseGenerator.customHeight = GetHeight(floor);
         }
         else
         {
-            HouseGenerator.customHeight = Mathf.Lerp(3, 7, _randFromBell);
+            float chance = Random.Range(0, 10);
+            float height = GetHeight(1); // 1 Floor 
+            if (chance == 0)             // 3 Floor 
+            {
+                height = GetHeight(3);
+            }
+            else if (chance >= 6)       // 2 Floor
+            {
+                height = GetHeight(2);
+            }
+            HouseGenerator.customHeight = height;
         }
 
         HouseGenerator.transform.localPosition = Vector3.up * HouseGenerator.customHeight / 2;
+    }
+
+    private float GetHeight(int floor)
+    {
+        FloorCount = floor;
+        switch (floor)
+        {
+            case 1: return Random.Range(3.5f, 4.5f);
+            case 2: return Random.Range(6f, 7f);
+            case 3: return Random.Range(8.5f, 9f);
+        }
+        return 5;
     }
 
     private void CacheAreaToDict()
@@ -128,11 +151,11 @@ public class House : BetterMonoBehaviour
 
         if (houseSO.Floor > 0)
         {
-            ConstructFloor(houseSO.Floor);
+            RandomGenerateHouse(houseSO.Floor);
         }
         else
         {
-
+            RandomGenerateHouse();
         }
 
         if (houseSO.HouseName.Length > 0)

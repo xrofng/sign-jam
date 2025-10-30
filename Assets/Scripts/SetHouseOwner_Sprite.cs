@@ -18,8 +18,6 @@ public class SetHouseOwner_Sprite : MonoBehaviour
 
     void setSprite(bool isGhost)
     {
-        Debug.Log("Set Sprite");
-
         if (isGhost)
         {
             houseOwner.sprite = _ghostHouseOwnerList[Random.Range(0, _ghostHouseOwnerList.Count)];
