@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WindowRoofRule
   objectType: 4
   verticalOffset: -0.2
-  windowCount: 2
+  windowCount: 1
   leftMargin: 0.5
   rightMargin: 0.5
   minSpacingBetweenWindows: 0.3
