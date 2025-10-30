@@ -12,10 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c388d7c034edadd4b93bbbd8cd2d0b46, type: 3}
   m_Name: test_house 1
   m_EditorClassIdentifier: Assembly-CSharp::HouseSO
-  HouseName: Nean
+  HouseData:
+    HouseName: 'Ninja test house '
+    Decorations:
+    - {fileID: 11400000, guid: b0f22b4afd112184e9a4c6ef8065fdeb, type: 2}
+    - {fileID: 11400000, guid: 1714b29521dd6c941aef7a555b95d182, type: 2}
+    - {fileID: 11400000, guid: eca54b1b7643a1d48b907b94c7ae8d2f, type: 2}
+    - {fileID: 11400000, guid: 2d0aeaebc3f035741bc36dfd85a99c71, type: 2}
+    - {fileID: 11400000, guid: 86c45a55307b65245853dc00370b6ec6, type: 2}
+    - {fileID: 11400000, guid: 6731b1ebed995ea4fa2ef20efea9cc61, type: 2}
+    - {fileID: 11400000, guid: 4700699d57e7a3645b1e0f17326cf262, type: 2}
+    - {fileID: 11400000, guid: 0a5ab6a9952e1fd43b5f64f6f59d2b16, type: 2}
+    - {fileID: 11400000, guid: 7721a2b138d68a14baecdb75bbff74f6, type: 2}
+    - {fileID: 11400000, guid: 602c1b4c4e878b4499e4c1337618de4b, type: 2}
+    - {fileID: 11400000, guid: c64d2efc70c34de4aa3df574f005d7fd, type: 2}
+    - {fileID: 11400000, guid: 42d1d8d37ebb26c49b0f60e760af404a, type: 2}
+    ColorPaletteId: 
+    Floor: 0
   AmbientSound: {fileID: 0}
-  Decorations:
-  - {fileID: 11400000, guid: b0f22b4afd112184e9a4c6ef8065fdeb, type: 2}
-  - {fileID: 11400000, guid: 7721a2b138d68a14baecdb75bbff74f6, type: 2}
-  - {fileID: 11400000, guid: 8c61c74ec9aadb14d912639520122cc6, type: 2}
-  - {fileID: 11400000, guid: c64d2efc70c34de4aa3df574f005d7fd, type: 2}

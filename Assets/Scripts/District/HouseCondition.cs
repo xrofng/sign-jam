@@ -79,8 +79,15 @@ public class DecorationRequest
         }
         else
         {
-            this.RequestedInspectionText = decoration.RandomInspectionText();
+
+            if (decoration.HasInpectionText())
+            {
+                this.RequestedInspectionText = decoration.RandomInspectionText();
+            }
+                
         }
         this.MinQuantity = v2;
     }
+
+
 }

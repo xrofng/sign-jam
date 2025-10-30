@@ -2931,6 +2931,7 @@ MonoBehaviour:
   moveSpeed: 5
   pathFindingManager: {fileID: 879853908}
   useSemiRealPathfinding: 0
+  CanMove: 1
 --- !u!4 &737639427
 Transform:
   m_ObjectHideFlags: 0
@@ -8291,7 +8292,7 @@ MonoBehaviour:
   HouseOffset: 3.67
   PreferedDistrict: 4
   HousePerDistrict: 4
-  NormalHouseSO: {fileID: 11400000, guid: 5b9c63bb9b7e2434397e8530c6d80300, type: 2}
+  NormalHouseSO: {fileID: 11400000, guid: 7ca14cf535e437345bbec2ecc94e604c, type: 2}
   AllGhostHouseRuleset:
   - {fileID: 11400000, guid: 7a535d1fcb045d148b98634340d224b1, type: 2}
   HousePrefab: {fileID: 5742194609314153377, guid: d478e01e472af0045968ea0de497fed8, type: 3}

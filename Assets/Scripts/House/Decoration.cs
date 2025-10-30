@@ -19,6 +19,9 @@ public class Decoration : ObjectWithSprite
         MainSpriteRenderer.sortingLayerName = GetSortingLayer(area);
         if (decorationSO.HasInpectionText())
         {
+            Debug.Log(interactAction_Dialogue);
+            Debug.Log(decorationSO);
+            Debug.Log(decorationSO.DecorationID);
             interactAction_Dialogue.SetDialogueText(decorationSO.RandomInspectionText());
         }
     }

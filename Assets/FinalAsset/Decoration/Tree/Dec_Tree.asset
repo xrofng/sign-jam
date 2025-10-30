@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DecorationSO
   DecorationID: Tree
   AssociatedArea: 1
-  BasePrefab: {fileID: 0}
+  BasePrefab: {fileID: 1949274649600741303, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
   Textures:
   - {fileID: 21300000, guid: 6a153258bcda6cf429fd1f1279fa7fa9, type: 3}
   InspectionTexts:

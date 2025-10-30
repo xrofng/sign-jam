@@ -22,6 +22,7 @@ public class DecorCountCond : HouseCondition
 
     public override bool EvaluateCondition(HouseSO houseSO, House house)
     {
+        if (house.DecorData.ContainsKey(Decoration.DecorationID) == false) return false;
         switch (ComparisonMethod)
         {
             case EComparisonMethod.Equal:

@@ -194,10 +194,10 @@ public class House : BetterMonoBehaviour
     private HouseSO.EArea RandomValueArea(HouseSO.EArea associatedArea)
     {
         HouseSO.EArea area = EnumUtils.GetRandomFlag(associatedArea);
-        while (_areaToHouseArea[area].DecorCount + 1 > GetDecorLimit(area))
+        /*while (_areaToHouseArea[area].DecorCount + 1 > GetDecorLimit(area))
         {
             area = EnumUtils.GetRandomFlag(associatedArea);
-        }
+        }*/
 
         return area;
     }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DecorationSO
   DecorationID: MailBox
   AssociatedArea: 1
-  BasePrefab: {fileID: 0}
+  BasePrefab: {fileID: 1949274649600741303, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
   Textures:
   - {fileID: 21300000, guid: 2d7e0554ee1fd1c4db0088e58f63b9db, type: 3}
   - {fileID: 21300000, guid: bc4633360b38dd74b9bc823eea4f53a3, type: 3}

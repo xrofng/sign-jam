@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 40230388b8397ee4abaa13fb120f9b98
+guid: 2fe327cb971b854458b3ee685e833010
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7958705838033374252
-    second: 289-2891369_gravestone-clipart-cute-clip-art-grave-stone_0
+      213: 8627964713454848486
+    second: tree-swing-clipart-original_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 302.13
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 289-2891369_gravestone-clipart-cute-clip-art-grave-stone_0
+      name: tree-swing-clipart-original_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 2400
-        height: 2338
+        width: 1917
+        height: 2107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c2c8ecbeac0037e60800000000000000
-      internalID: 7958705838033374252
+      spriteID: 6e9c418a130bcb770800000000000000
+      internalID: 8627964713454848486
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      289-2891369_gravestone-clipart-cute-clip-art-grave-stone_0: 7958705838033374252
+      tree-swing-clipart-original_0: 8627964713454848486
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
