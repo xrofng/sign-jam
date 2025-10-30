@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b9ac97df5213c7408287b4ab0f82dca, type: 3}
-  m_Name: StoryRoof_1
+  m_Name: WindowRoof_1
   m_EditorClassIdentifier: Assembly-CSharp::HouseObjectData
-  objectPrefab: {fileID: 2869958960823359795, guid: 06800c0e76a00d940b35f3c12593b51f, type: 3}
-  objectType: 5
+  objectPrefab: {fileID: 2407398679973198785, guid: af0190f7097cc0c4fa5c6dfd18b638ac, type: 3}
+  objectType: 4
   signType: 0
   candyType: 0
   signLevel: 0

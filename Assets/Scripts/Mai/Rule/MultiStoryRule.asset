@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d008afb5f82e426429845eb90994b9a2, type: 3}
   m_Name: MultiStoryRule
   m_EditorClassIdentifier: Assembly-CSharp::MultiStoryRule
-  objectType: 4
+  objectType: 5
   minHeightForMultiStory: 0
   storyHeight: 4
   enableDebugLogs: 0
+  GenerationChancesPercent: 50
   storyRoofHeight: 0.5
   storyRoofHorizontalMargin: -0.2
   upperStoryTopMargin: 0

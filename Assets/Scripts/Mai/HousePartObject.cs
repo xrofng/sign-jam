@@ -35,6 +35,7 @@ public enum ObjectType
     Window,
     WideWindow,
     SideRoof,
+    WindowRoof,
     StoryRoof,
     SideFence,
     Fence,

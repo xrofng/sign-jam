@@ -4,13 +4,14 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "MultiStoryRule", menuName = "ProceduralHouse/Rule/Multi Story Rule")]
 public class MultiStoryRule : ProceduralRule
 {
-    // ... (All your existing public variables remain unchanged) ...
     [Header("Story Conditions")]
     public float minHeightForMultiStory = 8.0f;
     public float storyHeight = 4.0f;
     [Header("Debug")]
     public bool enableDebugLogs = true;
     [Header("Story Roof Settings")]
+    [Range(0, 100)]
+    public int GenerationChancesPercent = 50;
     public float storyRoofHeight = 0.3f;
     public float storyRoofHorizontalMargin = 0.2f;
     [Header("Upper Story Margins")]
@@ -48,6 +49,13 @@ public class MultiStoryRule : ProceduralRule
             return;
         }
 
+        // Chance check for spawning story roofs    
+        bool shouldSpawnStoryRoofs = Random.Range(0, 100) < GenerationChancesPercent;
+        if (!shouldSpawnStoryRoofs)
+        {
+            // We DO NOT return here, because we still need to execute the upperStoryRules!
+        }
+
         Log($"Calculating {numStories} total stories. Generating {numStories - 1} upper story/stories.");
 
         // Loop starts at 1 (the first *upper* story)
@@ -57,8 +65,11 @@ public class MultiStoryRule : ProceduralRule
             float storyFloorY = -halfSize.y + (i * storyHeight);
             Log($"Generating story {i + 1} at Y: {storyFloorY:F2}");
 
-            // 1. Spawn the floor/roof separator
-            SpawnStoryRoof(generator, spawn, halfSize.x, storyFloorY);
+            // 1. Spawn the floor/roof separator (only if the global chance passed)
+            if (shouldSpawnStoryRoofs) // spawn check
+            {
+                SpawnStoryRoof(generator, spawn, halfSize.x, storyFloorY);
+            }
 
             // 2. Execute rules for the story *above* that floor
             ExecuteUpperStoryRules(generator, spawn, halfSize.x, storyFloorY);
@@ -73,6 +84,7 @@ public class MultiStoryRule : ProceduralRule
         float floorY
     )
     {
+
         HouseObjectData roofData = generator.houseData.GetObject(ObjectType.StoryRoof);
         if (roofData == null || roofData.objectPrefab == null)
         {
