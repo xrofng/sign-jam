@@ -26,7 +26,6 @@ public class Interaction_Change_Material : InteractAction
 
     protected override void OnDeselect()
     {
-        Debug.Log("Change mat to Normal");
         _spriteRenderer.material = NormalMat;
     }
 
@@ -38,7 +37,6 @@ public class Interaction_Change_Material : InteractAction
 
     protected override void OnSelect()
     {
-        Debug.Log("Change mat to Select");
 
         _spriteRenderer.material = SelectMat;
     }
