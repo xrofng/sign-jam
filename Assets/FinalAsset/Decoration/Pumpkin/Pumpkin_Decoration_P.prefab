@@ -280,6 +280,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7411021954059688291, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5790138027940140747}
+    - targetCorrespondingSourceObject: {fileID: 7411021954059688291, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5348433008591024996}
   m_SourcePrefab: {fileID: 100100000, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
 --- !u!114 &4267593301261046678 stripped
 MonoBehaviour:
@@ -339,3 +342,24 @@ MonoBehaviour:
   MouthRenderer: {fileID: 3525379381128232917}
   FaceGroup: {fileID: 8860681418438750625}
   BiggestPumpkin: 137
+--- !u!114 &5348433008591024996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328931230190530033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791a54afe2a4f0d47b73271b1c93d7f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutomationSpriteTint
+  AutomateOnStart: 1
+  OnStartDelay: 0
+  OnEndDelay: 0
+  PossibleTints:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.95, g: 0.95, b: 0.95, a: 1}
+  - {r: 0.9, g: 0.9, b: 0.9, a: 1}
+  - {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mainSpriteRenderer: {fileID: 0}

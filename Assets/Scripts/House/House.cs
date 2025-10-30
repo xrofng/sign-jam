@@ -7,6 +7,7 @@ public class House : BetterMonoBehaviour
     [SerializeField] HouseArea[] HouseAreas;
     [SerializeField] InteractAction_Dialogue SignDialogue;
     [SerializeField] SpriteRenderer BoundSprite;
+    [SerializeField] ProceduralHouseGenerator HouseGenerator;
 
     [System.Serializable]
     public class HouseArea
@@ -35,6 +36,8 @@ public class House : BetterMonoBehaviour
         }
     }
     private Dictionary<string, HouseDecorData> _decorToData;
+    private float _randFromBell;
+
     public Dictionary<string, HouseDecorData> DecorData => _decorToData;
 
     public const float GROUND_POSY = -1.5f;
@@ -45,12 +48,25 @@ public class House : BetterMonoBehaviour
     {
         base.Awake();
 
+        RandomGenerateHouse();
+
         CacheAreaToDict();
         // Optional: initialize if HouseSO exists
         if (TestHouseSO != null)
         {
             ConstructHouse(TestHouseSO.HouseData);
         }
+    }
+
+    private void RandomGenerateHouse()
+    {
+        _randFromBell = MathUtils.BellCurve01(Random.Range(.0f, 1));
+        HouseGenerator.customWidth = Mathf.Lerp(4, 7, _randFromBell);
+
+        _randFromBell = MathUtils.BellCurve01(Random.Range(.0f, 1));
+        HouseGenerator.customHeight = Mathf.Lerp(3, 7, _randFromBell);
+
+        HouseGenerator.transform.localPosition = Vector3.up * HouseGenerator.customHeight / 2;
     }
 
     private void CacheAreaToDict()
