@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61c0ab29fdb2574c925abd696a9e658, type: 3}
   m_Name: Dec_PotionPot
   m_EditorClassIdentifier: Assembly-CSharp::DecorationSO
-  DecorationID: 
-  AssociatedArea: 0
-  BasePrefab: {fileID: 0}
-  Textures: []
-  InspectionTexts: []
+  DecorationID: Potion Pot
+  AssociatedArea: 1
+  BasePrefab: {fileID: 1949274649600741303, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
+  Textures:
+  - {fileID: 21300000, guid: 2c5010bbba3df7d47a062d2b8448d485, type: 3}
+  InspectionTexts:
+  - It smells sweet, like candy and smoke.
+  - Someone left a spoon that looks too big.
+  - It smells like flowers and blood.

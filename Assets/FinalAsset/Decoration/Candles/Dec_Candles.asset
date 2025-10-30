@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61c0ab29fdb2574c925abd696a9e658, type: 3}
   m_Name: Dec_Candles
   m_EditorClassIdentifier: Assembly-CSharp::DecorationSO
-  DecorationID: 
-  AssociatedArea: 0
-  BasePrefab: {fileID: 0}
-  Textures: []
+  DecorationID: Candles
+  AssociatedArea: 63
+  BasePrefab: {fileID: 58179951700349167, guid: 68d1bac3b2508cc40ae0e4e1424bf09b, type: 3}
+  Textures:
+  - {fileID: 21300000, guid: a0a92f89ba81b1145bde64d5e710b646, type: 3}
   InspectionTexts: []

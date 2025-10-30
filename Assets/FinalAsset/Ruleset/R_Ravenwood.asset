@@ -44,7 +44,7 @@ MonoBehaviour:
     - rid: 191062824322859107
       type: {class: DecorContainTextCond, ns: , asm: Assembly-CSharp}
       data:
-        Summary: 'whispered on '
+        Summary: whispered on Tree
         Decoration: {fileID: 11400000, guid: 602c1b4c4e878b4499e4c1337618de4b, type: 2}
         ContainingText: whispered
     - rid: 191062824322859112
@@ -57,7 +57,7 @@ MonoBehaviour:
       type: {class: DecorCountCond, ns: , asm: Assembly-CSharp}
       data:
         Summary: Grave >= 1
-        Decoration: {fileID: 11400000, guid: 8c61c74ec9aadb14d912639520122cc6, type: 2}
+        Decoration: {fileID: 11400000, guid: 2d0aeaebc3f035741bc36dfd85a99c71, type: 2}
         ComparisonMethod: 4
         TargetNumber: 1
     - rid: 191062824322859117
