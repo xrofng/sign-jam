@@ -9,7 +9,7 @@ public class PlayerController : ObjectWithSprite
     [SerializeField] PathFindingManager pathFindingManager;
     [SerializeField] bool useSemiRealPathfinding = false;
 
-    bool isMoving;
+    public bool isMoving { get; private set; }
     private List<Vector3> movePos;
 
     protected override void Start()
@@ -17,10 +17,23 @@ public class PlayerController : ObjectWithSprite
         base.Start();
         mouseInput.OnClickEvent += movePlayerCharacter;
     }
+    public void StopMove()
+    {
+        if (isMoving)
+        {
+            StopAllCoroutines();
+            isMoving = false;
+        }
+    }
+
 
     void movePlayerCharacter(Vector3 mousePosition, InteractObject interactObject)
     {
-        if (isMoving) return;
+        if (isMoving)
+        {
+            StopAllCoroutines();
+            isMoving = false;
+        }
 
         isMoving = true;
         if (interactObject == null)
@@ -46,7 +59,7 @@ public class PlayerController : ObjectWithSprite
             foreach (Transform t in pathList)
                 movePos.Add(t.position);
         }
-        
+
 
         // make sure we end exactly at endPos
         movePos.Add(endPos);

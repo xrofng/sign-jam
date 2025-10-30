@@ -58,7 +58,8 @@ public class Decoration : ObjectWithSprite
 
     public void SetReady()
     {
-        gameObject.AddComponent<CircleCollider2D>();
+        CircleCollider2D circleCol = gameObject.AddComponent<CircleCollider2D>();
+        circleCol.isTrigger = true;
         EventBus.TriggerEvent(new EvsDecorationReadied(gameObject, area));
     }
 

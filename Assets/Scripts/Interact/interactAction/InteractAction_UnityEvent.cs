@@ -2,10 +2,15 @@ using UnityEngine;
 using UnityEngine.Events;
 public class InteractAction_UnityEvent : InteractAction
 {
-    [SerializeField] UnityEvent OnInteract;
-
+    [SerializeField] UnityEvent _onInteract;
+    [SerializeField] float _delay = 0;
     protected override void OnDoingAction()
     {
-        OnInteract?.Invoke();
+        Invoke(nameof(InvokeUnityEvent), _delay);
+    }
+
+    void InvokeUnityEvent()
+    {
+        _onInteract?.Invoke();
     }
 }

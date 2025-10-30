@@ -1,7 +1,7 @@
 using MoreMountains.Feedbacks;
 using UnityEngine;
 
-[RequireComponent (typeof(MoreMountains.Feedbacks.MMF_Player))]
+[RequireComponent(typeof(MoreMountains.Feedbacks.MMF_Player))]
 public class InteractAction_MMF : InteractAction
 {
     MMF_Player mmf;

@@ -19,6 +19,11 @@ public class PathFindingManager : MonoBehaviour
 
     public List<Transform> GetPath(Vector3 startPosition, Vector3 endPosition)
     {
+        if (pathFindingDot.Count == 0)
+        {
+            return new List<Transform>();
+        }
+
         if (startPosition == endPosition)
         {
             return new List<Transform>();
@@ -40,11 +45,9 @@ public class PathFindingManager : MonoBehaviour
         List<Transform> copyOfPath = new List<Transform>();
 
 
-        Debug.Log($"Start Dot {closestStartDot.gameObject.name}");
         copyOfPath.Add(closestStartDot);
 
 
-        Debug.Log($"End Dot {endPositionDot.gameObject.name}");
 
         copyOfPath.Add(endPositionDot);
 

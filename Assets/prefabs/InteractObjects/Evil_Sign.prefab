@@ -65,6 +65,10 @@ PrefabInstance:
       value: 0.01879561
       objectReference: {fileID: 0}
     - target: {fileID: 1397927908786308537, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397927908786308537, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.59
       objectReference: {fileID: 0}
@@ -86,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7299688374982533351, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
       propertyPath: m_Name
-      value: Sign (1) Variant
+      value: Evil_Sign
       objectReference: {fileID: 0}
     - target: {fileID: 8543424276105153357, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
       propertyPath: _dialogueText

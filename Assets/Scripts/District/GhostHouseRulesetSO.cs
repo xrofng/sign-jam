@@ -30,5 +30,12 @@ public class GhostRule
     [ListDrawerSettings(ListElementLabelName = "ListLabel", ShowIndexLabels = true)]
     List<HouseCondition> HouseConditions;
 
+    public bool evaluateIsGhost()
+    {
+
+
+        return false;
+    }
+
     public List<HouseCondition> GhostConditions => HouseConditions;
 }
