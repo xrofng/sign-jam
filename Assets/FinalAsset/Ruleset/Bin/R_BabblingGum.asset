@@ -17,8 +17,8 @@ MonoBehaviour:
   - RuleSummary: 
     HouseConditions:
     - rid: 1164321871537373280
-    - rid: 1164321932234195182
     - rid: 1164321871537373285
+    - rid: 1164321932234195282
   RequiredScoreForGhost: 1
   references:
     version: 2
@@ -35,7 +35,7 @@ MonoBehaviour:
         Decoration: {fileID: 11400000, guid: ebe69f767c25645458be11fe9966bac9, type: 2}
         ComparisonMethod: 4
         TargetNumber: 2
-    - rid: 1164321932234195182
+    - rid: 1164321932234195282
       type: {class: WallColorCond, ns: , asm: Assembly-CSharp}
       data:
         Summary: 

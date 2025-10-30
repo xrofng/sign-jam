@@ -12,6 +12,7 @@ public class RandomHouseColor : MonoBehaviour
     public HouseColorSO[] AllColorPalettes;
     private int _currRand;
     private bool _colorSetted = false;
+    public string gotPalette;
 
     private HouseColorSO CurrPalette => AllColorPalettes[_currRand];
     public string CurrentColorId => CurrPalette.PaletteId;
@@ -29,6 +30,7 @@ public class RandomHouseColor : MonoBehaviour
     private void ApplyColor()
     {
         _colorSetted = true;
+        gotPalette = CurrPalette.PaletteId;
         foreach (SpriteRenderer spriteRenderer in GenHouseGroup.GetComponentsInChildren<SpriteRenderer>())
         {
             ApplyColorToPart(spriteRenderer, "Wall", "TrapezoidShape");
@@ -50,10 +52,6 @@ public class RandomHouseColor : MonoBehaviour
     private void ApplyColors(SpriteRenderer spriteRenderer, HouseColorSO houseColorSO, string colorId)
     {
         //Debug.Log(houseColorSO.PaletteId + spriteRenderer.name + v  + houseColorSO.GetColor(v));
-        if (CurrPalette.PaletteId == "Yellow")
-        {
-            Debug.Log(spriteRenderer.name + CurrPalette.GetColor(colorId));
-        }
         spriteRenderer.color = houseColorSO.GetColor(colorId);
     }
 
@@ -64,9 +62,7 @@ public class RandomHouseColor : MonoBehaviour
             if (AllColorPalettes[i].PaletteId == colorPaletteId)
             {
                 _currRand = i;
-                Debug.Log("Find color" + colorPaletteId);
-                Debug.Log("-- curr" + CurrPalette.PaletteId + _colorSetted);
-                ApplyColor();
+                Invoke(nameof(ApplyColor), .25f);
             }
         }
     }

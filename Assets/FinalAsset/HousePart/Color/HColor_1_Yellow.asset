@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7355d1adbe3b294392e3ccda2cf2ba1, type: 3}
-  m_Name: HColor_5
+  m_Name: HColor_1_Yellow
   m_EditorClassIdentifier: Assembly-CSharp::HouseColorSO
-  PaletteId: Grey
+  PaletteId: Yellow
   areaColors:
   - HousePartId: Wall
-    Tint: {r: 0.5471698, g: 0.4267719, b: 0.4000534, a: 1}
+    Tint: {r: 0.6792453, g: 0.42263806, b: 0.13777146, a: 1}
   - HousePartId: Storey
     Tint: {r: 0.043137256, g: 0.050980397, b: 0.16862746, a: 1}
   - HousePartId: Light
