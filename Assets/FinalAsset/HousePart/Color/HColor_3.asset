@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7355d1adbe3b294392e3ccda2cf2ba1, type: 3}
   m_Name: HColor_3
   m_EditorClassIdentifier: Assembly-CSharp::HouseColorSO
+  PaletteId: Sky
   areaColors:
   - HousePartId: Wall
     Tint: {r: 0.19975968, g: 0.46692052, b: 0.6320754, a: 1}
   - HousePartId: Storey
-    Tint: {r: 0.043137256, g: 0.050980397, b: 0.16078432, a: 1}
+    Tint: {r: 0.043137256, g: 0.050980397, b: 0.16862746, a: 1}
   - HousePartId: Light
     Tint: {r: 0.9921569, g: 0.67058825, b: 0.11764707, a: 1}
   - HousePartId: Door

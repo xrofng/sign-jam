@@ -58,13 +58,21 @@ public class House : BetterMonoBehaviour
         }
     }
 
-    private void RandomGenerateHouse()
+
+    private void RandomGenerateHouse(int floor = -1)
     {
         _randFromBell = MathUtils.BellCurve01(Random.Range(.0f, 1));
         HouseGenerator.customWidth = Mathf.Lerp(4, 7, _randFromBell);
 
         _randFromBell = MathUtils.BellCurve01(Random.Range(.0f, 1));
-        HouseGenerator.customHeight = Mathf.Lerp(3, 7, _randFromBell);
+        if (floor > 0)
+        {
+            HouseGenerator.customHeight = ((float)floor * 3) + _randFromBell;
+        }
+        else
+        {
+            HouseGenerator.customHeight = Mathf.Lerp(3, 7, _randFromBell);
+        }
 
         HouseGenerator.transform.localPosition = Vector3.up * HouseGenerator.customHeight / 2;
     }
@@ -93,7 +101,52 @@ public class House : BetterMonoBehaviour
     public void ConstructHouse(HouseSO.HouseSetting houseSO)
     {
         _decorToData = new Dictionary<string, HouseDecorData>();
-        foreach (DecorationSO decoration in houseSO.Decorations)
+
+        if (houseSO.Decorations.Count > 0)
+        {
+            ConstructDecorations(houseSO.Decorations);
+        }
+        else
+        {
+
+        }
+        
+        if (houseSO.Floor > 0)
+        {
+            ConstructFloor(houseSO.Floor);
+        }
+        else
+        {
+
+        }
+
+        if (houseSO.HouseName.Length > 0)
+        {
+            SignDialogue.SetDialogueText(houseSO.HouseName);
+        }
+        else
+        {
+
+        }
+
+        if (houseSO.ColorPaletteId.Length > 0)
+        {
+            GetComponent<RandomHouseColor>().SetFixedPalette(houseSO.ColorPaletteId);
+        }
+        else
+        {
+
+        }
+    }
+
+    private void ConstructFloor(int floor)
+    {
+        
+    }
+
+    private void ConstructDecorations(List<DecorationSO> decorationSO)
+    {
+        foreach (DecorationSO decoration in decorationSO)
         {
             Decoration newDec = Instantiate(decoration.BasePrefab, transform) as Decoration;
             HouseSO.EArea area = RandomValueArea(decoration.AssociatedArea);
@@ -111,8 +164,6 @@ public class House : BetterMonoBehaviour
             newDec.SetPosition(CalculateDecorationPosition(area));
             newDec.SetReady();
         }
-
-        SignDialogue.SetDialogueText(houseSO.HouseName);
     }
 
     private Vector3 CalculateDecorationPosition(HouseSO.EArea area)

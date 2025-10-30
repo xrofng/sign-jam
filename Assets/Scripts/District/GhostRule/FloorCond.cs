@@ -6,10 +6,8 @@ using Unity.Collections.LowLevel.Unsafe;
 public class FloorCond : HouseCondition
 {
     [Required]
-    public DecorationSO Decoration;
     public EComparisonMethod ComparisonMethod = EComparisonMethod.MoreEqual;
     public int TargetNumber = 1;
-
 
     protected override string CalculateListLabel()
     {
@@ -21,13 +19,26 @@ public class FloorCond : HouseCondition
         return " Need To Assign Floor";
     }
 
-    protected override bool EvaluateCondition(HouseSO houseSO, House house)
+    public override bool EvaluateCondition(HouseSO houseSO, House house)
     {
         return true;
     }
 
     public override HouseGenerationRequest GetGenerationRequest()
     {
-        return new DecorationGenRequest(Decoration, TargetNumber);
+        return new HouseFloorGenRequest(TargetNumber);
+    }
+}
+
+public class HouseFloorGenRequest : HouseGenerationRequest
+{
+    public HouseFloorGenRequest(int floorNumber)
+    {
+        RequestedFloorNumber = floorNumber;
+    }
+
+    public override void ApplyRequest()
+    {
+
     }
 }
