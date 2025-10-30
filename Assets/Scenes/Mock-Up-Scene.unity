@@ -8295,6 +8295,10 @@ MonoBehaviour:
   NormalHouseSO: {fileID: 11400000, guid: 7ca14cf535e437345bbec2ecc94e604c, type: 2}
   AllGhostHouseRuleset:
   - {fileID: 11400000, guid: 7a535d1fcb045d148b98634340d224b1, type: 2}
+  - {fileID: 11400000, guid: 3e95a16eb32819d46bd19b0c9a988c98, type: 2}
+  - {fileID: 11400000, guid: cf991b1002c1b0045ac2764eb2335d3a, type: 2}
+  - {fileID: 11400000, guid: 51df834fa2d18184e99aaf29904a1c21, type: 2}
+  - {fileID: 11400000, guid: df370816fc3f7674d8bf212c1a9b54fe, type: 2}
   HousePrefab: {fileID: 5742194609314153377, guid: d478e01e472af0045968ea0de497fed8, type: 3}
   SignPrefab: {fileID: 8836746938963025989, guid: 7fb56fc9e60550348aa37b54a19beba2, type: 3}
   StaringPos: {fileID: 479310625}

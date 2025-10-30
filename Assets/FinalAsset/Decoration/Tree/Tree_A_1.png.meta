@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2cdc3bf40aaa4744c86b90e56293496a
+guid: 74e346d0689d14a49a135f8ac39f7b48
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6320125332858711176
-    second: trash-bin--garbage-bin-clipart_0
+      213: 5352938527293015050
+    second: Tree_A_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trash-bin--garbage-bin-clipart_0
+      name: Tree_A_1_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 13
-        width: 180
-        height: 333
+        x: 0
+        y: 0
+        width: 237
+        height: 611
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8735207ce776a48a0800000000000000
-      internalID: -6320125332858711176
+      spriteID: a048dcfba35794a40800000000000000
+      internalID: 5352938527293015050
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      trash-bin--garbage-bin-clipart_0: -6320125332858711176
+      Tree_A_1_0: 5352938527293015050
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

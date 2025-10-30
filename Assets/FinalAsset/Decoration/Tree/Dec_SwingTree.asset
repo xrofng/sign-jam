@@ -16,7 +16,7 @@ MonoBehaviour:
   AssociatedArea: 1
   BasePrefab: {fileID: 1949274649600741303, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
   Textures:
-  - {fileID: 21300000, guid: 2fe327cb971b854458b3ee685e833010, type: 3}
+  - {fileID: 21300000, guid: 13713001f6010ff49a8f3e4835dbd34d, type: 3}
   InspectionTexts:
   - "One chain is shorter, like it\u2019s tired."
   - "It\u2019s moving, but the wind stopped"
