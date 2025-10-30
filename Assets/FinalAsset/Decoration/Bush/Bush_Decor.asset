@@ -22,4 +22,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cce19e1da1b815b4684a73df87792d4c, type: 3}
   - {fileID: 21300000, guid: 8a615f5ccb1494c489a2a442d075d0f5, type: 3}
   - {fileID: 21300000, guid: 3db82c635fa1c9e43be1fe1581ac981a, type: 3}
-  InspectionTexts: []
+  InspectionTexts:
+  - It smells nice when I touch the leaves.
+  - "It\u2019s still shaking, but nothing came out."
+  - A bug lives here. Maybe a whole family.

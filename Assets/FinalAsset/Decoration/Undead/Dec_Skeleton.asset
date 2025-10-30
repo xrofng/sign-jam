@@ -10,13 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d61c0ab29fdb2574c925abd696a9e658, type: 3}
-  m_Name: Dec_Tree
+  m_Name: Dec_Skeleton
   m_EditorClassIdentifier: Assembly-CSharp::DecorationSO
   DecorationID: 
   AssociatedArea: 0
   BasePrefab: {fileID: 0}
   Textures: []
-  InspectionTexts:
-  - Something small ran behind it, probably a squirrel.
-  - Someone whispered when I leaned close.
-  - I think someone tried to climb this once.
+  InspectionTexts: []

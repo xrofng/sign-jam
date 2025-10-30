@@ -11,20 +11,54 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3705b883bb9240a49a6734e2a0194231, type: 3}
   m_Name: R_WitchWood
-  m_EditorClassIdentifier: Assembly-CSharp::HouseRulesetSO
+  m_EditorClassIdentifier: Assembly-CSharp::GhostHouseRulesetSO
   DistrictName: WitchWood
   GhostRules:
-  - RuleSummary: No Witness
+  - RuleSummary: 'Blinking Eye '
     HouseConditions:
-    - rid: 191062824322859084
+    - rid: 191062824322859106
+  - RuleSummary: Scarecrow Party
+    HouseConditions:
+    - rid: 191062824322859118
+  - RuleSummary: WitchHouse
+    HouseConditions:
+    - rid: 191062824322859119
+    - rid: 191062824322859120
+  - RuleSummary: Blue Is Bad
+    HouseConditions:
+    - rid: 191062824322859121
   RequiredScoreForGhost: 1
   references:
     version: 2
     RefIds:
-    - rid: 191062824322859084
+    - rid: 191062824322859106
+      type: {class: DecorContainTextCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: blinking on HandEye
+        Decoration: {fileID: 11400000, guid: c64d2efc70c34de4aa3df574f005d7fd, type: 2}
+        ContainingText: blinking
+    - rid: 191062824322859118
       type: {class: DecorCountCond, ns: , asm: Assembly-CSharp}
       data:
-        Summary: ' = 0'
-        Decoration: {fileID: 11400000, guid: 602c1b4c4e878b4499e4c1337618de4b, type: 2}
+        Summary: ' >= 3'
+        Decoration: {fileID: 11400000, guid: 0a5ab6a9952e1fd43b5f64f6f59d2b16, type: 2}
+        ComparisonMethod: 4
+        TargetNumber: 3
+    - rid: 191062824322859119
+      type: {class: FloorCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: 
         ComparisonMethod: 0
-        TargetNumber: 0
+        TargetNumber: 1
+    - rid: 191062824322859120
+      type: {class: DecorCountCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: ' >= 1'
+        Decoration: {fileID: 11400000, guid: 6731b1ebed995ea4fa2ef20efea9cc61, type: 2}
+        ComparisonMethod: 4
+        TargetNumber: 1
+    - rid: 191062824322859121
+      type: {class: WallColorCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: 
+        PaletteId: 1

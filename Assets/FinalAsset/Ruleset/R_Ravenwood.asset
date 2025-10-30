@@ -12,19 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3705b883bb9240a49a6734e2a0194231, type: 3}
   m_Name: R_Ravenwood
   m_EditorClassIdentifier: Assembly-CSharp::HouseRulesetSO
-  DistrictName: Ravenwood
+  DistrictName: RavenWood
   GhostRules:
-  - RuleSummary: Scarecrow Party
+  - RuleSummary: Open The Portal
     HouseConditions:
-    - rid: 191062824322859082
+    - rid: 191062824322859094
+  - RuleSummary: Whispered Tree
+    HouseConditions:
+    - rid: 191062824322859107
+  - RuleSummary: Old Hotel
+    HouseConditions:
+    - rid: 191062824322859112
+    - rid: 191062824322859113
+  - RuleSummary: GrayIsBad
+    HouseConditions:
+    - rid: 191062824322859117
   RequiredScoreForGhost: 1
   references:
     version: 2
     RefIds:
-    - rid: 191062824322859082
+    - rid: 191062824322859094
       type: {class: DecorCountCond, ns: , asm: Assembly-CSharp}
       data:
-        Summary: ' >= 3'
-        Decoration: {fileID: 11400000, guid: 0a5ab6a9952e1fd43b5f64f6f59d2b16, type: 2}
+        Summary: ' >= 6'
+        Decoration: {fileID: 11400000, guid: 1714b29521dd6c941aef7a555b95d182, type: 2}
         ComparisonMethod: 4
+        TargetNumber: 6
+    - rid: 191062824322859107
+      type: {class: DecorContainTextCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: 'whispered on '
+        Decoration: {fileID: 11400000, guid: 602c1b4c4e878b4499e4c1337618de4b, type: 2}
+        ContainingText: whispered
+    - rid: 191062824322859112
+      type: {class: FloorCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: 
+        ComparisonMethod: 0
         TargetNumber: 3
+    - rid: 191062824322859113
+      type: {class: DecorCountCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: Grave >= 1
+        Decoration: {fileID: 11400000, guid: 8c61c74ec9aadb14d912639520122cc6, type: 2}
+        ComparisonMethod: 4
+        TargetNumber: 1
+    - rid: 191062824322859117
+      type: {class: WallColorCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: 
+        PaletteId: 5
