@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3705b883bb9240a49a6734e2a0194231, type: 3}
+  m_Name: R_Ravenwood
+  m_EditorClassIdentifier: Assembly-CSharp::HouseRulesetSO
+  DistrictName: Babbling Gum
+  GhostRules:
+  - RuleSummary: Red Magic
+    HouseConditions:
+    - rid: 191062801441095680
+    - rid: 1164321882595393636
+  - RuleSummary: 
+    HouseConditions:
+    - rid: 1164321871537373280
+    - rid: 1164321871537373281
+    - rid: 1164321871537373285
+  RequiredScoreForGhost: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 191062801441095680
+      type: {class: DecorCountCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: Web > 3
+        Decoration: {fileID: 11400000, guid: 7721a2b138d68a14baecdb75bbff74f6, type: 2}
+        ComparisonMethod: 2
+        TargetNumber: 3
+    - rid: 1164321871537373280
+      type: {class: HouseNameCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: Is sign Stink Fly
+        HouseName: Stink Fly
+    - rid: 1164321871537373281
+      type: {class: DecorContainTextCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: smell on Grave
+        Decoration: {fileID: 11400000, guid: 8c61c74ec9aadb14d912639520122cc6, type: 2}
+        ContainingText: smell
+    - rid: 1164321871537373285
+      type: {class: DecorCountCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: BoneHand >= 2
+        Decoration: {fileID: 11400000, guid: ebe69f767c25645458be11fe9966bac9, type: 2}
+        ComparisonMethod: 4
+        TargetNumber: 2
+    - rid: 1164321882595393636
+      type: {class: DecorCountCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: Pumpkin >= 3
+        Decoration: {fileID: 11400000, guid: 4700699d57e7a3645b1e0f17326cf262, type: 2}
+        ComparisonMethod: 4
+        TargetNumber: 3
