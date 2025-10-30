@@ -22,10 +22,10 @@ public class DoorRule : ProceduralRule
     public const string DoorBoundsKey = "MainDoor";
 
     public override void Execute(
-        ProceduralHouseGenerator generator,
-        Vector2 halfSize,
-        System.Func<HouseObjectData, Vector3, GameObject> spawn
-    )
+    ProceduralHouseGenerator generator,
+    Vector2 halfSize,
+    System.Func<HouseObjectData, Vector3, GameObject> spawn
+)
     {
         HouseObjectData doorData = generator.houseData.GetObject(objectType);
         if (doorData == null || doorData.objectPrefab == null) return;
@@ -33,10 +33,13 @@ public class DoorRule : ProceduralRule
         SpriteRenderer doorSR = doorData.objectPrefab.GetComponent<SpriteRenderer>();
         if (doorSR == null) return;
 
-        float doorHalfWidth = doorSR.bounds.extents.x;
-        float bottomY = -halfSize.y + generator.bottomMargin + doorVerticalOffset;
+        // Get the prefab's extents and size. These are in local space.
+        Vector3 doorExtents = doorSR.bounds.extents;
+        Vector3 doorSize = doorSR.bounds.size;
+        float doorHalfWidth = doorExtents.x;
+        float doorPivotY = -halfSize.y + generator.bottomMargin + doorVerticalOffset;
 
-        float doorX = 0f;
+        float doorPivotX = 0f;
 
         if (enableRandomXPosition)
         {
@@ -45,25 +48,26 @@ public class DoorRule : ProceduralRule
 
             if (leftBoundary < rightBoundary)
             {
-                doorX = Random.Range(leftBoundary, rightBoundary);
+                doorPivotX = Random.Range(leftBoundary, rightBoundary);
             }
             else
             {
                 Debug.LogWarning($"Door placement area is too narrow. Defaulting to center. Left: {leftBoundary}, Right: {rightBoundary}");
-                doorX = 0f;
+                doorPivotX = 0f; // Default to center
             }
         }
 
-        Vector3 doorPos = new Vector3(doorX, bottomY, 0);
-        GameObject doorInstance = spawn(doorData, doorPos);
+        // This is the door's local-space pivot position
+        Vector3 doorPivotPos = new Vector3(doorPivotX, doorPivotY, 0);
+
+        // Spawn the door at its local pivot position
+        GameObject doorInstance = spawn(doorData, doorPivotPos);
 
         if (doorInstance != null)
         {
-            SpriteRenderer instanceSR = doorInstance.GetComponent<SpriteRenderer>();
-            if (instanceSR != null)
-            {
-                generator.StorePlacedObjectBounds(DoorBoundsKey, instanceSR.bounds);
-            }
+            Vector3 localBoundsCenter = doorPivotPos + new Vector3(0, doorExtents.y, 0);
+            Bounds localBounds = new Bounds(localBoundsCenter, doorSize);
+            generator.StorePlacedObjectBounds(DoorBoundsKey, localBounds);
         }
     }
 }
