@@ -48,30 +48,13 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
                 House newHouse = Instantiate(HousePrefab, spawnPos, Quaternion.identity);
                 newHouse.ConstructHouse(housedata);
                 newHouse.SetRule(CurrentGhostHouseRuleset);
-                //bool isGhost = isGhostHouse(newHouse, CurrentGhostHouseRuleset);
-                //Debug.Log("ij " + i + "," + j + " " + isGhost);
-                //newHouse.setIsGhostHouse(isGhost);
+                
 
                 spawnPos += Vector3.right * newHouse.HouseBound.size.x / 2;
                 spawnPos += Vector3.right * HouseOffset;
             }
             _currGhostHouseRulesetId = Random.Range(0, AllGhostHouseRuleset.Length);
         }
-    }
-
-
-
-    bool isGhostHouse(House house, GhostHouseRulesetSO ghostRuleSO)
-    {
-        foreach (GhostRule ghostRule in ghostRuleSO.GhostRules)
-        {
-            if (ghostRule.EvaluateIsGhost(house))
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 
 

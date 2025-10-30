@@ -1,12 +1,14 @@
 using Sirenix.OdinInspector;
 using System;
 using Unity.Collections.LowLevel.Unsafe;
+using UnityEngine;
 
 [System.Serializable]
 public class FloorCond : HouseCondition
 {
     [Required]
     public EComparisonMethod ComparisonMethod = EComparisonMethod.MoreEqual;
+    [Range(1,3)]
     public int TargetNumber = 1;
 
     protected override string CalculateListLabel()
@@ -21,7 +23,7 @@ public class FloorCond : HouseCondition
 
     public override bool EvaluateCondition(HouseSO houseSO, House house)
     {
-        return true;
+        return house.FloorCount == TargetNumber;
     }
 
     public override HouseGenerationRequest GetGenerationRequest()
