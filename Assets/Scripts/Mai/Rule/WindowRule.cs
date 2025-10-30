@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "WindowRule", menuName = "ProceduralHouse/Rule/Window Rule")]
 public class WindowRule : ProceduralRule
@@ -22,150 +22,92 @@ public class WindowRule : ProceduralRule
     [Tooltip("Additional deduction margin from the right edge (beyond generator's rightMargin). Prevents windows from generating too close to the right edge.")]
     public float rightDeductionMargin = 0.3f;
 
+    public const string DoorBoundsKey = "MainDoor"; // Re-use the constant from DoorRule for clarity
+
     public override void Execute(
         ProceduralHouseGenerator generator,
         Vector2 halfSize,
         System.Func<HouseObjectData, Vector3, GameObject> spawn
     )
     {
+        // 1. Get ONE window prefab and measure its size ONCE.
         HouseObjectData windowData = generator.houseData.GetRandomObject(objectType);
         if (windowData == null || windowData.objectPrefab == null) return;
 
-        float windowHalfWidth = windowData.objectPrefab.GetComponent<SpriteRenderer>().bounds.extents.x;
-        float windowFullWidth = windowHalfWidth * 2f;
+        SpriteRenderer windowSR = windowData.objectPrefab.GetComponent<SpriteRenderer>();
+        if (windowSR == null) return;
 
+        float windowFullWidth = windowSR.bounds.size.x;
         float windowY = -halfSize.y + generator.bottomMargin + verticalAlignmentOffset;
-
         float rightBoundary = halfSize.x - generator.rightMargin - rightDeductionMargin;
         float leftBoundary = -halfSize.x + generator.leftMargin + leftDeductionMargin;
 
-        Bounds? doorBounds = generator.GetPlacedObjectBounds(DoorRule.DoorBoundsKey);
+        Bounds? doorBounds = generator.GetPlacedObjectBounds(DoorBoundsKey);
 
         if (doorBounds.HasValue)
         {
             Bounds door = doorBounds.Value;
-            float rightStartX = door.max.x;
-            float leftStartX = door.min.x;
-
-            // Directly call Percentage mode logic
-            PlaceSidePercentage(generator, spawn, windowY, windowFullWidth,
-                                rightStartX, rightBoundary, true);
-            PlaceSidePercentage(generator, spawn, windowY, windowFullWidth,
-                                leftStartX, leftBoundary, false);
+            PlaceWindowsInSpace(generator, spawn, windowY, windowFullWidth, door.max.x, rightBoundary);
+            PlaceWindowsInSpace(generator, spawn, windowY, windowFullWidth, leftBoundary, door.min.x);
         }
         else
         {
             Debug.Log("Window Rule: No door found, distributing windows across entire width.");
 
-            // Directly call Percentage mode logic for no-door case
-            PlaceWindowsPercentageNoDoor(generator, spawn, windowY, windowFullWidth,
-                                        leftBoundary, rightBoundary);
+            // NO DOOR: Start at left boundary, end at right boundary
+            PlaceWindowsInSpace(generator, spawn, windowY, windowFullWidth,
+                                leftBoundary, rightBoundary);
         }
     }
 
-    private void PlaceWindowsPercentageNoDoor(
-        ProceduralHouseGenerator generator,
-        System.Func<HouseObjectData, Vector3, GameObject> spawn,
-        float windowY,
-        float windowFullWidth,
-        float leftBoundary,
-        float rightBoundary
-    )
-    {
-        float windowHalfWidth = windowFullWidth * 0.5f;
-        float availableSpace = rightBoundary - leftBoundary;
-
-        if (availableSpace <= windowFullWidth + minSpacing)
-            return;
-
-        int maxWindowCount = Mathf.FloorToInt((availableSpace - minSpacing) / (windowFullWidth + minSpacing));
-        if (maxWindowCount <= 0)
-            return;
-
-        float totalWindowWidth = maxWindowCount * windowFullWidth;
-        float leftoverSpace = availableSpace - totalWindowWidth;
-
-        int gapCount = maxWindowCount + 1;
-        float calculatedSpacing = (leftoverSpace * spacingPercentage) / gapCount;
-        calculatedSpacing = Mathf.Max(calculatedSpacing, minSpacing);
-
-        float totalSpacingNeeded = calculatedSpacing * gapCount;
-
-        if (totalSpacingNeeded + totalWindowWidth > availableSpace)
-        {
-            maxWindowCount--;
-            if (maxWindowCount <= 0)
-                return;
-
-            totalWindowWidth = maxWindowCount * windowFullWidth;
-            leftoverSpace = availableSpace - totalWindowWidth;
-            gapCount = maxWindowCount + 1;
-            calculatedSpacing = (leftoverSpace * spacingPercentage) / gapCount;
-            calculatedSpacing = Mathf.Max(calculatedSpacing, minSpacing);
-        }
-
-        for (int i = 0; i < maxWindowCount; i++)
-        {
-            HouseObjectData windowData = generator.houseData.GetRandomObject(objectType);
-            if (windowData == null)
-                continue;
-
-            float windowX = leftBoundary + calculatedSpacing + windowHalfWidth + (i * (windowFullWidth + calculatedSpacing));
-
-            spawn(windowData, new Vector3(windowX, windowY, 0));
-        }
-    }
-
-    private void PlaceSidePercentage(
+    private void PlaceWindowsInSpace(
         ProceduralHouseGenerator generator,
         System.Func<HouseObjectData, Vector3, GameObject> spawn,
         float windowY,
         float windowFullWidth,
         float startX,
-        float boundary,
-        bool isRightSide
+        float endX
     )
     {
-        float windowHalfWidth = windowFullWidth * 0.5f;
-        float availableSpace = isRightSide ? (boundary - startX) : (startX - boundary);
+        // Ensure startX is less than endX for consistent calculations
+        if (startX > endX)
+        {
+            float temp = startX;
+            startX = endX;
+            endX = temp;
+        }
 
-        if (availableSpace <= windowFullWidth + minSpacing)
+        float windowHalfWidth = windowFullWidth * 0.5f;
+        float availableSpace = endX - startX;
+
+        // Exit if there isn't enough room for one window + min spacing
+        if (availableSpace < windowFullWidth + minSpacing)
             return;
 
+        // Calculate maximum count and necessary spacing
         int maxWindowCount = Mathf.FloorToInt((availableSpace - minSpacing) / (windowFullWidth + minSpacing));
         if (maxWindowCount <= 0)
             return;
 
         float totalWindowWidth = maxWindowCount * windowFullWidth;
         float leftoverSpace = availableSpace - totalWindowWidth;
+        int gapCount = maxWindowCount + 1; 
 
-        int gapCount = maxWindowCount + 1;
+        // Calculate spacing, prioritizing spacingPercentage but enforcing minSpacing
         float calculatedSpacing = (leftoverSpace * spacingPercentage) / gapCount;
         calculatedSpacing = Mathf.Max(calculatedSpacing, minSpacing);
 
-        float totalSpacingNeeded = calculatedSpacing * gapCount;
-
-        if (totalSpacingNeeded + totalWindowWidth > availableSpace)
-        {
-            maxWindowCount--;
-            if (maxWindowCount <= 0)
-                return;
-
-            totalWindowWidth = maxWindowCount * windowFullWidth;
-            leftoverSpace = availableSpace - totalWindowWidth;
-            gapCount = maxWindowCount + 1;
-            calculatedSpacing = (leftoverSpace * spacingPercentage) / gapCount;
-            calculatedSpacing = Mathf.Max(calculatedSpacing, minSpacing);
-        }
-
+        // Loop and spawn
         for (int i = 0; i < maxWindowCount; i++)
         {
-            HouseObjectData windowData = generator.houseData.GetRandomObject(objectType);
-            if (windowData == null)
-                continue;
 
-            float offset = calculatedSpacing + windowHalfWidth + (i * (windowFullWidth + calculatedSpacing));
-            float windowX = isRightSide ? startX + offset : startX - offset;
+            //random window for EACH iteration 
+            HouseObjectData windowData = generator.houseData.GetRandomObject(objectType);
+            if (windowData == null) continue;
+            float windowX = startX
+                          + calculatedSpacing
+                          + windowHalfWidth
+                          + (i * (windowFullWidth + calculatedSpacing));
 
             spawn(windowData, new Vector3(windowX, windowY, 0));
         }
