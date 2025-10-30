@@ -3,7 +3,7 @@ using System;
 using Unity.Collections.LowLevel.Unsafe;
 
 [System.Serializable]
-public class DecorFloorCond : HouseCondition
+public class FloorCond : HouseCondition
 {
     [Required]
     public DecorationSO Decoration;
@@ -13,12 +13,12 @@ public class DecorFloorCond : HouseCondition
 
     protected override string CalculateListLabel()
     {
-        if (Decoration)
+        if (TargetNumber <=0)
         {
-            Summary = Decoration.DecorationID + " " + GetComparisonMethodSymbol(ComparisonMethod) + " " + TargetNumber;
+            Summary = " Floor Cond: " + TargetNumber;
             return Summary;
         }
-        return " NEED Decoration";
+        return " Need To Assign Floor";
     }
 
     protected override bool EvaluateCondition(HouseSO houseSO, House house)
