@@ -75,7 +75,10 @@ public class DecorationRequest
         this.Decoration = decoration;
         if (v1 >= 0)
         {
-            this.RequestedInspectionText = decoration.InspectionTexts[v1];
+            if (decoration.HasInpectionText())
+            {
+                this.RequestedInspectionText = decoration.InspectionTexts[v1];
+            }
         }
         else
         {

@@ -19,7 +19,6 @@ public class House : BetterMonoBehaviour
 
     public void setIsGhostHouse(bool set)
     {
-
         IsGhostHouse = set;
         OnSetGhost?.Invoke(set);
     }

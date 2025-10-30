@@ -38,7 +38,11 @@ public class DecorationSO : ScriptableObject
 
     public string RandomInspectionText()
     {
-        Debug.Log(DecorationID);
-        return InspectionTexts[Random.Range(0, InspectionTexts.Length)];
+        return InspectionTexts[RandomInspectionTextId()];
+    }
+
+    public int RandomInspectionTextId()
+    {
+        return Random.Range(0, InspectionTexts.Length);
     }
 }

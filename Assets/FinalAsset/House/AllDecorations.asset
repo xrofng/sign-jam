@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc81258cbb1c6e469f1409b2823cdf9, type: 3}
+  m_Name: AllDecorations
+  m_EditorClassIdentifier: Assembly-CSharp::AllDecorationsSO
+  Decorations:
+  - {fileID: 11400000, guid: ebe69f767c25645458be11fe9966bac9, type: 2}
+  - {fileID: 11400000, guid: b0f22b4afd112184e9a4c6ef8065fdeb, type: 2}
+  - {fileID: 11400000, guid: 1714b29521dd6c941aef7a555b95d182, type: 2}
+  - {fileID: 11400000, guid: eca54b1b7643a1d48b907b94c7ae8d2f, type: 2}
+  - {fileID: 11400000, guid: 2d0aeaebc3f035741bc36dfd85a99c71, type: 2}
+  - {fileID: 11400000, guid: c64d2efc70c34de4aa3df574f005d7fd, type: 2}
+  - {fileID: 11400000, guid: 86c45a55307b65245853dc00370b6ec6, type: 2}
+  - {fileID: 11400000, guid: 6731b1ebed995ea4fa2ef20efea9cc61, type: 2}
+  - {fileID: 11400000, guid: 4700699d57e7a3645b1e0f17326cf262, type: 2}
+  - {fileID: 11400000, guid: 0a5ab6a9952e1fd43b5f64f6f59d2b16, type: 2}
+  - {fileID: 11400000, guid: 42d1d8d37ebb26c49b0f60e760af404a, type: 2}
+  - {fileID: 11400000, guid: 602c1b4c4e878b4499e4c1337618de4b, type: 2}
+  - {fileID: 11400000, guid: 7721a2b138d68a14baecdb75bbff74f6, type: 2}
+  Names:
+  - Salem Wick
+  - Edward Jekyll
+  - Henry Hyde
+  - Lucian Crowe
+  - Isolde Vane
+  - Viego Camovore
+  - Tessa
+  - Ezekiel Halloway
+  - Ophelia Grapesend
+  - Viktor Shadeborn
+  - Goatfreak Serscare
+  - Bram Duskhaven
+  - Alutard Aroneil
+  - Rufus Candlewick
+  - Sylva Moonhart
+  - Ivy Thornfield
+  - Dorian Shade
+  - Mira Nightbloom
+  - Thorne Blackwell
+  HouseColors:
+  - {fileID: 11400000, guid: 254a6dca25da1c94fbc2dab59e7251e8, type: 2}
+  - {fileID: 11400000, guid: c61994c3ed284b541bf2edcd6dac6295, type: 2}
+  - {fileID: 11400000, guid: 1ceb1bc1d5810104cae5c30790b24fd6, type: 2}
+  - {fileID: 11400000, guid: 4e9645f65c52e5b44a124c3787c99cd2, type: 2}
+  - {fileID: 11400000, guid: ee98d978a03e63c4d8e9dc74e0ee5e9e, type: 2}

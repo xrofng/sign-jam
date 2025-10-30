@@ -13,6 +13,7 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
     public GhostHouseRulesetSO[] AllGhostHouseRuleset;
     public House HousePrefab;
     public Decoration SignPrefab;
+    public AllDecorationsSO AllDecorationsSO;
 
     [Header("Scene Obj Ref")]
     public Transform StaringPos;
@@ -35,7 +36,9 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
                 HouseSO.HouseSetting housedata = CreateHouse();
                 House newHouse = Instantiate(HousePrefab, spawnPos, Quaternion.identity);
                 newHouse.ConstructHouse(housedata);
-                newHouse.setIsGhostHouse(isGhostHouse(newHouse, CurrentGhostHouseRuleset));
+                bool isGhost = isGhostHouse(newHouse, CurrentGhostHouseRuleset);
+                Debug.Log("ij " + i + "," + j + " " + isGhost);
+                newHouse.setIsGhostHouse(isGhost);
 
                 spawnPos += Vector3.right * newHouse.HouseBound.size.x / 2;
                 spawnPos += Vector3.right * HouseOffset;
@@ -50,7 +53,7 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
     {
         foreach (GhostRule ghostRule in ghostRuleSO.GhostRules)
         {
-            if (ghostRule.evaluateIsGhost(house))
+            if (ghostRule.EvaluateIsGhost(house))
             {
                 return true;
             }
@@ -69,7 +72,7 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
             = new HouseRequest(CurrentGhostHouseRuleset.GetRandomGhostRule().GhostConditions);
             return new HouseSO.HouseSetting(decorationRequestList);
         }
-        return NormalHouseSO.HouseData;
+        return new HouseSO.HouseSetting(new HouseRequest(AllDecorationsSO));
     }
 
     private void RandomRuleset()
@@ -112,5 +115,26 @@ public struct HouseRequest
                 RequestedFloorNumber = condition.GetGenerationRequest().RequestedFloorNumber;
             }
         }
+    }
+
+    public HouseRequest(AllDecorationsSO allDecorations)
+    {
+        RequestedDecorations = new List<DecorationRequest>();
+        for (int i = 0; i < Random.Range(4, 7); i++)
+        {
+            DecorationSO randDecSo = allDecorations.GetRandomDecoration();
+            int randTextId = 0;
+            if (randDecSo.HasInpectionText())
+            {
+                randTextId = randDecSo.RandomInspectionTextId(); ;
+            }
+            RequestedDecorations.Add(new DecorationRequest(randDecSo, randTextId, 1));
+        }
+
+        RequestedHouseName = allDecorations.GetRandomName();
+        RequestedColorPaletteId = allDecorations.GetRandomHouseColorId();
+
+        RequestedFloorNumber = Random.Range(1, 2);
+        RequestedFloorNumber = RequestedFloorNumber + Random.Range(0, 4) == 0 ? 1 : 0;
     }
 }

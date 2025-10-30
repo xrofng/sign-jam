@@ -30,17 +30,16 @@ public class GhostRule
     [ListDrawerSettings(ListElementLabelName = "ListLabel", ShowIndexLabels = true)]
     List<HouseCondition> HouseConditions;
 
-    public bool evaluateIsGhost(House house)
+    public bool EvaluateIsGhost(House house)
     {
         foreach (HouseCondition condition in HouseConditions)
         {
-            if (condition.EvaluateCondition(null, house))
+            if (condition.EvaluateCondition(null, house) == false)
             {
-                return true;
+                return false;
             }
         }
-
-        return false;
+        return true;
     }
 
     public List<HouseCondition> GhostConditions => HouseConditions;
