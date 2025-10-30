@@ -18,7 +18,7 @@ public class DecorContainTextCond : HouseCondition
         return " NEED Decoration";
     }
 
-    protected override bool EvaluateCondition(HouseSO houseSO, House house)
+    public override bool EvaluateCondition(HouseSO houseSO, House house)
     {
         if (house.DecorData.ContainsKey(Decoration.DecorationID) == false)
         {

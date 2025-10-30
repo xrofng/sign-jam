@@ -20,7 +20,7 @@ public class DecorCountCond : HouseCondition
         return " NEED Decoration";
     }
 
-    protected override bool EvaluateCondition(HouseSO houseSO, House house)
+    public override bool EvaluateCondition(HouseSO houseSO, House house)
     {
         switch (ComparisonMethod)
         {

@@ -12,7 +12,7 @@ public class HouseNameCond : HouseCondition
         return Summary;
     }
 
-    protected override bool EvaluateCondition(HouseSO houseSO, House house)
+    public override bool EvaluateCondition(HouseSO houseSO, House house)
     {
         return HouseName == houseSO.HouseData.HouseName;
     }

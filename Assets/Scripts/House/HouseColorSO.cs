@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "HColor_", menuName = "SignGame/House Color")]
 public class HouseColorSO : ScriptableObject
 {
+    public string PaletteId = "Blue";
     /// <summary>
     /// Represents color assignments for each part of a house.
     /// </summary>

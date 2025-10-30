@@ -18,7 +18,7 @@ public abstract class HouseCondition
         }
     }
 
-    protected abstract bool EvaluateCondition(HouseSO houseSO, House house);
+    public abstract bool EvaluateCondition(HouseSO houseSO, House house);
     protected abstract string CalculateListLabel();
     public abstract HouseGenerationRequest GetGenerationRequest();
 
@@ -51,7 +51,11 @@ public class HouseGenerationRequest
 {
     public List<DecorationRequest> DecorationRequests = new List<DecorationRequest>();
 
-    public string RequestedHouseName = "";
+    public string RequestedHouseName = string.Empty;
+
+    public int RequestedFloorNumber = -1;
+
+    public string RequstedColorPaletteId = string.Empty;
 
     public virtual void ApplyRequest()
     {

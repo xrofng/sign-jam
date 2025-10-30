@@ -51,7 +51,7 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
         {
             HouseRequest decorationRequestList
             = new HouseRequest(CurrentGhostHouseRuleset.GetRandomGhostRule().GhostConditions);
-            return new HouseSO.HouseSetting(decorationRequestList.RequestedDecorations, decorationRequestList.RequestedHouseName);
+            return new HouseSO.HouseSetting(decorationRequestList);
         }
         return NormalHouseSO.HouseData;
     }
@@ -67,11 +67,16 @@ public struct HouseRequest
 {
     public List<DecorationRequest> RequestedDecorations;
     public string RequestedHouseName;
+    public string RequestedColorPaletteId;
+    public int RequestedFloorNumber;
 
     public HouseRequest(List<HouseCondition> houseConditions)
     {
         RequestedDecorations = new List<DecorationRequest>();
-        RequestedHouseName = "-vhost house-";
+        RequestedHouseName = string.Empty;
+        RequestedColorPaletteId = string.Empty;
+        RequestedFloorNumber = -1;
+
         foreach (HouseCondition condition in houseConditions)
         {
             if (condition.GetGenerationRequest().DecorationRequests.Count > 0)
@@ -81,6 +86,14 @@ public struct HouseRequest
             if (condition.GetGenerationRequest().RequestedHouseName.Length > 0)
             {
                 RequestedHouseName = condition.GetGenerationRequest().RequestedHouseName;
+            }
+            if (condition.GetGenerationRequest().RequstedColorPaletteId.Length > 0)
+            {
+                RequestedColorPaletteId = condition.GetGenerationRequest().RequstedColorPaletteId;
+            }
+            if (condition.GetGenerationRequest().RequestedFloorNumber > 0)
+            {
+                RequestedFloorNumber = condition.GetGenerationRequest().RequestedFloorNumber;
             }
         }
     }

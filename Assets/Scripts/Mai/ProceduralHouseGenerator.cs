@@ -80,6 +80,7 @@ public class ProceduralHouseGenerator : MonoBehaviour
     [ContextMenu("Regenerate House")]
     public void GenerateHouse()
     {
+        Debug.Log("GenerateHouse");
         if (!houseData)
         {
             Debug.LogWarning($"No HouseData assigned on {name}");

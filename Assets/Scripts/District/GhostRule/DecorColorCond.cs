@@ -19,7 +19,7 @@ public class DecorColorCond : HouseCondition
         return " NEED Decoration";
     }
 
-    protected override bool EvaluateCondition(HouseSO houseSO, House house)
+    public override bool EvaluateCondition(HouseSO houseSO, House house)
     {
         return true;
     }

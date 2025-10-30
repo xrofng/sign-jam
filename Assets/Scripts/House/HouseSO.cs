@@ -55,25 +55,27 @@ public class HouseSO : ScriptableObject
         [Tooltip("List of decorations should be on the scene.")]
         public List<DecorationSO> Decorations;
 
-        /// <summary>
-        /// Constructs a new house data object by generating a list of decorations
-        /// based on a collection of decoration requests. Each request specifies the minimum number of items (MinQuantity)
-        /// </summary>
-        /// <param name="allDecorationRequests">All decoration requests to include in the house.</param>
-        /// <param name="houseName">The name to assign to this house.</param>
-        public HouseSetting(List<DecorationRequest> allDecorationRequests, string houseName)
+        public string ColorPaletteId;
+
+        public int Floor = 1;
+
+        public HouseSetting(HouseRequest houseRequest)
         {
-            HouseName = houseName;
+            HouseName = houseRequest.RequestedHouseName;
             Decorations = new List<DecorationSO>();
 
             // Populate decorations based on the requested quantity
-            foreach (DecorationRequest request in allDecorationRequests)
+            foreach (DecorationRequest request in houseRequest.RequestedDecorations)
             {
                 for (int i = 0; i < request.MinQuantity; i++)
                 {
                     Decorations.Add(request.Decoration);
                 }
             }
+
+            ColorPaletteId = houseRequest.RequestedColorPaletteId;
+
+            Floor = houseRequest.RequestedFloorNumber;
         }
     }
 }
