@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -224,9 +223,13 @@ public class House : BetterMonoBehaviour
 
     public void SetRule(GhostHouseRulesetSO currentGhostHouseRuleset)
     {
-        _ghostHouseRulesetSO  = currentGhostHouseRuleset;
+        _ghostHouseRulesetSO = currentGhostHouseRuleset;
     }
 
+    public void SetUpIsGhostHouse()
+    {
+        SetIsGhostHouse(EvaluateIsGhostHouse());
+    }
 
     bool EvaluateIsGhostHouse()
     {

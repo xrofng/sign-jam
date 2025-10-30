@@ -292,7 +292,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 675520625
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!224 &3525201
@@ -7910,7 +7910,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 26fbd89ec71b8e7409304b485584a9fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7930,7 +7930,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2129422769
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 16
   m_Sprite: {fileID: 21300000, guid: 731cc8a0a4b77ad4690fc72f8e2898ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8289,6 +8289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7d9a3cd8ad61d4a8e8c325ffa0f6da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HouseCreationController
+  InitialGhostPercent: 20
+  IncrementWhenSurvuve: 20
+  DecrementWhenForced: 30
   HouseOffset: 3.67
   PreferedDistrict: 4
   HousePerDistrict: 4

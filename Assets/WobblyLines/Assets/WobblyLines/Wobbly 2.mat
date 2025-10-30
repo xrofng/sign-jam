@@ -41,7 +41,7 @@ Material:
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
-    - _WobbleStrength: 0.03
+    - _WobbleStrength: 0.15
     m_Colors:
     - _OutlineColor: {r: 0.61006284, g: 0.54824656, b: 0.4853644, a: 1}
   m_BuildTextureStacks: []

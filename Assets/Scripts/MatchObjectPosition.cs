@@ -9,6 +9,9 @@ public class MatchObjectPosition : MonoBehaviour
 
     Transform matchedObject; public Transform MatchedObject => matchedObject;
 
+
+    public event System.Action<Transform> OnSetMatchObj;
+
     void Start()
     {
         Invoke(nameof(setPosition), setDelay);
@@ -18,7 +21,7 @@ public class MatchObjectPosition : MonoBehaviour
     {
         Vector3 matchPos = genHouseParent.transform.GetChild(0).GetChild(matchIndex).position;
         matchedObject = genHouseParent.transform.GetChild(0).GetChild(matchIndex);
-
+        OnSetMatchObj?.Invoke(matchedObject);
         this.transform.position = matchPos + offSet;
 
     }

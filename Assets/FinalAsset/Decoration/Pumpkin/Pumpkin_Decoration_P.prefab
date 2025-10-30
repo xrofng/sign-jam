@@ -90,6 +90,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6625444420271580336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8210131711152005236}
+  - component: {fileID: 5084958892849676532}
+  m_Layer: 3
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8210131711152005236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625444420271580336}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8082609108661639291}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5084958892849676532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625444420271580336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ace1920614a38d4ab47e7336bd2b1d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interaction_Change_Material
+  interactObject: {fileID: 6771987143930338820}
+  _spriteRenderer: {fileID: 7114932678040243004}
+  NormalMat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  SelectMat: {fileID: 2100000, guid: 9a5ddec5d24bf7144b68698bb1527060, type: 2}
 --- !u!1 &8582688030087388360
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +322,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7306036830677085417, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 8210131711152005236}
+    - targetCorrespondingSourceObject: {fileID: 7306036830677085417, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8860681418438750625}
     m_AddedComponents:
@@ -295,6 +346,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 331748ce1b526964caaf5f992eb9d2b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractAction_Dialogue
+--- !u!114 &6771987143930338820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5239266972529224342, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
+  m_PrefabInstance: {fileID: 1535573407967523986}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328931230190530033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f1a39c50a407643ad069872594be34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractObject
 --- !u!212 &7114932678040243004 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 8643008508152315822, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
