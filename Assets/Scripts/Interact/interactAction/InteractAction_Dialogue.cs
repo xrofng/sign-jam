@@ -1,10 +1,11 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 public class InteractAction_Dialogue : InteractAction
 {
     [SerializeField, TextArea] private string _dialogueText;
+    public string DialogueText => _dialogueText;
+
     [SerializeField] float letterDelay = .1f;
     [SerializeField] float textShowingDuration = 2;
     [SerializeField] TextMeshPro _dialougeTextMeshPro;

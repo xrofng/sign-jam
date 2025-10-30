@@ -3,11 +3,27 @@ using UnityEngine;
 
 public class House : BetterMonoBehaviour
 {
+
+    public event System.Action<bool> OnSetGhost;
+
     [SerializeField] HouseSO TestHouseSO;
     [SerializeField] HouseArea[] HouseAreas;
-    [SerializeField] InteractAction_Dialogue SignDialogue;
+    [SerializeField] public InteractAction_Dialogue SignDialogue;
+
     [SerializeField] SpriteRenderer BoundSprite;
     [SerializeField] ProceduralHouseGenerator HouseGenerator;
+
+    public bool IsGhostHouse;
+
+
+
+    public void setIsGhostHouse(bool set)
+    {
+
+        IsGhostHouse = set;
+        OnSetGhost?.Invoke(set);
+    }
+
 
     [System.Serializable]
     public class HouseArea
@@ -19,9 +35,12 @@ public class House : BetterMonoBehaviour
 
         public SpriteRenderer GetSpriteRenderer()
         {
-            return AreaSpriteRenderer[Random.Range(0, AreaSpriteRenderer.Length)];
+            return AreaSpriteRenderer[UnityEngine.Random.Range(0, AreaSpriteRenderer.Length)];
         }
     }
+
+
+
 
     private Dictionary<HouseSO.EArea, HouseArea> _areaToHouseArea;
 
@@ -61,10 +80,10 @@ public class House : BetterMonoBehaviour
 
     private void RandomGenerateHouse(int floor = -1)
     {
-        _randFromBell = MathUtils.BellCurve01(Random.Range(.0f, 1));
+        _randFromBell = MathUtils.BellCurve01(UnityEngine.Random.Range(.0f, 1));
         HouseGenerator.customWidth = Mathf.Lerp(4, 7, _randFromBell);
 
-        _randFromBell = MathUtils.BellCurve01(Random.Range(.0f, 1));
+        _randFromBell = MathUtils.BellCurve01(UnityEngine.Random.Range(.0f, 1));
         if (floor > 0)
         {
             HouseGenerator.customHeight = ((float)floor * 3) + _randFromBell;
@@ -110,7 +129,7 @@ public class House : BetterMonoBehaviour
         {
 
         }
-        
+
         if (houseSO.Floor > 0)
         {
             ConstructFloor(houseSO.Floor);
@@ -141,7 +160,7 @@ public class House : BetterMonoBehaviour
 
     private void ConstructFloor(int floor)
     {
-        
+
     }
 
     private void ConstructDecorations(List<DecorationSO> decorationSO)

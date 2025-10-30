@@ -3,24 +3,34 @@ using UnityEngine;
 public class InteractAction_AddingScore : InteractAction
 {
     [Header("Score Setting")]
-    [SerializeField] bool _isPositive;
-    [SerializeField] Vector2 _scoreRange;
+    bool _isGhostHouse;
+    [SerializeField] Vector2 _positiveScoreRange;
+    [SerializeField] Vector2 _negativeScoreRange;
 
     [Header("Delay")]
     [SerializeField] float delayBeforeAddingScore;
 
     int Score;
 
-    protected override void OnStart()
+
+
+    private void Awake()
     {
-        if (_isPositive)
+
+        this.transform.parent.parent.TryGetComponent(out House house);
+
+        house.OnSetGhost += SetScore;
+    }
+
+    public void SetScore(bool isGhostHouse)
+    {
+        if (isGhostHouse)
         {
-            Score = Mathf.RoundToInt(Random.Range(_scoreRange.x, _scoreRange.y));
+            Score = -Mathf.RoundToInt(Random.Range(_negativeScoreRange.x, _negativeScoreRange.y));
         }
         else
         {
-            Score = Mathf.RoundToInt(Random.Range(_scoreRange.x, _scoreRange.y) * -1);
-
+            Score = Mathf.RoundToInt(Random.Range(_positiveScoreRange.x, _positiveScoreRange.y));
         }
     }
 

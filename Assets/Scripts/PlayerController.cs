@@ -9,6 +9,8 @@ public class PlayerController : ObjectWithSprite
     [SerializeField] PathFindingManager pathFindingManager;
     [SerializeField] bool useSemiRealPathfinding = false;
 
+
+    public bool CanMove = true;
     public bool isMoving { get; private set; }
     private List<Vector3> movePos;
 
@@ -29,6 +31,8 @@ public class PlayerController : ObjectWithSprite
 
     void movePlayerCharacter(Vector3 mousePosition, InteractObject interactObject)
     {
+        if (CanMove == false) return;
+
         if (isMoving)
         {
             StopAllCoroutines();
@@ -51,6 +55,17 @@ public class PlayerController : ObjectWithSprite
 
     IEnumerator Move(Vector3 endPos, InteractObject interactObject)
     {
+        if (MainSpriteRenderer.transform.position.x > endPos.x)
+        {
+            MainSpriteRenderer.flipX = false;
+        }
+        else
+        {
+            MainSpriteRenderer.flipX = true;
+
+        }
+
+
         List<Transform> pathList = pathFindingManager.GetPath(transform.position, endPos);
         movePos = new List<Vector3>();
 
