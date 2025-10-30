@@ -23,10 +23,13 @@ MonoBehaviour:
   - RuleSummary: Pumpkin Royals
     HouseConditions:
     - rid: 191062824322859132
-  - RuleSummary: 
+  - RuleSummary: Swing
     HouseConditions:
     - rid: 191062824322859133
     - rid: 191062824322859134
+  - RuleSummary: Lucien Crowe
+    HouseConditions:
+    - rid: 191062824322859135
   RequiredScoreForGhost: 1
   references:
     version: 2
@@ -45,8 +48,8 @@ MonoBehaviour:
     - rid: 191062824322859132
       type: {class: DecorCountCond, ns: , asm: Assembly-CSharp}
       data:
-        Summary: ' >= 4'
-        Decoration: {fileID: 11400000, guid: 8d5d7f7cc33850b439bd5ae7cf2da077, type: 2}
+        Summary: Pumpkin >= 4
+        Decoration: {fileID: 11400000, guid: 4700699d57e7a3645b1e0f17326cf262, type: 2}
         ComparisonMethod: 4
         TargetNumber: 4
     - rid: 191062824322859133
@@ -62,3 +65,8 @@ MonoBehaviour:
         Decoration: {fileID: 11400000, guid: 42d1d8d37ebb26c49b0f60e760af404a, type: 2}
         ComparisonMethod: 4
         TargetNumber: 1
+    - rid: 191062824322859135
+      type: {class: HouseNameCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: Is sign Lucien Crowe
+        HouseName: Lucien Crowe

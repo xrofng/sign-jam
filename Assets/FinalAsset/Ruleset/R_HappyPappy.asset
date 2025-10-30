@@ -27,6 +27,9 @@ MonoBehaviour:
   - RuleSummary: Teal Is Bad
     HouseConditions:
     - rid: 191062824322859125
+  - RuleSummary: Ezekiel Halloway
+    HouseConditions:
+    - rid: 191062824322859136
   RequiredScoreForGhost: 1
   references:
     version: 2
@@ -62,3 +65,8 @@ MonoBehaviour:
         Decoration: {fileID: 11400000, guid: 602c1b4c4e878b4499e4c1337618de4b, type: 2}
         ComparisonMethod: 4
         TargetNumber: 1
+    - rid: 191062824322859136
+      type: {class: HouseNameCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: Is sign Ezekiel Halloway
+        HouseName: Ezekiel Halloway

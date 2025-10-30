@@ -27,6 +27,9 @@ MonoBehaviour:
   - RuleSummary: GrayIsBad
     HouseConditions:
     - rid: 191062824322859117
+  - RuleSummary: Salem Wick
+    HouseConditions:
+    - rid: 191062824322859138
   RequiredScoreForGhost: 1
   references:
     version: 2
@@ -62,3 +65,8 @@ MonoBehaviour:
       data:
         Summary: 
         PaletteId: 5
+    - rid: 191062824322859138
+      type: {class: HouseNameCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: Is sign Salem Wick
+        HouseName: Salem Wick

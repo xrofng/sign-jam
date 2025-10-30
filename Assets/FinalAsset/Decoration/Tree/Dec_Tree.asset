@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61c0ab29fdb2574c925abd696a9e658, type: 3}
   m_Name: Dec_Tree
   m_EditorClassIdentifier: Assembly-CSharp::DecorationSO
-  DecorationID: 
-  AssociatedArea: 0
+  DecorationID: Tree
+  AssociatedArea: 1
   BasePrefab: {fileID: 0}
-  Textures: []
+  Textures:
+  - {fileID: 21300000, guid: 6a153258bcda6cf429fd1f1279fa7fa9, type: 3}
   InspectionTexts:
   - Something small ran behind it, probably a squirrel.
   - Someone whispered when I leaned close.

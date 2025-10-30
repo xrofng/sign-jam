@@ -27,6 +27,9 @@ MonoBehaviour:
   - RuleSummary: Blue Is Bad
     HouseConditions:
     - rid: 191062824322859121
+  - RuleSummary: Viktor Shadeborn
+    HouseConditions:
+    - rid: 191062824322859139
   RequiredScoreForGhost: 1
   references:
     version: 2
@@ -62,3 +65,8 @@ MonoBehaviour:
       data:
         Summary: 
         PaletteId: 1
+    - rid: 191062824322859139
+      type: {class: HouseNameCond, ns: , asm: Assembly-CSharp}
+      data:
+        Summary: Is sign Viktor Shadeborn
+        HouseName: Viktor Shadeborn

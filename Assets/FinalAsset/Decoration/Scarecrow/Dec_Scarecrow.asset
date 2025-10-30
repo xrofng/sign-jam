@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61c0ab29fdb2574c925abd696a9e658, type: 3}
   m_Name: Dec_Scarecrow
   m_EditorClassIdentifier: Assembly-CSharp::DecorationSO
-  DecorationID: 
+  DecorationID: Scarecrow
   AssociatedArea: 0
   BasePrefab: {fileID: 0}
   Textures: []
-  InspectionTexts: []
+  InspectionTexts:
+  - "He\u2019s guarding nothing now, just standing."
+  - "His hat\u2019s too big for his head."
+  - "There\u2019s something under his coat that isn\u2019t hay."
