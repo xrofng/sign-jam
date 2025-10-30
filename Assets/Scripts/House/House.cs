@@ -1,9 +1,9 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class House : BetterMonoBehaviour
 {
-
     public event System.Action<bool> OnSetGhost;
 
     [SerializeField] HouseSO TestHouseSO;
@@ -17,7 +17,7 @@ public class House : BetterMonoBehaviour
 
 
 
-    public void setIsGhostHouse(bool set)
+    public void SetIsGhostHouse(bool set)
     {
         IsGhostHouse = set;
         OnSetGhost?.Invoke(set);
@@ -38,9 +38,6 @@ public class House : BetterMonoBehaviour
         }
     }
 
-
-
-
     private Dictionary<HouseSO.EArea, HouseArea> _areaToHouseArea;
 
     public class HouseDecorData
@@ -55,6 +52,7 @@ public class House : BetterMonoBehaviour
     }
     private Dictionary<string, HouseDecorData> _decorToData;
     private float _randFromBell;
+    private GhostHouseRulesetSO _ghostHouseRulesetSO;
 
     public Dictionary<string, HouseDecorData> DecorData => _decorToData;
 
@@ -222,5 +220,24 @@ public class House : BetterMonoBehaviour
             default:
                 return 0;
         }
+    }
+
+    public void SetRule(GhostHouseRulesetSO currentGhostHouseRuleset)
+    {
+        _ghostHouseRulesetSO  = currentGhostHouseRuleset;
+    }
+
+
+    bool EvaluateIsGhostHouse()
+    {
+        foreach (GhostRule ghostRule in _ghostHouseRulesetSO.GhostRules)
+        {
+            if (ghostRule.EvaluateIsGhost(this))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

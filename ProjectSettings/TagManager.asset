@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Backdrop
+    uniqueID: 2119826687
+    locked: 0
   - name: House
     uniqueID: 658592131
     locked: 0

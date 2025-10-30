@@ -1,9 +1,18 @@
 using MoreMountains.Tools;
+using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HouseCreationController : MMSingleton<HouseCreationController>
 {
+    [Title("Game")]
+    [Range(0,100)]
+    public float InitialGhostPercent = 20;
+    public int IncrementWhenSurvuve = 20;
+    public int DecrementWhenForced = 30;
+    [ReadOnly]
+    private int GhostPercent;
+
     public float HouseOffset = 5;
     public int PreferedDistrict = 4;
     public int HousePerDistrict = 4;
@@ -20,8 +29,10 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
     public GhostHouseRulesetSO CurrentGhostHouseRuleset => AllGhostHouseRuleset[_currGhostHouseRulesetId];
 
     private int _currGhostHouseRulesetId;
+
     private void Start()
     {
+        GhostPercent = (int)InitialGhostPercent;
         RandomRuleset();
         Vector3 spawnPos = StaringPos.position;
         for (int i = 0; i < PreferedDistrict; i++)
@@ -36,9 +47,10 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
                 HouseSO.HouseSetting housedata = CreateHouse();
                 House newHouse = Instantiate(HousePrefab, spawnPos, Quaternion.identity);
                 newHouse.ConstructHouse(housedata);
-                bool isGhost = isGhostHouse(newHouse, CurrentGhostHouseRuleset);
-                Debug.Log("ij " + i + "," + j + " " + isGhost);
-                newHouse.setIsGhostHouse(isGhost);
+                newHouse.SetRule(CurrentGhostHouseRuleset);
+                //bool isGhost = isGhostHouse(newHouse, CurrentGhostHouseRuleset);
+                //Debug.Log("ij " + i + "," + j + " " + isGhost);
+                //newHouse.setIsGhostHouse(isGhost);
 
                 spawnPos += Vector3.right * newHouse.HouseBound.size.x / 2;
                 spawnPos += Vector3.right * HouseOffset;
@@ -66,12 +78,14 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
     private HouseSO.HouseSetting CreateHouse()
     {
         // if ghost
-        if (Random.Range(0, 2) == 1)
+        if (Random.Range(0, 99) < GhostPercent)
         {
             HouseRequest decorationRequestList
             = new HouseRequest(CurrentGhostHouseRuleset.GetRandomGhostRule().GhostConditions);
+            GhostPercent -= DecrementWhenForced;
             return new HouseSO.HouseSetting(decorationRequestList);
         }
+        GhostPercent += IncrementWhenSurvuve;
         return new HouseSO.HouseSetting(new HouseRequest(AllDecorationsSO));
     }
 
