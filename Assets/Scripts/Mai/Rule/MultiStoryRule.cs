@@ -4,40 +4,24 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "MultiStoryRule", menuName = "ProceduralHouse/Rule/Multi Story Rule")]
 public class MultiStoryRule : ProceduralRule
 {
+    // ... (All your existing public variables remain unchanged) ...
     [Header("Story Conditions")]
-    [Tooltip("Minimum height required for the house to generate multiple stories.")]
     public float minHeightForMultiStory = 8.0f;
-
-    [Tooltip("Height of each story (floor).")]
     public float storyHeight = 4.0f;
-
     [Header("Debug")]
-    [Tooltip("Enable debug logs to see why multi-story generation is or isn't happening.")]
     public bool enableDebugLogs = true;
-
     [Header("Story Roof Settings")]
-    [Tooltip("Height of the story roof that separates floors.")]
     public float storyRoofHeight = 0.3f;
-
-    [Tooltip("Horizontal margin for the story roof (reduces width on both sides).")]
     public float storyRoofHorizontalMargin = 0.2f;
-
     [Header("Upper Story Margins")]
-    [Tooltip("Top margin for the upper story.")]
     public float upperStoryTopMargin = 0.3f;
-
-    [Tooltip("Bottom margin for the upper story (above the story roof).")]
     public float upperStoryBottomMargin = 0.1f;
-
-    [Tooltip("Left margin for the upper story.")]
     public float upperStoryLeftMargin = 0.3f;
-
-    [Tooltip("Right margin for the upper story.")]
     public float upperStoryRightMargin = 0.3f;
-
     [Header("Rules to Execute")]
-    [Tooltip("Rules to execute for the upper story. Door rule should be excluded.")]
     public List<ProceduralRule> upperStoryRules = new List<ProceduralRule>();
+
+    // --- Main Execution ---
 
     public override void Execute(
         ProceduralHouseGenerator generator,
@@ -46,176 +30,153 @@ public class MultiStoryRule : ProceduralRule
     )
     {
         float totalHeight = halfSize.y * 2f;
+        Log($"Total height: {totalHeight:F2} | Min: {minHeightForMultiStory:F2} | Story: {storyHeight:F2}");
 
-        if (enableDebugLogs)
-        {
-            Debug.Log($"[MultiStoryRule] Total house height: {totalHeight:F2} | Min required: {minHeightForMultiStory:F2} | Story height: {storyHeight:F2}");
-        }
-
+        // Guard clause: Check if tall enough for *any* multi-story
         if (totalHeight < minHeightForMultiStory)
         {
-            if (enableDebugLogs)
-            {
-                Debug.Log($"[MultiStoryRule] House too short for multi-story ({totalHeight:F2} < {minHeightForMultiStory:F2}). Skipping.");
-            }
+            Log($"House too short for multi-story ({totalHeight:F2} < {minHeightForMultiStory:F2}). Skipping.");
             return;
         }
 
         int numStories = Mathf.FloorToInt(totalHeight / storyHeight);
 
-        if (enableDebugLogs)
-        {
-            Debug.Log($"[MultiStoryRule] Calculated stories: {numStories}");
-        }
-
+        // Guard clause: Check if tall enough for at least 2 stories
         if (numStories < 2)
         {
-            if (enableDebugLogs)
-            {
-                Debug.Log($"[MultiStoryRule] Not enough height for 2+ stories. Need at least {storyHeight * 2:F2} height.");
-            }
+            Log($"Not enough height for 2+ stories. Need at least {storyHeight * 2:F2}.");
             return;
         }
 
-        if (enableDebugLogs)
-        {
-            Debug.Log($"[MultiStoryRule] Generating {numStories - 1} upper story/stories");
-        }
+        Log($"Calculating {numStories} total stories. Generating {numStories - 1} upper story/stories.");
 
-        float fixedFirstStoryWidth = halfSize.x * 2f;
-        float fixedFirstStoryHalfWidth = fixedFirstStoryWidth * 0.5f;
-
+        // Loop starts at 1 (the first *upper* story)
         for (int i = 1; i < numStories; i++)
         {
-            float storyRoofY = -halfSize.y + (i * storyHeight);
+            // Calculate the Y position for the *bottom* of the new story (i.e., the floor)
+            float storyFloorY = -halfSize.y + (i * storyHeight);
+            Log($"Generating story {i + 1} at Y: {storyFloorY:F2}");
 
-            if (enableDebugLogs)
-            {
-                Debug.Log($"[MultiStoryRule] Generating story {i + 1} at Y: {storyRoofY:F2}");
-            }
+            // 1. Spawn the floor/roof separator
+            SpawnStoryRoof(generator, spawn, halfSize.x, storyFloorY);
 
-            GenerateStoryRoof(generator, spawn, fixedFirstStoryHalfWidth, storyRoofY);
-
-            GenerateUpperStory(generator, spawn, fixedFirstStoryHalfWidth, storyRoofY, i);
+            // 2. Execute rules for the story *above* that floor
+            ExecuteUpperStoryRules(generator, spawn, halfSize.x, storyFloorY);
         }
     }
 
-    private void GenerateStoryRoof(
+    // --- Helper Methods ---
+    private void SpawnStoryRoof(
         ProceduralHouseGenerator generator,
         System.Func<HouseObjectData, Vector3, GameObject> spawn,
-        float fixedHalfWidth,
-        float storyRoofY
+        float houseHalfWidth,
+        float floorY
     )
     {
-        HouseObjectData storyRoofData = generator.houseData.GetObject(ObjectType.StoryRoof);
-        if (storyRoofData == null || storyRoofData.objectPrefab == null)
+        HouseObjectData roofData = generator.houseData.GetObject(ObjectType.StoryRoof);
+        if (roofData == null || roofData.objectPrefab == null)
         {
-            Debug.LogWarning("[MultiStoryRule] Story roof object not found. Skipping story roof generation.");
+            Log("Story roof object not found. Skipping story roof generation.");
             return;
         }
 
-        GameObject roofPrefab = storyRoofData.objectPrefab;
-        SpriteRenderer roofRenderer = roofPrefab.GetComponent<SpriteRenderer>();
+        GameObject roofPrefab = roofData.objectPrefab;
+        SpriteRenderer prefabRenderer = roofPrefab.GetComponent<SpriteRenderer>();
 
-        if (roofRenderer == null || roofRenderer.sprite == null)
+        if (prefabRenderer == null || prefabRenderer.sprite == null)
         {
-            Debug.LogError("[MultiStoryRule] Story roof prefab must have a SpriteRenderer with a Sprite assigned.");
+            Debug.LogError("[MultiStoryRule] Story roof prefab must have a SpriteRenderer with a Sprite.");
             return;
         }
 
-        float targetRoofWidth = (fixedHalfWidth * 2f) - (storyRoofHorizontalMargin * 2f);
-        float roofCenterX = 0f;
-        float roofCenterY = storyRoofY;
-
-        Vector3 roofPosition = new Vector3(roofCenterX, roofCenterY, 0);
-        GameObject roofObject = spawn(storyRoofData, roofPosition);
+        float targetRoofWidth = (houseHalfWidth * 2f) - (storyRoofHorizontalMargin * 2f);
+        Vector3 roofPosition = new Vector3(0, floorY, 0); // Center X, at the floor Y
+        GameObject roofObject = spawn(roofData, roofPosition);
 
         if (roofObject != null)
         {
             SpriteRenderer spawnedRenderer = roofObject.GetComponent<SpriteRenderer>();
             if (spawnedRenderer != null && spawnedRenderer.sprite != null)
             {
-                float currentWidth = spawnedRenderer.sprite.bounds.size.x;
-                float currentHeight = spawnedRenderer.sprite.bounds.size.y;
+                // Use the prefab's sprite bounds for calculation
+                float spriteWidth = prefabRenderer.sprite.bounds.size.x;
+                float spriteHeight = prefabRenderer.sprite.bounds.size.y;
 
-                float scaleX = targetRoofWidth / currentWidth;
-                float scaleY = storyRoofHeight / currentHeight;
+                if (spriteWidth == 0 || spriteHeight == 0) return; // Avoid divide by zero
+
+                float scaleX = targetRoofWidth / spriteWidth;
+                float scaleY = storyRoofHeight / spriteHeight;
 
                 roofObject.transform.localScale = new Vector3(scaleX, scaleY, 1f);
             }
         }
     }
 
-    private void GenerateUpperStory(
+    private void ExecuteUpperStoryRules(
         ProceduralHouseGenerator generator,
         System.Func<HouseObjectData, Vector3, GameObject> spawn,
-        float fixedHalfWidth,
-        float storyRoofY,
-        int storyIndex
+        float houseHalfWidth,
+        float storyFloorY
     )
     {
-        float upperStoryBottom = storyRoofY + storyRoofHeight;
-        float upperStoryTop = storyRoofY + storyHeight;
-        float upperStoryHeight = upperStoryTop - upperStoryBottom;
-        float upperStoryHalfHeight = upperStoryHeight * 0.5f;
+        //Define the "Virtual" Story Space
+        float storyBottom = storyFloorY + storyRoofHeight; // Bottom is *above* the roof
+        float storyTop = storyFloorY + this.storyHeight;
+        float storyHeight = storyTop - storyBottom;
 
-        Vector2 upperStoryHalfSize = new Vector2(fixedHalfWidth, upperStoryHalfHeight);
+        Vector2 upperStoryHalfSize = new Vector2(houseHalfWidth, storyHeight * 0.5f);
+        float upperStoryCenterY = storyBottom + (storyHeight * 0.5f);
+        Vector3 spawnOffset = new Vector3(0, upperStoryCenterY, 0);
+        System.Func<HouseObjectData, Vector3, GameObject> upperStorySpawn =
+            (data, localPos) => spawn(data, localPos + spawnOffset);
 
-        float upperStoryCenterY = upperStoryBottom + upperStoryHalfHeight;
-
-        UpperStorySpawner upperStorySpawner = new UpperStorySpawner(spawn, new Vector3(0, upperStoryCenterY, 0));
-
-        float originalTopMargin = generator.topMargin;
-        float originalBottomMargin = generator.bottomMargin;
-        float originalLeftMargin = generator.leftMargin;
-        float originalRightMargin = generator.rightMargin;
-
-        generator.topMargin = upperStoryTopMargin;
-        generator.bottomMargin = upperStoryBottomMargin;
-        generator.leftMargin = upperStoryLeftMargin;
-        generator.rightMargin = upperStoryRightMargin;
-
+        // Store the generator's current state
+        float originalTop = generator.topMargin;
+        float originalBottom = generator.bottomMargin;
+        float originalLeft = generator.leftMargin;
+        float originalRight = generator.rightMargin;
         Bounds? savedDoorBounds = generator.GetPlacedObjectBounds(DoorRule.DoorBoundsKey);
-        bool doorBoundsExisted = savedDoorBounds.HasValue;
 
-        if (doorBoundsExisted)
+        try
         {
-            generator.RemovePlacedObjectBounds(DoorRule.DoorBoundsKey);
-        }
+            // Modify the state for the upper story rules
+            generator.topMargin = upperStoryTopMargin;
+            generator.bottomMargin = upperStoryBottomMargin;
+            generator.leftMargin = upperStoryLeftMargin;
+            generator.rightMargin = upperStoryRightMargin;
 
-        foreach (var rule in upperStoryRules)
-        {
-            if (rule != null)
+            // Hide the main door from the upper story rules
+            if (savedDoorBounds.HasValue)
             {
-                rule.Execute(generator, upperStoryHalfSize, upperStorySpawner.Spawn);
+                generator.RemovePlacedObjectBounds(DoorRule.DoorBoundsKey);
+            }
+
+            foreach (var rule in upperStoryRules)
+            {
+                if (rule != null)
+                {
+                    rule.Execute(generator, upperStoryHalfSize, upperStorySpawn);
+                }
             }
         }
-
-        if (doorBoundsExisted)
+        finally
         {
-            generator.StorePlacedObjectBounds(DoorRule.DoorBoundsKey, savedDoorBounds.Value);
+            // This 'finally' block guarantees the generator is restored,
+            generator.topMargin = originalTop;
+            generator.bottomMargin = originalBottom;
+            generator.leftMargin = originalLeft;
+            generator.rightMargin = originalRight;
+            if (savedDoorBounds.HasValue)
+            {
+                generator.StorePlacedObjectBounds(DoorRule.DoorBoundsKey, savedDoorBounds.Value);
+            }
         }
-
-        generator.topMargin = originalTopMargin;
-        generator.bottomMargin = originalBottomMargin;
-        generator.leftMargin = originalLeftMargin;
-        generator.rightMargin = originalRightMargin;
     }
-
-    private class UpperStorySpawner
+    private void Log(string message)
     {
-        private System.Func<HouseObjectData, Vector3, GameObject> originalSpawn;
-        private Vector3 offset;
-
-        public UpperStorySpawner(System.Func<HouseObjectData, Vector3, GameObject> spawn, Vector3 offset)
+        if (enableDebugLogs)
         {
-            this.originalSpawn = spawn;
-            this.offset = offset;
-        }
-
-        public GameObject Spawn(HouseObjectData data, Vector3 position)
-        {
-            return originalSpawn(data, position + offset);
+            Debug.Log($"[MultiStoryRule] {message}");
         }
     }
 }

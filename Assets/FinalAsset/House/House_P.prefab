@@ -100,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 39517721312190875}
   - component: {fileID: 5742194609314153377}
+  - component: {fileID: 3672955448707183423}
   m_Layer: 0
   m_Name: House_P
   m_TagString: Untagged
@@ -161,6 +162,25 @@ MonoBehaviour:
   SignDialogue: {fileID: 3360215019535361480}
   BoundSprite: {fileID: 5607020620149963202}
   HouseGenerator: {fileID: 3003133168776450032}
+--- !u!114 &3672955448707183423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2617381638999660597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5bec9e41d8be8489d7ff97643584a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  GenHouseGroup: {fileID: 6000704571387085981}
+  AllColorPalettes:
+  - {fileID: 11400000, guid: 254a6dca25da1c94fbc2dab59e7251e8, type: 2}
+  - {fileID: 11400000, guid: c61994c3ed284b541bf2edcd6dac6295, type: 2}
+  - {fileID: 11400000, guid: 1ceb1bc1d5810104cae5c30790b24fd6, type: 2}
+  - {fileID: 11400000, guid: 4e9645f65c52e5b44a124c3787c99cd2, type: 2}
+  - {fileID: 11400000, guid: ee98d978a03e63c4d8e9dc74e0ee5e9e, type: 2}
 --- !u!1 &2949455605151715443
 GameObject:
   m_ObjectHideFlags: 0

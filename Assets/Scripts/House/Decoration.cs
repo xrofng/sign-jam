@@ -5,6 +5,8 @@ public class Decoration : ObjectWithSprite
     [SerializeField] InteractAction_Dialogue interactAction_Dialogue;
 
     public string InspectionText => interactAction_Dialogue.GetDialogueText();
+
+    public InteractAction_Dialogue InteractionDialogue => interactAction_Dialogue;
     public HouseSO.EArea area;
 
     private DecorationSO decorationSO;
