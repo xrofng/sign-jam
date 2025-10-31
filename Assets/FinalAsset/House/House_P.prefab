@@ -11507,11 +11507,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1244057838985811448, guid: 299d2bae25ac756489215138fbe9da11, type: 3}
       propertyPath: _positiveScoreRange.x
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1244057838985811448, guid: 299d2bae25ac756489215138fbe9da11, type: 3}
       propertyPath: _positiveScoreRange.y
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1951513108346756866, guid: 299d2bae25ac756489215138fbe9da11, type: 3}
       propertyPath: m_LocalPosition.x
