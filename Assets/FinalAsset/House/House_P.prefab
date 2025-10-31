@@ -4888,10 +4888,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b57a4300939f3674e954d2a22b900687, type: 3}
   - {fileID: 21300000, guid: 23d0f5a1afc051649a125a662feb99ca, type: 3}
   _normalHouseOwner:
-  - {fileID: -5216075408546813404, guid: feac531deabf09743bceffa24653bdc6, type: 3}
-  - {fileID: 6564992087449211466, guid: 29cd1ee50fc128644b437f356e5f77b5, type: 3}
-  - {fileID: 543273875524858538, guid: 4aaf064c90723f9468e3a86cc08b6e44, type: 3}
-  - {fileID: 2418025280723198960, guid: 7a10f45a28651994bbf787203dedbccb, type: 3}
+  - {fileID: 21300000, guid: feac531deabf09743bceffa24653bdc6, type: 3}
+  - {fileID: 21300000, guid: 29cd1ee50fc128644b437f356e5f77b5, type: 3}
+  - {fileID: 21300000, guid: 4aaf064c90723f9468e3a86cc08b6e44, type: 3}
+  - {fileID: 21300000, guid: 7a10f45a28651994bbf787203dedbccb, type: 3}
   FriendlyScreamClip: {fileID: 8300000, guid: 3e6041dc81909be439a7ab1258238ae0, type: 3}
   ScaryScreamClip: {fileID: 8300000, guid: afa5e87ee4f13e941b87a1fd7d40b821, type: 3}
   FriendlyJingleClip: {fileID: 8300000, guid: 820a6330c2afbc8419de76463ba1c628, type: 3}
@@ -5231,7 +5231,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 1282028943509491997, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

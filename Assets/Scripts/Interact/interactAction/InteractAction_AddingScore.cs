@@ -43,7 +43,6 @@ public class InteractAction_AddingScore : InteractAction
 
     IEnumerator countDown(float delayTime)
     {
-
         yield return new WaitForSeconds(delayTime);
 
         Debug.Log($"Adding Score : {Score}");

@@ -13,6 +13,7 @@ public class TimerUI : BaseTextUI
 
     protected override string GetText()
     {
-        return timer.GetTimeleft().ToString();
+        TimeBreakdown s = new TimeBreakdown((float)timer.GetTimeleft());
+        return s.ToString();
     }
 }

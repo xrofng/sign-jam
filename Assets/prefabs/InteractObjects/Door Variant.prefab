@@ -137,7 +137,7 @@ MonoBehaviour:
   interactObject: {fileID: 7522085084994630524}
   _positiveScoreRange: {x: 0, y: 0}
   _negativeScoreRange: {x: 0, y: 0}
-  delayBeforeAddingScore: 0.5
+  delayBeforeAddingScore: 1.5
 --- !u!1 &6952938519222078931
 GameObject:
   m_ObjectHideFlags: 0

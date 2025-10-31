@@ -23,6 +23,6 @@ public readonly struct TimeBreakdown
 
     public override string ToString()
     {
-        return $"{Minute:00} : {Second:00} . {Centisecond:00}";
+        return $"{Minute:00} : {Second:00}";
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class SignGameUIPanel : BetterMonoBehaviour, IEventSubcriber<Newspaper.EvsGameStateChanged>
 {
     [SerializeField] MMF_Player GameStartMMF;
+    [SerializeField] CanvasGroup GameUI;
 
     protected override void OnEnable()
     {
@@ -21,7 +22,12 @@ public class SignGameUIPanel : BetterMonoBehaviour, IEventSubcriber<Newspaper.Ev
     {
         if (eventType.GameState == Newspaper.EGameState.Game)
         {
+            GameUI.alpha = 1;
             GameStartMMF?.PlayFeedbacks();
+        }
+        else
+        {
+            GameUI.alpha = 0;
         }
     }
 }
