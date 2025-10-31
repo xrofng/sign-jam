@@ -13,11 +13,13 @@ public class PlayerController : ObjectWithSprite
     public bool CanMove = true;
     public bool isMoving { get; private set; }
     private List<Vector3> movePos;
+    private Animator animator;
 
     protected override void Start()
     {
         base.Start();
         mouseInput.OnClickEvent += movePlayerCharacter;
+        animator = GetComponentInChildren<Animator>();
     }
     public void StopMove()
     {
@@ -26,6 +28,11 @@ public class PlayerController : ObjectWithSprite
             StopAllCoroutines();
             isMoving = false;
         }
+    }
+
+    private void Update()
+    {
+        animator.SetFloat("f_speed", isMoving ? 1 : 0);
     }
 
 

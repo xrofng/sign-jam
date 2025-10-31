@@ -4883,7 +4883,10 @@ MonoBehaviour:
   houseOwner: {fileID: 264603102470103942}
   MMF: {fileID: 3395484682425843537}
   _ghostHouseOwnerList:
-  - {fileID: 21300000, guid: e9936dffeea97704eaa2325620d27aaf, type: 3}
+  - {fileID: 21300000, guid: 91bf57ca750dcd04f913f93b1ef617c1, type: 3}
+  - {fileID: 21300000, guid: bd3d8cdf01809fe4cbe01877ded860e2, type: 3}
+  - {fileID: 21300000, guid: b57a4300939f3674e954d2a22b900687, type: 3}
+  - {fileID: 21300000, guid: 23d0f5a1afc051649a125a662feb99ca, type: 3}
   _normalHouseOwner:
   - {fileID: -5216075408546813404, guid: feac531deabf09743bceffa24653bdc6, type: 3}
   - {fileID: 6564992087449211466, guid: 29cd1ee50fc128644b437f356e5f77b5, type: 3}

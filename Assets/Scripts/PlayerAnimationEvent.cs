@@ -1,19 +1,17 @@
 using UnityEngine;
 
-public class PlayerAnimationEvent : MonoBehaviour
+public class PlayerAnimationEvent : ObjectWithSprite
 {
-
-    SpriteRenderer spriteRenderer;
     Animator animator;
 
-    private void Awake()
+    protected override void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
+
     public void TriggerAnimation(string AnimationName)
     {
-        if (spriteRenderer.flipX)
+        if (MainSpriteRenderer.flipX)
         {
             animator.SetFloat("floatIsFlip", 0);
         }
@@ -24,8 +22,8 @@ public class PlayerAnimationEvent : MonoBehaviour
         animator.Play(AnimationName, 0, 0);
     }
 
-    public void OnPickUpEvent()
-    {
+    //public void OnPickUpEvent()
+    //{
 
-    }
+    //}
 }

@@ -53,4 +53,30 @@ public static class TransformUtils
 
         transform.position = pos;
     }
+
+    public static void SetScaleAxis(Transform transform, char axis, float value)
+    {
+        if (transform == null)
+            return;
+
+        Vector3 scale = transform.localScale;
+
+        switch (char.ToLower(axis))
+        {
+            case 'x':
+                scale.x = value;
+                break;
+            case 'y':
+                scale.y = value;
+                break;
+            case 'z':
+                scale.z = value;
+                break;
+            default:
+                Debug.LogWarning($"SetScaleAxis: Unknown axis '{axis}'. Use 'x', 'y', or 'z'.");
+                return;
+        }
+
+        transform.localScale = scale;
+    }
 }

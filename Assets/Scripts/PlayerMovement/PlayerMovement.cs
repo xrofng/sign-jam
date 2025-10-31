@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
+    private Animator animator;
     PlayerController playerController;
     Rigidbody2D rb;
 
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
     }
 
 
@@ -19,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector2 direction = new Vector2(horizontal, vertical).normalized;
+
 
         Debug.Log($"move Direction : {direction}");
 
@@ -43,6 +46,10 @@ public class PlayerMovement : MonoBehaviour
     {
         playerController.StopMove();
         rb.linearVelocity = direction * moveSpeed;
+        if (direction.magnitude > 0)
+        {
+            animator.SetFloat("f_speed", 1);
+        }
     }
 
 
