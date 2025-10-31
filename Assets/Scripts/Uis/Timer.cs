@@ -38,9 +38,15 @@ public class Timer : Automation, IEventSubcriber<Newspaper.EvsGameStateChanged>
     {
         return (int)Countdown.TimeLeft;
     }
-
+    bool startCount = false;
     public void OnEventBusTrigger(Newspaper.EvsGameStateChanged eventType)
     {
         Countdown.StartTimer();
+        startCount = true;
+    }
+    public bool isGameOver()
+    {
+        if (GetTimeleft() <= 0 && startCount) return true;
+        return false;
     }
 }
