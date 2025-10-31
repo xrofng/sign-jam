@@ -123,7 +123,7 @@ public class PlayerController : ObjectWithSprite, IEventSubcriber<Newspaper.EvsG
     {
         if (eventType.GameState == Newspaper.EGameState.End)
         {
-            //eventType.
+            CanMove = false;
         }
     }
 }

@@ -20,6 +20,12 @@ public class Timer : Automation, IEventSubcriber<Newspaper.EvsGameStateChanged>
     protected override void Initialization()
     {
         base.Initialization();
+        Countdown.OnCountdownFinished += ShootEndGameEvent;
+    }
+
+    void ShootEndGameEvent()
+    {
+        EventBus.TriggerEvent(new Newspaper.EvsGameStateChanged(Newspaper.EGameState.End));
     }
 
     protected override void DoAutomation()
