@@ -11,6 +11,17 @@ public class Decoration : ObjectWithSprite
 
     private DecorationSO decorationSO;
 
+    [SerializeField] bool setLayerInStart;
+    protected override void Start()
+    {
+        if (setLayerInStart)
+        {
+            SetPosition(this.transform.position);
+
+        }
+    }
+
+
     public virtual void SetDecorationSO(DecorationSO decoration, HouseSO.EArea area)
     {
         decorationSO = decoration;

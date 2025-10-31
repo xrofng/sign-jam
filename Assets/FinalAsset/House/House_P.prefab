@@ -535,7 +535,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -588,7 +588,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -641,7 +641,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotation:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -692,7 +692,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    randomizeRotationDirection: 0
+    randomizeRotationDirection: 1
     gravitySource: 0
     maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
@@ -755,10 +755,10 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 25
+    angle: 17.79
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0.6
+    radiusThickness: 0.8
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -841,7 +841,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.0001
+      value: 0.74
       mode: 0
       spread: 0
       speed:
@@ -4892,7 +4892,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -666479275
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1605
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -10833,7 +10833,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -666479275
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1600
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -12013,7 +12013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7029677896784187632, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7156365044214621242, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12034,7 +12034,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7299688374982533351, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6737038371882026043}
   m_SourcePrefab: {fileID: 100100000, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
 --- !u!114 &3360215019535361480 stripped
 MonoBehaviour:
@@ -12052,6 +12055,27 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7029677896784187632, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
   m_PrefabInstance: {fileID: 6355061609079254661}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4430421881015094882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7299688374982533351, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
+  m_PrefabInstance: {fileID: 6355061609079254661}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6737038371882026043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4430421881015094882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dc1fd9646433445bc4da4f6de7d985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Decoration
+  mainSpriteRenderer: {fileID: 4161282150485245557}
+  interactAction_Dialogue: {fileID: 3360215019535361480}
+  area: 0
+  setLayerInStart: 0
 --- !u!4 &6896281872586520758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 541897672208422451, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}
