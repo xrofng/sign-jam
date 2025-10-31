@@ -48,11 +48,11 @@ TagManager:
   - name: House
     uniqueID: 658592131
     locked: 0
-  - name: Decoration
-    uniqueID: 3628488021
-    locked: 0
   - name: NPC
     uniqueID: 3512036889
+    locked: 0
+  - name: Decoration
+    uniqueID: 3628488021
     locked: 0
   - name: Player
     uniqueID: 2165544527
