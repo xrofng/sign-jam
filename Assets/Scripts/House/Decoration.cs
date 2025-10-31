@@ -16,8 +16,7 @@ public class Decoration : ObjectWithSprite
     {
         if (setLayerInStart)
         {
-            SetPosition(this.transform.position);
-
+            MainSpriteRenderer.sortingOrder = (int)Mathf.Abs(transform.position.y * 100);
         }
     }
 

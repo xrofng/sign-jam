@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class InteractObject : ObjectWithSprite, IEventSubcriber<Decoration.EvsDecorationReadied>
@@ -68,7 +67,7 @@ public class InteractObject : ObjectWithSprite, IEventSubcriber<Decoration.EvsDe
     {
         if (eventType.ReadiedDecor.Equals(gameObject))
         {
-            if (eventType.Area == HouseSO.EArea.Wall)
+            if (eventType.Area == HouseSO.EArea.Wall || eventType.Area == HouseSO.EArea.Roof)
             {
                 _playerDestination.position = VectorUtils.SetY(_playerDestination.position, House.GROUND_POSY);
             }

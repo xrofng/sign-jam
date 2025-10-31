@@ -12075,7 +12075,7 @@ MonoBehaviour:
   mainSpriteRenderer: {fileID: 4161282150485245557}
   interactAction_Dialogue: {fileID: 3360215019535361480}
   area: 0
-  setLayerInStart: 0
+  setLayerInStart: 1
 --- !u!4 &6896281872586520758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 541897672208422451, guid: 48b5f4b61ffeb2149865a789a3a00723, type: 3}

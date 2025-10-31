@@ -60,7 +60,130 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _delay: 0.2
+  _delay: 0.5
+--- !u!1 &2436536713031205018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 829080302925114189}
+  - component: {fileID: 3559296972185782170}
+  m_Layer: 3
+  m_Name: DisableMove
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &829080302925114189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2436536713031205018}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 628760487382197710}
+  m_Father: {fileID: 2864260090364725692}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3559296972185782170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2436536713031205018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd1926ece6b45e4baade874c5043fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractAction_UnityEvent
+  interactObject: {fileID: 6109448671367800258}
+  _onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 704265058254836083}
+        m_TargetAssemblyTypeName: EnablePlayerMove, Assembly-CSharp
+        m_MethodName: DisableMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _delay: 0
+--- !u!1 &4003987600323771112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8273849084079922861}
+  - component: {fileID: 199532235320971656}
+  m_Layer: 3
+  m_Name: EnableMove
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8273849084079922861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4003987600323771112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2864260090364725692}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &199532235320971656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4003987600323771112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd1926ece6b45e4baade874c5043fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractAction_UnityEvent
+  interactObject: {fileID: 6109448671367800258}
+  _onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 704265058254836083}
+        m_TargetAssemblyTypeName: EnablePlayerMove, Assembly-CSharp
+        m_MethodName: EnableMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _delay: 1
 --- !u!1 &6982658382363354799
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +230,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   interactObject: {fileID: 6109448671367800258}
   animationToPlay: PickUpItem
+--- !u!1 &9016738937867681056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 628760487382197710}
+  - component: {fileID: 704265058254836083}
+  m_Layer: 3
+  m_Name: EnableMove
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &628760487382197710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016738937867681056}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 829080302925114189}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &704265058254836083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016738937867681056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f380cf953ced4146a1df749097ed6fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnablePlayerMove
 --- !u!1001 &3427885589876637199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -240,6 +407,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 589319163600861107, guid: 591c9159dda2fd649a17160205ef192b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5582006646925424862}
+    - targetCorrespondingSourceObject: {fileID: 589319163600861107, guid: 591c9159dda2fd649a17160205ef192b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8273849084079922861}
+    - targetCorrespondingSourceObject: {fileID: 589319163600861107, guid: 591c9159dda2fd649a17160205ef192b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 829080302925114189}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 591c9159dda2fd649a17160205ef192b, type: 3}
 --- !u!4 &2864260090364725692 stripped
