@@ -37,11 +37,11 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
         Vector3 spawnPos = StaringPos.position;
         for (int i = 0; i < PreferedDistrict; i++)
         {
-            spawnPos += Vector3.down * 1.5f;
+            spawnPos += Vector3.down * .9f;
             Decoration sign = Instantiate(SignPrefab, spawnPos, Quaternion.identity);
             spawnPos += Vector3.right * sign.MainSpriteRenderer.bounds.size.x / 2;
-            spawnPos += Vector3.right * HouseOffset * Random.Range(.5f, 1f);
-            spawnPos += Vector3.up * 1.5f;
+            spawnPos += Vector3.right * HouseOffset * Random.Range(1.2f, 1.4f);
+            spawnPos += Vector3.up * .9f;
             sign.InteractionDialogue.SetDialogueText(CurrentGhostHouseRuleset.DistrictName);
 
             for (int j = 0; j < HousePerDistrict; j++)

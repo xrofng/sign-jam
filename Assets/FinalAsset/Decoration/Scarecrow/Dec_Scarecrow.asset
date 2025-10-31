@@ -16,7 +16,7 @@ MonoBehaviour:
   AssociatedArea: 1
   BasePrefab: {fileID: 1949274649600741303, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
   Textures:
-  - {fileID: 21300000, guid: 75467476581bbfb41a3e14d4bb0a4419, type: 3}
+  - {fileID: 21300000, guid: 4ec849c47e902ec4985568348ead8fa0, type: 3}
   InspectionTexts:
   - "He\u2019s guarding nothing now, just standing."
   - "His hat\u2019s too big for his head."

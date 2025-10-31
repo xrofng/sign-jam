@@ -38,6 +38,12 @@ public class SimpleMMSoundPlayer : MonoBehaviour
         PlayClip();
     }
 
+    public void PlayClip(AudioClip clip)
+    {
+        Clip = clip;
+        PlayClip();
+    }
+
     public void PlayClip()
     {
         // If no clip is assigned, warn and stop

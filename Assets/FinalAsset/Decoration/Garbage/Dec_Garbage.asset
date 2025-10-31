@@ -16,7 +16,7 @@ MonoBehaviour:
   AssociatedArea: 1
   BasePrefab: {fileID: 1949274649600741303, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
   Textures:
-  - {fileID: 21300000, guid: 2cdc3bf40aaa4744c86b90e56293496a, type: 3}
+  - {fileID: 21300000, guid: 3df211043575ea34f8889c57a3f06d84, type: 3}
   InspectionTexts:
   - "It\u2019s messy, but kind of shiny too."
   - "Something\u2019s under there, breathing slow."

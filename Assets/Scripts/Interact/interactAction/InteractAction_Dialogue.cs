@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -19,9 +20,9 @@ public class InteractAction_Dialogue : InteractAction
     {
         StopAllCoroutines();
         _dialougeTextMeshPro.text = "";
+        EventBus.TriggerEvent(new EvsDialogueAction(this));
         StartCoroutine(textAnimation());
     }
-
 
     IEnumerator textAnimation()
     {
@@ -44,5 +45,15 @@ public class InteractAction_Dialogue : InteractAction
     public string GetDialogueText()
     {
         return _dialogueText;
+    }
+}
+
+public struct EvsDialogueAction
+{
+    public InteractAction_Dialogue interactAction_Dialogue;
+
+    public EvsDialogueAction(InteractAction_Dialogue interactAction_Dialogue)
+    {
+        this.interactAction_Dialogue = interactAction_Dialogue;
     }
 }

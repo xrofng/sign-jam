@@ -16,7 +16,7 @@ MonoBehaviour:
   AssociatedArea: 1
   BasePrefab: {fileID: 1949274649600741303, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
   Textures:
-  - {fileID: 21300000, guid: 7e1d1c64374b22a468689bb52b07f343, type: 3}
+  - {fileID: 21300000, guid: 8a79f20c1bbf02840b5a2360caf01a71, type: 3}
   InspectionTexts:
   - Not bad. Looks like something from an old movie set.
   - "They must\u2019ve used real dirt. It smells\u2026 old."

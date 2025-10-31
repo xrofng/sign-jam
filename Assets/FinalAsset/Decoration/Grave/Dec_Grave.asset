@@ -16,7 +16,7 @@ MonoBehaviour:
   AssociatedArea: 1
   BasePrefab: {fileID: 1949274649600741303, guid: 92e04d7c6edb1694b898510dc9b3c089, type: 3}
   Textures:
-  - {fileID: 21300000, guid: 40230388b8397ee4abaa13fb120f9b98, type: 3}
+  - {fileID: 21300000, guid: 2a2ac2179aaac7f4abf8f6c00259ee4e, type: 3}
   InspectionTexts:
   - "Someone wrote a name, but the rain took it away.\u201D"
   - "A butterfly landed on the stone and didn\u2019t move."
