@@ -34,8 +34,6 @@ public class XPositionForGameStart : BetterMonoBehaviour, IEventSubcriber<Newspa
         if (Player.transform.position.x > 1 && _triggered == false)
         {
             _triggered = true;
-            IntroBGM.StopClip();
-            GameBGM.PlayClip();
             EventBus.TriggerEvent(new Newspaper.EvsGameStateChanged(Newspaper.EGameState.Game));
         }
     }

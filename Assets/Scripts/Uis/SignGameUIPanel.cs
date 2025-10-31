@@ -19,6 +19,9 @@ public class SignGameUIPanel : BetterMonoBehaviour, IEventSubcriber<Newspaper.Ev
 
     public void OnEventBusTrigger(Newspaper.EvsGameStateChanged eventType)
     {
-        GameStartMMF?.PlayFeedbacks();
+        if (eventType.GameState == Newspaper.EGameState.Game)
+        {
+            GameStartMMF?.PlayFeedbacks();
+        }
     }
 }

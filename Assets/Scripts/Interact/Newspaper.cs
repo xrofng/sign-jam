@@ -25,14 +25,22 @@ public class Newspaper : InteractObject, IEventSubcriber<Newspaper.EvsGameStateC
         {
             return;
         }
-        IntroBGM.StopClip();
-        GameBGM.PlayClip();
+        
         EventBus.TriggerEvent(new EvsGameStateChanged(EGameState.Game));
     }
 
     public void OnEventBusTrigger(EvsGameStateChanged eventType)
     {
-        _triggered = true;
+        if (eventType.GameState == EGameState.Game && _triggered == false)
+        {
+            _triggered = true;
+            IntroBGM.StopClip();
+            GameBGM.PlayClip();
+        }
+        else if(eventType.GameState == EGameState.End)
+        {
+            GameBGM.StopClip();
+        }
     }
 
     public enum EGameState
