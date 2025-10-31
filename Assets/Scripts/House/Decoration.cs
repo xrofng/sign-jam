@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Decoration : ObjectWithSprite
 {
@@ -7,11 +8,13 @@ public class Decoration : ObjectWithSprite
     public string InspectionText => interactAction_Dialogue.GetDialogueText();
 
     public InteractAction_Dialogue InteractionDialogue => interactAction_Dialogue;
+
     public HouseSO.EArea area;
 
     private DecorationSO decorationSO;
 
     [SerializeField] bool setLayerInStart;
+
     protected override void Start()
     {
         if (setLayerInStart)
@@ -19,7 +22,6 @@ public class Decoration : ObjectWithSprite
             MainSpriteRenderer.sortingOrder = (int)Mathf.Abs(transform.position.y * 100);
         }
     }
-
 
     public virtual void SetDecorationSO(DecorationSO decoration, HouseSO.EArea area)
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MatchObjectPosition : MonoBehaviour
+public class MatchObjectPosition : BetterMonoBehaviour
 {
     [SerializeField] Transform genHouseParent;
     [SerializeField] Vector3 offSet;
@@ -12,8 +12,9 @@ public class MatchObjectPosition : MonoBehaviour
 
     public event System.Action<Transform> OnSetMatchObj;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         Invoke(nameof(setPosition), setDelay);
     }
 

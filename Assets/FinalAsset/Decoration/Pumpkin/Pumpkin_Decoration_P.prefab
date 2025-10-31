@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -666479275
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 4be9c5be2afbbae4991b9b548ce03761, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -248,7 +248,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -666479275
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: d0dda8517f5fa87469c34285ce495c8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -386,7 +386,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PumpkinDecoration
   mainSpriteRenderer: {fileID: 7114932678040243004}
   interactAction_Dialogue: {fileID: 4267593301261046678}
+  DelayRepositionOnStart: 1
   area: 0
+  setLayerInStart: 0
+  overlapMask:
+    serializedVersion: 2
+    m_Bits: 64
   EyeSprites:
   - {fileID: 21300000, guid: 4be9c5be2afbbae4991b9b548ce03761, type: 3}
   - {fileID: 21300000, guid: d0ab38a9816bc51408f9575fc0b43718, type: 3}

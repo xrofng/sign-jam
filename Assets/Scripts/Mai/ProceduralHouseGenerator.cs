@@ -31,6 +31,7 @@ public class ProceduralHouseGenerator : MonoBehaviour
     public Transform partsParent;
 
     private SpriteRenderer sr;
+    public SpriteRenderer SpriteR => sr;
     private Vector2 halfSize;
     private Dictionary<string, Bounds> _placedObjectBounds = new Dictionary<string, Bounds>();
 

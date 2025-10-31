@@ -482,4 +482,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Decoration
   mainSpriteRenderer: {fileID: 0}
   interactAction_Dialogue: {fileID: 3348138937493284612}
+  DelayRepositionOnStart: 1
   area: 0
+  setLayerInStart: 0
+  overlapMask:
+    serializedVersion: 2
+    m_Bits: 72

@@ -19,10 +19,10 @@ PrefabInstance:
     - target: {fileID: 2897073844504783133, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7011f7de0a83556439cb55d7aa86b725, type: 3}
+      objectReference: {fileID: 21300000, guid: 30177a72878dde0428a1fdaacb9597ad, type: 3}
     - target: {fileID: 2897073844504783133, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2897073844504783133, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
       propertyPath: m_SortingOrder
@@ -39,7 +39,7 @@ PrefabInstance:
     - target: {fileID: 2900011828790951262, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6624810636459582223, guid: 2e5f22850a0641a4cb90938857e914c0, type: 2}
     - target: {fileID: 3092446366490402263, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.5
@@ -146,11 +146,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6547221776100031572, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.075
+      value: 1.36
       objectReference: {fileID: 0}
     - target: {fileID: 6547221776100031572, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.305
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 6869122833992199816, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
       propertyPath: displayText
@@ -159,10 +159,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3240239207915264266, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 400759098898063921}
   m_SourcePrefab: {fileID: 100100000, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
 --- !u!212 &7029677896784187632 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2897073844504783133, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
   m_PrefabInstance: {fileID: 5312584559948528109}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7299688374982533351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3240239207915264266, guid: 63f963e3ba610f9498336d81e147ee40, type: 3}
+  m_PrefabInstance: {fileID: 5312584559948528109}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &400759098898063921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7299688374982533351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e5bb3ee6fd088d4686203ec4819882b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutomationRandomSprite
+  AutomateOnStart: 1
+  OnStartDelay: 0
+  OnEndDelay: 0
+  PossibleSprites:
+  - {fileID: 21300000, guid: 30177a72878dde0428a1fdaacb9597ad, type: 3}
+  - {fileID: 21300000, guid: 4e8fba5075130b840ae9a8295a4b19ab, type: 3}
+  - {fileID: 21300000, guid: 3946e7c340dd6b14ea6f7f8c4ce4bdb2, type: 3}
+  mainSpriteRenderer: {fileID: 7029677896784187632}

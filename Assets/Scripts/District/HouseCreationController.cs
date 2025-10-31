@@ -37,9 +37,11 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
         Vector3 spawnPos = StaringPos.position;
         for (int i = 0; i < PreferedDistrict; i++)
         {
+            spawnPos += Vector3.down * 1.5f;
             Decoration sign = Instantiate(SignPrefab, spawnPos, Quaternion.identity);
             spawnPos += Vector3.right * sign.MainSpriteRenderer.bounds.size.x / 2;
-            spawnPos += Vector3.right * HouseOffset * Random.Range(1.2f, 1.5f);
+            spawnPos += Vector3.right * HouseOffset * Random.Range(.5f, 1f);
+            spawnPos += Vector3.up * 1.5f;
             sign.InteractionDialogue.SetDialogueText(CurrentGhostHouseRuleset.DistrictName);
 
             for (int j = 0; j < HousePerDistrict; j++)
@@ -64,7 +66,7 @@ public class HouseCreationController : MMSingleton<HouseCreationController>
         if (Random.Range(0, 99) < GhostPercent)
         {
             HouseRequest decorationRequestList
-            = new HouseRequest(CurrentGhostHouseRuleset.GetRandomGhostRule().GhostConditions);
+            = new HouseRequest(AllDecorationsSO, CurrentGhostHouseRuleset.GetRandomGhostRule().GhostConditions);
             GhostPercent -= DecrementWhenForced;
             return new HouseSO.HouseSetting(decorationRequestList);
         }
@@ -86,7 +88,7 @@ public struct HouseRequest
     public string RequestedColorPaletteId;
     public int RequestedFloorNumber;
 
-    public HouseRequest(List<HouseCondition> houseConditions)
+    public HouseRequest(AllDecorationsSO allDecorations, List<HouseCondition> houseConditions)
     {
         RequestedDecorations = new List<DecorationRequest>();
         RequestedHouseName = string.Empty;
@@ -112,26 +114,49 @@ public struct HouseRequest
                 RequestedFloorNumber = condition.GetGenerationRequest().RequestedFloorNumber;
             }
         }
+
+        FillVoidRequest(allDecorations);
+    }
+
+    private void FillVoidRequest(AllDecorationsSO allDecorations)
+    {
+        for (int i = RequestedDecorations.Count - 1; i < Random.Range(4, 7); i++)
+        {
+            AddRandomDecorationToRequest(allDecorations);
+        }
+
+        if (RequestedHouseName == string.Empty)
+            RequestedHouseName = allDecorations.GetRandomName();
+        if (RequestedColorPaletteId == string.Empty)
+            RequestedColorPaletteId = allDecorations.GetRandomHouseColorId();
     }
 
     public HouseRequest(AllDecorationsSO allDecorations)
     {
         RequestedDecorations = new List<DecorationRequest>();
+        RequestedHouseName = string.Empty;
+        RequestedColorPaletteId = string.Empty;
+        RequestedFloorNumber = -1;
+
         for (int i = 0; i < Random.Range(4, 7); i++)
         {
-            DecorationSO randDecSo = allDecorations.GetRandomDecoration();
-            int randTextId = 0;
-            if (randDecSo.HasInpectionText())
-            {
-                randTextId = randDecSo.RandomInspectionTextId(); ;
-            }
-            RequestedDecorations.Add(new DecorationRequest(randDecSo, randTextId, 1));
+            AddRandomDecorationToRequest(allDecorations);
         }
 
         RequestedHouseName = allDecorations.GetRandomName();
         RequestedColorPaletteId = allDecorations.GetRandomHouseColorId();
 
-        RequestedFloorNumber = Random.Range(1, 2);
-        RequestedFloorNumber = RequestedFloorNumber + Random.Range(0, 4) == 0 ? 1 : 0;
+        RequestedFloorNumber = -1;
+    }
+
+    private readonly void AddRandomDecorationToRequest(AllDecorationsSO allDecorations)
+    {
+        DecorationSO randDecSo = allDecorations.GetRandomDecoration();
+        int randTextId = 0;
+        if (randDecSo.HasInpectionText())
+        {
+            randTextId = randDecSo.RandomInspectionTextId(); ;
+        }
+        RequestedDecorations.Add(new DecorationRequest(randDecSo, randTextId, 1));
     }
 }

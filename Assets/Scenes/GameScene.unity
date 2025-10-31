@@ -8316,9 +8316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7d9a3cd8ad61d4a8e8c325ffa0f6da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HouseCreationController
-  InitialGhostPercent: 0
-  IncrementWhenSurvuve: 100
-  DecrementWhenForced: 0
+  InitialGhostPercent: 10
+  IncrementWhenSurvuve: 10
+  DecrementWhenForced: 30
   HouseOffset: 3.67
   PreferedDistrict: 4
   HousePerDistrict: 4

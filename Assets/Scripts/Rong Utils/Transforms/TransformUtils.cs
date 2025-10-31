@@ -24,4 +24,33 @@ public static class TransformUtils
         // convert local (sprite) space to world space using the sprite's Transform
         return spriteRenderer.transform.TransformPoint(localPoint);
     }
+
+    /// <summary>
+    /// Sets the position on a specific axis (X, Y, or Z) without affecting other axes.
+    /// </summary>
+    /// <param name="transform">Target transform to modify.</param>
+    /// <param name="axis">Axis to change ("x", "y", or "z").</param>
+    /// <param name="value">New position value for that axis.</param>
+    public static void SetPositionAxis(Transform transform, char axis, float value)
+    {
+        Vector3 pos = transform.position;
+
+        switch (char.ToLower(axis))
+        {
+            case 'x':
+                pos.x = value;
+                break;
+            case 'y':
+                pos.y = value;
+                break;
+            case 'z':
+                pos.z = value;
+                break;
+            default:
+                Debug.LogWarning($"[TransformUtils] Invalid axis '{axis}'. Use 'x', 'y', or 'z'.");
+                return;
+        }
+
+        transform.position = pos;
+    }
 }

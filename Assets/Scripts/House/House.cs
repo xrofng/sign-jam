@@ -93,7 +93,7 @@ public class House : BetterMonoBehaviour
             {
                 height = GetHeight(3);
             }
-            else if (chance >= 6)       // 2 Floor
+            else if (chance >= 5)       // 2 Floor
             {
                 height = GetHeight(2);
             }
@@ -101,6 +101,14 @@ public class House : BetterMonoBehaviour
         }
 
         HouseGenerator.transform.localPosition = Vector3.up * HouseGenerator.customHeight / 2;
+        ReEvaluateAreaPos(HouseGenerator);
+    }
+
+    private void ReEvaluateAreaPos(ProceduralHouseGenerator houseGenerator)
+    {
+        TransformUtils.SetPositionAxis(_areaToHouseArea[HouseSO.EArea.Roof].GetSpriteRenderer().transform, 'y',
+            houseGenerator.SpriteR.bounds.max.y);
+
     }
 
     private float GetHeight(int floor)
@@ -140,15 +148,6 @@ public class House : BetterMonoBehaviour
     {
         _decorToData = new Dictionary<string, HouseDecorData>();
 
-        if (houseSO.Decorations.Count > 0)
-        {
-            ConstructDecorations(houseSO.Decorations);
-        }
-        else
-        {
-
-        }
-
         if (houseSO.Floor > 0)
         {
             RandomGenerateHouse(houseSO.Floor);
@@ -156,6 +155,15 @@ public class House : BetterMonoBehaviour
         else
         {
             RandomGenerateHouse();
+        }
+
+        if (houseSO.Decorations.Count > 0)
+        {
+            ConstructDecorations(houseSO.Decorations);
+        }
+        else
+        {
+
         }
 
         if (houseSO.HouseName.Length > 0)
@@ -207,7 +215,8 @@ public class House : BetterMonoBehaviour
     private Vector3 CalculateDecorationPosition(HouseSO.EArea area)
     {
         _areaToHouseArea[area].DecorCount += 1;
-        return TransformUtils.RandomPointInsideSprite(_areaToHouseArea[area].GetSpriteRenderer());
+        SpriteRenderer spriteRenderer = _areaToHouseArea[area].GetSpriteRenderer();
+        return TransformUtils.RandomPointInsideSprite(spriteRenderer);
     }
 
     private HouseSO.EArea RandomValueArea(HouseSO.EArea associatedArea)
