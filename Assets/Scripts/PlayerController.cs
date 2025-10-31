@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : ObjectWithSprite
+public class PlayerController : ObjectWithSprite, IEventSubcriber<Newspaper.EvsGameStateChanged>
 {
     [SerializeField] MouseInput mouseInput;
     [SerializeField] float moveSpeed;
@@ -21,6 +21,18 @@ public class PlayerController : ObjectWithSprite
         mouseInput.OnClickEvent += movePlayerCharacter;
         animator = GetComponentInChildren<Animator>();
     }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        EventBusRegister.EventBusSubcribe(this);
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        EventBusRegister.EventBusUnscribe(this);
+    }
     public void StopMove()
     {
         if (isMoving)
@@ -30,7 +42,7 @@ public class PlayerController : ObjectWithSprite
         }
     }
 
-    private void Update()
+    protected override void Update()
     {
         animator.SetFloat("f_speed", isMoving ? 1 : 0);
     }
@@ -104,6 +116,14 @@ public class PlayerController : ObjectWithSprite
         if (interactObject != null)
         {
             interactObject.Interact();
+        }
+    }
+
+    public void OnEventBusTrigger(Newspaper.EvsGameStateChanged eventType)
+    {
+        if (eventType.GameState == Newspaper.EGameState.End)
+        {
+            //eventType.
         }
     }
 }

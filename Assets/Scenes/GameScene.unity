@@ -1689,11 +1689,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &412454244 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4857788025825131445, guid: 484de2f512bd37b4eb62ef4391c56f16, type: 3}
-  m_PrefabInstance: {fileID: 8792520036986047843}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &420939286
 GameObject:
   m_ObjectHideFlags: 0
@@ -9098,6 +9093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59c7fa2006170d408656c1e5ba311bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  mainSpriteRenderer: {fileID: 420939288}
 --- !u!95 &1738534595
 Animator:
   serializedVersion: 7
@@ -10229,48 +10225,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2110495047 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5005578952786149224, guid: 484de2f512bd37b4eb62ef4391c56f16, type: 3}
-  m_PrefabInstance: {fileID: 8792520036986047843}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &2110495050 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4734618714977079167, guid: 484de2f512bd37b4eb62ef4391c56f16, type: 3}
-  m_PrefabInstance: {fileID: 8792520036986047843}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2110495052
+--- !u!114 &2110495052 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8081849119231698096, guid: 484de2f512bd37b4eb62ef4391c56f16, type: 3}
+  m_PrefabInstance: {fileID: 8792520036986047843}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110495047}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5b0628bc371b614d97dc81adffed1c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Newspaper
-  mainSpriteRenderer: {fileID: 2110495050}
-  _playerDestination: {fileID: 412454244}
-  _oneTimeInteract: 0
-  IntroBGM: {fileID: 1039324956}
-  GameBGM: {fileID: 288720679}
---- !u!114 &2110495053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110495047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14e747a2a1848b64fa2555a8c5b22d21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::XPositionForGameStart
-  Player: {fileID: 737639433}
-  IntroBGM: {fileID: 0}
-  GameBGM: {fileID: 0}
 --- !u!1 &2130310428
 GameObject:
   m_ObjectHideFlags: 0
@@ -10623,6 +10588,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewsPaper
       objectReference: {fileID: 0}
+    - target: {fileID: 7728153762411632648, guid: 484de2f512bd37b4eb62ef4391c56f16, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 737639433}
+    - target: {fileID: 7728153762411632648, guid: 484de2f512bd37b4eb62ef4391c56f16, type: 3}
+      propertyPath: GameBGM
+      value: 
+      objectReference: {fileID: 288720679}
+    - target: {fileID: 7728153762411632648, guid: 484de2f512bd37b4eb62ef4391c56f16, type: 3}
+      propertyPath: IntroBGM
+      value: 
+      objectReference: {fileID: 1039324956}
+    - target: {fileID: 8081849119231698096, guid: 484de2f512bd37b4eb62ef4391c56f16, type: 3}
+      propertyPath: GameBGM
+      value: 
+      objectReference: {fileID: 288720679}
+    - target: {fileID: 8081849119231698096, guid: 484de2f512bd37b4eb62ef4391c56f16, type: 3}
+      propertyPath: IntroBGM
+      value: 
+      objectReference: {fileID: 1039324956}
     - target: {fileID: 8652276408233889982, guid: 484de2f512bd37b4eb62ef4391c56f16, type: 3}
       propertyPath: interactObject
       value: 
@@ -10634,13 +10619,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2864260090364725692, guid: 484de2f512bd37b4eb62ef4391c56f16, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1492327942}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5005578952786149224, guid: 484de2f512bd37b4eb62ef4391c56f16, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2110495052}
-    - targetCorrespondingSourceObject: {fileID: 5005578952786149224, guid: 484de2f512bd37b4eb62ef4391c56f16, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2110495053}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 484de2f512bd37b4eb62ef4391c56f16, type: 3}
 --- !u!4 &8792520036986047844 stripped
 Transform:
