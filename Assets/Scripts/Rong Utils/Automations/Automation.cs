@@ -8,7 +8,7 @@ using UnityEngine;
 /// Provides lifecycle control for automation, including start delays,
 /// process checks, and start/stop state handling.
 /// </summary>
-public class Automation : MonoBehaviour
+public class Automation : BetterMonoBehaviour
 {
     // Whether to automatically start the automation when the scene starts
     public bool AutomateOnStart = true;
@@ -28,8 +28,9 @@ public class Automation : MonoBehaviour
     // Tracks whether the automation is currently running
     protected bool automating;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         // Record the initial position for reference or reset
         initialPos = transform.position;
 

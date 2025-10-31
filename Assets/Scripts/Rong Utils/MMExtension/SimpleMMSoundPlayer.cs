@@ -32,10 +32,16 @@ public class SimpleMMSoundPlayer : MonoBehaviour
     public float MaxDistance = 500f;
     // Maximum distance beyond which the sound is no longer audible
 
+    public bool PlayOnStart = false;
+    private AudioSource myAudio;
+
     private void Start()
     {
         // Automatically play the sound when this GameObject starts
-        PlayClip();
+        if (PlayOnStart)
+        {
+            PlayClip();
+        }
     }
 
     public void PlayClip(AudioClip clip)
@@ -54,7 +60,7 @@ public class SimpleMMSoundPlayer : MonoBehaviour
         }
 
         // Play a sound in 3D space using MMSoundManager
-        MMSoundManagerSoundPlayEvent.Trigger(
+        myAudio = MMSoundManagerSoundPlayEvent.Trigger(
             Clip,                       // AudioClip to play
             Track,                      // Which track to play on
             transform.position,         // Position in world space
@@ -65,5 +71,20 @@ public class SimpleMMSoundPlayer : MonoBehaviour
             minDistance: MinDistance,   // Min distance for full volume
             maxDistance: MaxDistance    // Max distance before fading out
         );
+    }
+
+    /// <summary>
+    /// Stops the currently playing sound.
+    /// </summary>
+    public void StopClip()
+    {
+        if (myAudio != null)
+        {
+            myAudio.Stop();
+        }
+        else
+        {
+            Debug.LogWarning($"{name}: No sound is currently playing to stop.");
+        }
     }
 }

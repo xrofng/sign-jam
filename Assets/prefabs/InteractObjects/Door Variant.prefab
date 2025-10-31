@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 658592131
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 900
   m_Sprite: {fileID: 1994529557334543634, guid: 8f0de9eebc33d2a40850d43901a42eb0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -135,8 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   interactObject: {fileID: 7522085084994630524}
-  _isPositive: 0
-  _scoreRange: {x: 2, y: 10}
+  _positiveScoreRange: {x: 0, y: 0}
+  _negativeScoreRange: {x: 0, y: 0}
   delayBeforeAddingScore: 0.5
 --- !u!1 &6952938519222078931
 GameObject:
@@ -1884,7 +1884,7 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 4274486321028884037}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: 3e6041dc81909be439a7ab1258238ae0, type: 3}
+        Sfx: {fileID: 8300000, guid: afa5e87ee4f13e941b87a1fd7d40b821, type: 3}
         RandomSfx: []
         TestPlayButton:
           ButtonText: Debug Play Sound
@@ -2110,6 +2110,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4478846133854652220, guid: 591c9159dda2fd649a17160205ef192b, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 3878457528059780861}
     - target: {fileID: 7702606998075572583, guid: 591c9159dda2fd649a17160205ef192b, type: 3}
       propertyPath: m_Name
       value: Door Variant
